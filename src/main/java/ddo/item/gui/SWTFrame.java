@@ -12,24 +12,27 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import ddo.item.logic.Effects;
+import ddo.item.gui.effects.ChooseEffectsDialog;
+import ddo.item.gui.effects.TabellaSelectedEffects;
+import ddo.item.gui.items.ChooseItemDialog;
+import ddo.item.gui.items.TabellaEquippedItems;
+import ddo.item.logic.EquippedItems;
 
 @Component
 public class SWTFrame {
 	
-	@Autowired private Effects effectsManager;
+	@Autowired private EquippedItems equippedItems;
 	
 	@Autowired private ChooseEffectsDialog dialogChooseEffects;
+	@Autowired private ChooseItemDialog dialogChooseItem;
 
 	protected Shell shlDdoGearOptimizer;
-	private Table effectsTable;
-	private Table equipmentTable;
+	
+	private TabellaSelectedEffects effectsTable;
+	private TabellaEquippedItems equipmentTable;
 
 	/**
 	 * Open the window.
@@ -88,19 +91,8 @@ public class SWTFrame {
 		});
 		btnAddEffect.setText("Add Effect");
 		
-		effectsTable = new Table(compositeEffects, SWT.BORDER | SWT.FULL_SELECTION);
-		effectsTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		effectsTable.setBounds(0, 0, 85, 45);
-		effectsTable.setHeaderVisible(true);
-		effectsTable.setLinesVisible(true);
-		
-		TableColumn effectNameColumn = new TableColumn(effectsTable, SWT.NONE);
-		effectNameColumn.setWidth(100);
-		effectNameColumn.setText("Effect");
-		
-		TableColumn effectTotalColumn = new TableColumn(effectsTable, SWT.NONE);
-		effectTotalColumn.setWidth(100);
-		effectTotalColumn.setText("Total");
+		effectsTable = new TabellaSelectedEffects(compositeEffects, equippedItems);
+		refreshEffectsTable();
 		
 		TabItem tabItems = new TabItem(tabFolder, SWT.NONE);
 		tabItems.setText("Items");
@@ -118,21 +110,16 @@ public class SWTFrame {
 		equipmentLabel.setText("Equipment");
 		
 		Button btnAddEquip = new Button(compositeControlEquipment, SWT.NONE);
+		btnAddEquip.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				addItem();
+			}
+		});
 		btnAddEquip.setText("Add Item");
 		
-		equipmentTable = new Table(compositeEquipment, SWT.BORDER | SWT.FULL_SELECTION);
-		equipmentTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		equipmentTable.setBounds(0, 0, 85, 45);
-		equipmentTable.setHeaderVisible(true);
-		equipmentTable.setLinesVisible(true);
-		
-		TableColumn equipmentSlotColumn = new TableColumn(equipmentTable, SWT.NONE);
-		equipmentSlotColumn.setWidth(100);
-		equipmentSlotColumn.setText("Slot");
-		
-		TableColumn itemNameColumn = new TableColumn(equipmentTable, SWT.NONE);
-		itemNameColumn.setWidth(100);
-		itemNameColumn.setText("Item");
+		equipmentTable = new TabellaEquippedItems(compositeEquipment);
+		refreshEquippedItemsTable();
 		
 		tabFolder.pack();
 	}
@@ -142,12 +129,18 @@ public class SWTFrame {
 		refreshEffectsTable();		
 	}
 	
-	private void refreshEffectsTable() {
-		for (String effect : effectsManager.getSelectedEffects()) {
-			TableItem item = new TableItem(effectsTable, SWT.NULL);
-			item.setText(effect);
-			item.setText(0, effect);
-			item.setText(1, "0");
-		}
+	private void addItem() {
+		dialogChooseItem.open();
+		refreshEquippedItemsTable();
+		refreshEffectsTable();
 	}
+	
+	private void refreshEffectsTable() {
+		effectsTable.setElementi(equippedItems.getSelectedEffects().values());
+	}
+	
+	private void refreshEquippedItemsTable() {
+		equipmentTable.setElementi(equippedItems.getEquippedItems().entrySet());
+	}
+	
 }

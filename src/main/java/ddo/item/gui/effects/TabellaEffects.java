@@ -1,6 +1,6 @@
-package ddo.item.gui;
+package ddo.item.gui.effects;
 
-import java.util.Set;
+import java.util.Map;
 
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
@@ -13,13 +13,13 @@ import com.dufler.swt.utils.elements.TabellaCheckBoxConFiltro;
 import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
-import ddo.item.logic.Effects;
+import ddo.item.logic.EquippedItems;
 
 public class TabellaEffects extends TabellaCheckBoxConFiltro<String, CriteriFiltraggioSoloTesto> {
 	
-	private Effects effectsManager;
+	private EquippedItems effectsManager;
 
-	public TabellaEffects(Composite parent, Effects effectsManager) {
+	public TabellaEffects(Composite parent, EquippedItems effectsManager) {
 		super(parent, STILE_SELEZIONE_SINGOLA);
 		this.effectsManager = effectsManager;
 		selezionaEffettiGiaScelti();
@@ -52,12 +52,12 @@ public class TabellaEffects extends TabellaCheckBoxConFiltro<String, CriteriFilt
 	}
 	
 	private void selezionaEffettiGiaScelti() {
-		Set<String> selected = effectsManager.getSelectedEffects();
+		Map<String, SelectedEffect> selected = effectsManager.getSelectedEffects();
 		TableItem[] children = getTable().getItems();
 		for (TableItem item : children) {
-			String effect = (String) item.getData();
-			if (effect != null) {
-				boolean seleziona = selected.contains(effect);
+			SelectedEffect se = (SelectedEffect) item.getData();
+			if (se != null) {
+				boolean seleziona = selected.containsKey(se.getName());
 				item.setChecked(seleziona);
 			}
 		}	
@@ -110,7 +110,7 @@ public class TabellaEffects extends TabellaCheckBoxConFiltro<String, CriteriFilt
 		
 		@Override
 		protected boolean checkElemento(String item) {
-			return item.contains(criteri.getTesto());
+			return item.toLowerCase().contains(criteri.getTesto().toLowerCase());
 		}
 		
 	} 

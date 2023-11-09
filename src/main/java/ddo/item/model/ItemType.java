@@ -7,28 +7,38 @@ package ddo.item.model;
  */
 public enum ItemType {
 
-	BELT,
-	BOOTS,
-	BRACERS,
-	CLOAK,
-	GLOVES,
-	GOGGLES,
-	HELM,
-	NECKLACE,
-	RING,
-	TRINKET,
-	QUIVER,
+	BELT(BodySlot.WAIST),
+	BOOTS(BodySlot.FEET),
+	BRACERS(BodySlot.WRIST),
+	CLOAK(BodySlot.BACK),
+	GLOVES(BodySlot.HANDS),
+	GOGGLES(BodySlot.EYES),
+	HELM(BodySlot.HEAD),
+	NECKLACE(BodySlot.NECK),
+	RING(BodySlot.FINGER_1), // anche finger 2
+	TRINKET(BodySlot.TRINKET),
+	QUIVER(BodySlot.QUIVER),
 	// Armors
-	ARMOR_CLOTH,
-	ARMOR_LIGHT,
-	ARMOR_MEDIUM,
-	ARMOR_HEAVY,
-	ARMOR_DOCENT,
+	ARMOR_CLOTH(BodySlot.BODY),
+	ARMOR_LIGHT(BodySlot.BODY),
+	ARMOR_MEDIUM(BodySlot.BODY),
+	ARMOR_HEAVY(BodySlot.BODY),
+	ARMOR_DOCENT(BodySlot.BODY),
 	// Weapons
-	DAGGER,
-	KUKRI,
+	DAGGER(BodySlot.MAIN_HAND), //anche off hand
+	KUKRI(BodySlot.MAIN_HAND),
 	// Shields
-	ORB,
-	BUCKLER;
+	ORB(BodySlot.OFF_HAND),
+	BUCKLER(BodySlot.OFF_HAND);
+	
+	private final BodySlot slot;
+	
+	private ItemType(BodySlot slot) {
+		this.slot = slot;
+	}
+	
+	public BodySlot getSlot() {
+		return slot;
+	}
 	
 }

@@ -8,18 +8,18 @@ import lombok.Data;
 @Data
 public class Item {
 	
-	private final ItemType slot;
+	private final ItemType type;
 	private final String name;
 	private int minimumLevel;
-	private final Set<String> effects;
+	private final Set<Effect> effects;
 	
-	public Item(ItemType slot, String name) {
-		this.slot = slot;
+	public Item(ItemType type, String name) {
+		this.type = type;
 		this.name = name;
 		this.effects = new HashSet<>();
 	}
 	
-	public void addEffect(String effect) {
+	public void addEffect(Effect effect) {
 		effects.add(effect);
 	}
 

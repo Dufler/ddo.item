@@ -1,8 +1,10 @@
-package ddo.item.gui;
-
-import java.util.Set;
+package ddo.item.gui.items;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowData;
@@ -18,27 +20,24 @@ import org.springframework.stereotype.Component;
 
 import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 
-import ddo.item.logic.Effects;
-import org.eclipse.swt.events.KeyAdapter;
-import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
+import ddo.item.logic.EquippedItems;
+import ddo.item.model.Item;
 
 @Component
-public class ChooseEffectsDialog {
+public class ChooseItemDialog {
 	
-	@Autowired private Effects effectsManager;
+	@Autowired private EquippedItems itemsManager;
 	
 	protected Shell shlChooseEffects;
 	private Text filterText;
-	private TabellaEffects tabella;
+	private TabellaItem tabella;
 	
 	/**
 	 * Create the dialog.
 	 * @param parent
 	 * @param style
 	 */
-	public ChooseEffectsDialog() {
+	public ChooseItemDialog() {
 		
 	}
 
@@ -46,7 +45,7 @@ public class ChooseEffectsDialog {
 	 * Open the dialog.
 	 * @return the result
 	 */
-	public Set<String> open() {
+	public void open() {
 		createContents();
 		shlChooseEffects.open();
 		shlChooseEffects.layout();
@@ -56,7 +55,6 @@ public class ChooseEffectsDialog {
 				display.sleep();
 			}
 		}
-		return effectsManager.getSelectedEffects();
 	}
 
 	/**
@@ -100,7 +98,7 @@ public class ChooseEffectsDialog {
 		effectsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		effectsComposite.setLayout(new GridLayout(1, false));
 		
-		tabella = new TabellaEffects(effectsComposite, effectsManager);
+		tabella = new TabellaItem(effectsComposite, itemsManager);
 		
 		Composite buttonComposite = new Composite(shlChooseEffects, SWT.NONE);
 		buttonComposite.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
@@ -111,9 +109,8 @@ public class ChooseEffectsDialog {
 		okButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				for (String effect : tabella.getRigheSelezionate()) {
-					effectsManager.getSelectedEffects().add(effect);
-				}
+				Item item = tabella.getRigaSelezionata();
+				itemsManager.equip(item.getType().getSlot(), item);
 				shlChooseEffects.close();
 			}
 		});
