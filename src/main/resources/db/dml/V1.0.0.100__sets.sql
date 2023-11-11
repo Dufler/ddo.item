@@ -1,1 +1,1 @@
-insert into named_set (id, name, pieces) values (item_set_sequence.nextval, 'Anger''s Wrath', 2);
+insert into named_set (name, pieces) values ('Anger''s Wrath', 2);

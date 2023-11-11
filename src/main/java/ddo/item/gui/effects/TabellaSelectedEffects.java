@@ -4,7 +4,6 @@ import java.util.Map.Entry;
 
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
-import org.springframework.beans.factory.annotation.Configurable;
 
 import com.dufler.swt.utils.dialog.DialogApribile;
 import com.dufler.swt.utils.elements.Etichettatore;
@@ -16,14 +15,12 @@ import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
 import ddo.item.logic.EquippedItems;
 
-@Configurable
 public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriFiltraggioSoloTesto> {
 	
-	private EquippedItems effectsManager;
+	private EquippedItems effectsManager = EquippedItems.getInstance();
 			
-	public TabellaSelectedEffects(Composite parent, EquippedItems effectsManager) {
+	public TabellaSelectedEffects(Composite parent) {
 		super(parent);
-		this.effectsManager = effectsManager;
 	}
 
 	@Override

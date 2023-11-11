@@ -28,6 +28,8 @@ public class WikiParser {
 	@Autowired private EItemRepository itemRepository;
 	@Autowired private EItemEffectsRepository effectsRepository;
 	
+	@Autowired private BaseEffectParser baseParser;
+	
 	private List<Item> items;
 	private Item currentItem;
 	
@@ -46,7 +48,7 @@ public class WikiParser {
 		return items;
 	}
 	
-	private void parseTable(Element table, ItemType slot) {
+	private void parseTable(Element table, ItemType type) {
 		Elements celle = table.children().select("td");
 		ListIterator<Element> iterator = celle.listIterator();
 		int columnIndex = 0;
@@ -59,8 +61,8 @@ public class WikiParser {
 		while (iterator.hasNext()) {
 			Element e = iterator.next();
 			switch (columnIndex % 6) {
-				case 0 : parseName(e, slot); break;
-				case 1 : parseEffects(e); break;
+				case 0 : parseName(e, type); break;
+				case 1 : parseEffects(e, type); break;
 				case 2 : parseMinimumLevel(e); break;
 				case 3 : parseBinding(e); break;
 				case 4 : parseQuest(e); break;
@@ -79,7 +81,7 @@ public class WikiParser {
 		items.add(currentItem);	
 	}
 	
-	private void parseEffects(Element e) {
+	private void parseEffects(Element e, ItemType type) {
 		Elements effectsList = e.children().select("> li");
 		ListIterator<Element> iterator = effectsList.listIterator();
 		while (iterator.hasNext()) {
@@ -92,9 +94,17 @@ public class WikiParser {
 			} catch(Exception exception) {
 				effect = String.format("Eccezione: %s html: %s", exception.getMessage(), li.text());
 			}
-			Effect ef = parseEffect(effect);
+			Effect ef = parseEffect(effect, type);
 			currentItem.addEffect(ef);
 		}
+	}
+	
+	private Effect parseEffect(String effectDescription, ItemType type) {
+		Effect e;
+		switch (type) {
+			default : e = baseParser.parseEffect(effectDescription); break;
+		}
+		return e;
 	}
 	
 	private void parseMinimumLevel(Element e) {
@@ -132,70 +142,24 @@ public class WikiParser {
 	public void saveItems(List<Item> itemList) {
 		for (Item item : itemList) {
 			log.info(item.toString());
-			// Controllo se l'oggetto e' gia' presente nel DB
-			List<EItem> items = itemRepository.findByName(item.getName());
-			if (items.isEmpty()) {
-				save(item);
-			} else {
-				log.warn(String.format("L'oggetto %s � gi� presente nel DB.", item.getName()));
-			}
+			save(item);
 		}
-	}
-	
-	private Effect parseEffect(String effectDescription) {
-		// Parso il tipo di bonus, se presente
-		String bonusType = parseBonusType(effectDescription);
-		if (bonusType != null) {
-			effectDescription = effectDescription.replace(bonusType, "");
-		}
-		Integer bonusValue = null;
-		int index = effectDescription.indexOf('+');
-		if (index != -1) {
-			String value = effectDescription.substring(index + 1);
-			try { bonusValue = Integer.parseInt(value); } catch(Exception e) { log.error(e.getMessage()); }
-				effectDescription = effectDescription.substring(0, index);
-		}
-		effectDescription = effectDescription.trim();
-		if (effectDescription.length() > 100) {
-			effectDescription = effectDescription.substring(0, 100);
-		}
-		Effect effect = new Effect();
-		effect.setName(effectDescription);
-		effect.setType(bonusType);
-		effect.setValue(bonusValue);
-		return effect;
 	}
 	
 	private void save(Item item) {
 		EItem entity = new EItem();
 		entity.setName(item.getName());
 		entity.setSlot(item.getType());
+		entity.setMinimumLevel(item.getMinimumLevel());
 		itemRepository.save(entity);
 		for (Effect e : item.getEffects()) {
 			EItemEffects effect = new EItemEffects();
-			effect.setItemId(entity.getId());
+			effect.setItemName(item.getName());
 			effect.setEffect(e.getName());
 			effect.setType(e.getType());
 			effect.setValue(e.getValue());
 			effectsRepository.save(effect);
 		}
-	}
-	
-	private String parseBonusType(String effectDescription) {
-		String type = null;
-		if (effectDescription.contains("Insightful")) {
-			type = "Insightful";
-		}
-		if (effectDescription.contains("Quality")) {
-			type = "Quality";
-		}
-		if (effectDescription.contains("Profane")) {
-			type = "Profane";
-		}
-		if (effectDescription.contains("Sacred")) {
-			type = "Sacred";
-		}
-		return type;
 	}
 
 }

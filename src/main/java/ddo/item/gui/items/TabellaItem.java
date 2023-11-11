@@ -14,11 +14,10 @@ import ddo.item.model.Item;
 
 public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggioSoloTesto> {
 	
-	private EquippedItems itemsManager;
+	private EquippedItems itemsManager = EquippedItems.getInstance();
 
-	public TabellaItem(Composite parent, EquippedItems itemsManager) {
+	public TabellaItem(Composite parent) {
 		super(parent, STILE_SELEZIONE_SINGOLA);
-		this.itemsManager = itemsManager;
 		aggiornaContenuto();
 	}
 
@@ -37,7 +36,8 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 	@Override
 	public void aggiornaContenuto() {
 		if (itemsManager != null)
-			setElementi(itemsManager.getItems());		
+			setElementi(itemsManager.getItems());
+		refresh();
 	}
 
 	@Override

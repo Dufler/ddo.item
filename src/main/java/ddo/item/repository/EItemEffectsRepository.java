@@ -10,6 +10,6 @@ import ddo.item.entity.EItemEffects;
 @Repository
 public interface EItemEffectsRepository extends JpaRepository<EItemEffects, Integer> {
 	
-	public List<EItemEffects> findByItemId(Integer itemId);
+	public List<EItemEffects> findByItemName(String itemName);
 
 }

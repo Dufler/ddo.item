@@ -5,7 +5,6 @@ import java.util.Map;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TableItem;
-import org.springframework.beans.factory.annotation.Configurable;
 
 import com.dufler.swt.utils.elements.Etichettatore;
 import com.dufler.swt.utils.elements.ModificatoreValoriCelle;
@@ -16,14 +15,12 @@ import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
 import ddo.item.logic.EquippedItems;
 
-@Configurable
 public class TabellaEffects extends TabellaCheckBoxConFiltro<String, CriteriFiltraggioSoloTesto> {
 	
-	private EquippedItems effectsManager;
+	private EquippedItems effectsManager = EquippedItems.getInstance();
 
-	public TabellaEffects(Composite parent, EquippedItems effectsManager) {
+	public TabellaEffects(Composite parent) {
 		super(parent, STILE_SELEZIONE_SINGOLA);
-		this.effectsManager = effectsManager;
 		selezionaEffettiGiaScelti();
 		aggiornaContenuto();
 	}

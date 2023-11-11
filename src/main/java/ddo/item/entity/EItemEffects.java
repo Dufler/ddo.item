@@ -21,8 +21,8 @@ public class EItemEffects {
 	@GeneratedValue(strategy = GenerationType.AUTO, generator="item_effects_sequence")
 	private Integer id;
 	
-	@Column(name = "item_id")
-	private Integer itemId;
+	@Column(name = "item_name")
+	private String itemName;
 	
 	@Column(name = "effect")
 	private String effect;

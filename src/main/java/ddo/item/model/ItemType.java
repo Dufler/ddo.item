@@ -17,19 +17,19 @@ public enum ItemType {
 	NECKLACE(BodySlot.NECK),
 	RING(BodySlot.FINGER_1), // anche finger 2
 	TRINKET(BodySlot.TRINKET),
-	QUIVER(BodySlot.QUIVER),
+	//QUIVER(BodySlot.QUIVER), //Wiki page is in a different format
 	// Armors
 	ARMOR_CLOTH(BodySlot.BODY),
 	ARMOR_LIGHT(BodySlot.BODY),
 	ARMOR_MEDIUM(BodySlot.BODY),
 	ARMOR_HEAVY(BodySlot.BODY),
-	ARMOR_DOCENT(BodySlot.BODY),
+	//ARMOR_DOCENT(BodySlot.BODY), //Wiki page is in a different format
 	// Weapons
-	DAGGER(BodySlot.MAIN_HAND), //anche off hand
-	KUKRI(BodySlot.MAIN_HAND),
+	//DAGGER(BodySlot.MAIN_HAND), //anche off hand
+	//KUKRI(BodySlot.MAIN_HAND),
 	// Shields
-	ORB(BodySlot.OFF_HAND),
-	BUCKLER(BodySlot.OFF_HAND);
+	ORB(BodySlot.OFF_HAND);
+	//BUCKLER(BodySlot.OFF_HAND);
 	
 	private final BodySlot slot;
 	

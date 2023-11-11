@@ -25,6 +25,8 @@ import ddo.item.repository.EItemRepository;
 @Component
 public class EquippedItems {
 	
+	private static EquippedItems singleton;
+	
 	@Autowired private EItemRepository repositoryItems;
 	@Autowired private EItemEffectsRepository repositoryEffects;
 	
@@ -33,29 +35,32 @@ public class EquippedItems {
 	private final Map<String, Item> items;
 	private final Map<BodySlot, Item> equippedItems;
 	
-	public EquippedItems() {
+	private EquippedItems() {
 		equippedItems = new HashMap<>();
 		for (BodySlot slot : BodySlot.values()) {
 			equippedItems.put(slot, null);
 		}
 		items = new HashMap<>();
+		// Di questo se ne occupa spring.
+		singleton = this;
+	}
+	
+	public static EquippedItems getInstance() {
+		return singleton;
 	}
 	
 	@PostConstruct
 	private void loadItems() {
-		Map<Integer, String> itemKeys = new HashMap<>();
 		List<EItem> itemList = repositoryItems.findAll();
 		for (EItem e : itemList) {
 			Item i = trasforma(e);
-			itemKeys.put(e.getId(), e.getName());
 			items.put(i.getName(), i);
 		}
 		List<EItemEffects> effectList = repositoryEffects.findAll();
 		for (EItemEffects e : effectList) {
 			effects.add(e.getEffect());
 			Effect f = trasforma(e);
-			String itemName = itemKeys.get(e.getItemId());
-			Item i = items.get(itemName);
+			Item i = items.get(e.getItemName());
 			i.addEffect(f);
 		}
 	}

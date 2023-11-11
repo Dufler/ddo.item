@@ -1,6 +1,10 @@
 package ddo.item.gui;
 
+import java.util.List;
+
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -12,18 +16,28 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
+import org.eclipse.swt.widgets.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 
 import ddo.item.gui.effects.ChooseEffectsDialog;
 import ddo.item.gui.effects.TabellaSelectedEffects;
 import ddo.item.gui.items.ChooseItemDialog;
 import ddo.item.gui.items.TabellaEquippedItems;
+import ddo.item.gui.items.TabellaItem;
 import ddo.item.logic.EquippedItems;
+import ddo.item.model.Item;
+import ddo.item.model.ItemType;
+import ddo.item.wiki.WikiParser;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
+@Slf4j
 public class SWTFrame {
 	
+	@Autowired private WikiParser wp;
 	@Autowired private EquippedItems equippedItems;
 	
 	@Autowired private ChooseEffectsDialog dialogChooseEffects;
@@ -31,8 +45,13 @@ public class SWTFrame {
 
 	protected Shell shlDdoGearOptimizer;
 	
+	private TabFolder tabFolder;
+	
 	private TabellaSelectedEffects effectsTable;
 	private TabellaEquippedItems equipmentTable;
+	private TabellaItem itemTable;
+	
+	private Text textFilterItem;
 
 	/**
 	 * Open the window.
@@ -59,9 +78,16 @@ public class SWTFrame {
 		shlDdoGearOptimizer.setText("DDO Gear Optimizer");
 		shlDdoGearOptimizer.setLayout(new GridLayout(1, false));
 		
-		TabFolder tabFolder = new TabFolder(shlDdoGearOptimizer, SWT.NONE);
+		tabFolder = new TabFolder(shlDdoGearOptimizer, SWT.NONE);
 		tabFolder.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
+		addTabOptimizer();		
+		addTabItems();
+		
+		tabFolder.pack();
+	}
+	
+	private void addTabOptimizer() {
 		TabItem tabOptimizer = new TabItem(tabFolder, SWT.NONE);
 		tabOptimizer.setText("Optimizer");
 		
@@ -91,11 +117,8 @@ public class SWTFrame {
 		});
 		btnAddEffect.setText("Add Effect");
 		
-		effectsTable = new TabellaSelectedEffects(compositeEffects, equippedItems);
+		effectsTable = new TabellaSelectedEffects(compositeEffects);
 		refreshEffectsTable();
-		
-		TabItem tabItems = new TabItem(tabFolder, SWT.NONE);
-		tabItems.setText("Items");
 		
 		Composite compositeEquipment = new Composite(compositeOptimizer, SWT.NONE);
 		compositeEquipment.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
@@ -120,8 +143,60 @@ public class SWTFrame {
 		
 		equipmentTable = new TabellaEquippedItems(compositeEquipment);
 		refreshEquippedItemsTable();
+	}
+	
+	private void addTabItems() {
+		TabItem tabItems = new TabItem(tabFolder, SWT.NONE);
+		tabItems.setText("Items");
 		
-		tabFolder.pack();
+		Composite compositeItems = new Composite(tabFolder, SWT.NONE);
+		tabItems.setControl(compositeItems);
+		compositeItems.setLayout(new GridLayout(1, false));
+		
+		Composite compositeItemControl = new Composite(compositeItems, SWT.NONE);
+		compositeItemControl.setLayout(new GridLayout(4, false));
+		compositeItemControl.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
+		
+		Label lblFiltraItem = new Label(compositeItemControl, SWT.NONE);
+		lblFiltraItem.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblFiltraItem.setBounds(0, 0, 55, 15);
+		lblFiltraItem.setText("Filtra:");
+		
+		textFilterItem = new Text(compositeItemControl, SWT.BORDER);
+		textFilterItem.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				CriteriFiltraggioSoloTesto c = new CriteriFiltraggioSoloTesto(textFilterItem.getText());
+				itemTable.filtra(c);
+			}
+		});
+		textFilterItem.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		Button btnClearItemFilter = new Button(compositeItemControl, SWT.NONE);
+		btnClearItemFilter.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				textFilterItem.setText("");
+				itemTable.annullaFiltro();
+			}
+		});
+		btnClearItemFilter.setText("Clear");
+		
+		Button btnReloadItem = new Button(compositeItemControl, SWT.NONE);
+		btnReloadItem.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				parseItems();
+				itemTable.aggiornaContenuto();
+			}
+		});
+		btnReloadItem.setText("Update Items Database");
+		
+		Composite compositeItemTable = new Composite(compositeItems, SWT.NONE);
+		compositeItemTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		compositeItemTable.setLayout(new GridLayout(1, false));
+		
+		itemTable = new TabellaItem(compositeItemTable);
 	}
 	
 	private void addEffect() {
@@ -141,6 +216,20 @@ public class SWTFrame {
 	
 	private void refreshEquippedItemsTable() {
 		equipmentTable.setElementi(equippedItems.getEquippedItems().entrySet());
+	}
+	
+	private void parseItems() {
+		log.info("Parsing degli oggetti");
+		try {
+			for (ItemType slot : ItemType.values()) {
+				String resource = String.format("src/main/resources/pages/%s.html", slot.name().toLowerCase());
+				List<Item> itemList = wp.parsePage(resource, slot);
+				log.info(String.format("Trovati %d oggetti per la categoria %s", itemList.size(), slot));
+				wp.saveItems(itemList);
+			}
+		} catch(Exception e) {
+			log.error(e.getMessage(), e);
+		}	
 	}
 	
 }

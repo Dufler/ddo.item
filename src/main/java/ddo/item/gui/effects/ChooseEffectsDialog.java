@@ -97,7 +97,7 @@ public class ChooseEffectsDialog {
 		effectsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		effectsComposite.setLayout(new GridLayout(1, false));
 		
-		tabella = new TabellaEffects(effectsComposite, effectsManager);
+		tabella = new TabellaEffects(effectsComposite);
 		
 		Composite buttonComposite = new Composite(shlChooseEffects, SWT.NONE);
 		buttonComposite.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
