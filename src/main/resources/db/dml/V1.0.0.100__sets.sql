@@ -1,1 +1,0 @@
-insert into named_set (name, pieces) values ('Anger''s Wrath', 2);

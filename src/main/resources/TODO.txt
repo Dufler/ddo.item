@@ -1,0 +1,2 @@
+- I bonus alle abilità per caratteristica (es. Alluring Skills Bonus) in alias effetti vanno trasformati nelle singole abilità.
+- test alchemist pendant false life type (aggiorna Greater Elemental Energy in alias)

@@ -1,7 +1,5 @@
 package ddo.item.gui;
 
-import java.util.List;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
@@ -28,7 +26,6 @@ import ddo.item.gui.items.ChooseItemDialog;
 import ddo.item.gui.items.TabellaEquippedItems;
 import ddo.item.gui.items.TabellaItem;
 import ddo.item.logic.EquippedItems;
-import ddo.item.model.Item;
 import ddo.item.model.ItemType;
 import ddo.item.wiki.WikiParser;
 import lombok.extern.slf4j.Slf4j;
@@ -221,11 +218,9 @@ public class SWTFrame {
 	private void parseItems() {
 		log.info("Parsing degli oggetti");
 		try {
-			for (ItemType slot : ItemType.values()) {
-				String resource = String.format("src/main/resources/pages/%s.html", slot.name().toLowerCase());
-				List<Item> itemList = wp.parsePage(resource, slot);
-				log.info(String.format("Trovati %d oggetti per la categoria %s", itemList.size(), slot));
-				wp.saveItems(itemList);
+			for (ItemType type : ItemType.values()) {
+				String resource = String.format("src/main/resources/pages/%s.html", type.name().toLowerCase());
+				wp.updateItems(resource, type);
 			}
 		} catch(Exception e) {
 			log.error(e.getMessage(), e);
