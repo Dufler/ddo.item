@@ -1,2 +1,5 @@
 - I bonus alle abilità per caratteristica (es. Alluring Skills Bonus) in alias effetti vanno trasformati nelle singole abilità.
 - test alchemist pendant false life type (aggiorna Greater Elemental Energy in alias)
+- sostituire &#160; con uno spazio su tutti i files html
+- accorpare i concealment nello script alias (blurry, lesser displacement, smoke screen)
+- Superior Heroism/Heroism deve diventare un bonus ai TS e Skills morale in alias

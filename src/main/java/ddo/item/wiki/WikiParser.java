@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import javax.transaction.Transactional;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -32,6 +34,7 @@ public class WikiParser {
 	
 	private List<Item> items;
 	
+	@Transactional
 	public void updateItems(String url, ItemType slot) {
 		items = new LinkedList<>();
 		// let's get the web page

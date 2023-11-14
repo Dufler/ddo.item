@@ -7,17 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Immutable;
-
 @Entity
-@Immutable
+//@Immutable // Per le view
 @Table(name="effect")
-public class VEffects implements Serializable {
+public class EEffect implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column(name = "effect")
 	private String effect;
+	
+	@Column(name = "description")
+	private String description;
 
 }

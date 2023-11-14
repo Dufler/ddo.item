@@ -18,7 +18,7 @@ create table named_set_bonus (
 	set_name varchar(200) not null,
 	effect varchar(100) not null,
 	effect_type varchar(20),
-	effect_value numeric(3,0)
+	effect_value numeric(4,0)
 );
 alter table named_set_bonus add constraint pk_named_set_bonus primary key (id);
 alter table named_set_bonus add constraint fk_named_set_bonus foreign key (set_name) references named_set(name) on delete cascade;

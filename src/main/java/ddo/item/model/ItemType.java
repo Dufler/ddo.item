@@ -17,7 +17,7 @@ public enum ItemType {
 	NECKLACE(BodySlot.NECK),
 	RING(BodySlot.FINGER_1), // anche finger 2
 	TRINKET(BodySlot.TRINKET),
-	//QUIVER(BodySlot.QUIVER), //Wiki page is in a different format
+	QUIVER(BodySlot.QUIVER), //Wiki page is in a different format
 	// Armors
 	ARMOR_CLOTH(BodySlot.BODY),
 	ARMOR_LIGHT(BodySlot.BODY),

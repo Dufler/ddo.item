@@ -11,10 +11,9 @@ create table item_effects (
 	item_name varchar(200) not null,
 	effect varchar(100) not null,
 	effect_type varchar(20),
-	effect_value numeric(3,0)
+	effect_value numeric(4,0)
 	
 );
 alter table item_effects add constraint pk_item_effects primary key (id);
-alter table item_effects add constraint fk_item_effects foreign key (item_name) references item(name) on delete cascade;
-
-create view effect as select distinct effect from item_effects;
+alter table item_effects add constraint fk_item_effects_item foreign key (item_name) references item(name) on delete cascade;
+--alter table item_effects add constraint fk_item_effects_name foreign key (effect) references effect(name) on delete cascade;

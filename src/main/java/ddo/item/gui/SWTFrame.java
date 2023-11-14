@@ -219,6 +219,9 @@ public class SWTFrame {
 		log.info("Parsing degli oggetti");
 		try {
 			for (ItemType type : ItemType.values()) {
+				// Per le quiver ho uno script di insert
+				if (type == ItemType.QUIVER)
+					continue;
 				String resource = String.format("src/main/resources/pages/%s.html", type.name().toLowerCase());
 				wp.updateItems(resource, type);
 			}

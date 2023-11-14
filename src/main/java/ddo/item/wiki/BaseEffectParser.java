@@ -1,14 +1,25 @@
 package ddo.item.wiki;
 
+import java.util.List;
 import java.util.ListIterator;
+import java.util.Optional;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import ddo.item.entity.EEffectAliasList;
+import ddo.item.entity.ESet;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
 import ddo.item.model.ItemType;
+import ddo.item.repository.EEffectAliasListRepository;
+import ddo.item.repository.ESetRepository;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -23,6 +34,15 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class BaseEffectParser extends AItemParser {
+	
+	@Autowired private ESetRepository setRepository;
+	@Autowired private EEffectAliasListRepository aliasRepository;
+	
+	@Value(value = "${item.skippable}")
+	private Set<String> skippableItems;
+	
+	@Value(value = "${item.clickie}")
+	private Set<String> clickies;
 	
 	private Item currentItem;
 	
@@ -47,12 +67,17 @@ public class BaseEffectParser extends AItemParser {
 			}
 			columnIndex += 1;
 		}
-		return null;
+		return currentItem;
 	}
 	
 	private void parseName(Element e, ItemType slot) {
 		// Parso il titolo
 		String titolo = e.text();
+		for (String skip : skippableItems) {
+			if (titolo.contains(skip)) {
+				throw new SkipItemException(titolo);
+			}
+		}
 		// Creo il nuovo oggetto sul current e lo aggiungo alla lista
 		currentItem = new Item(slot, titolo);
 	}
@@ -64,21 +89,28 @@ public class BaseEffectParser extends AItemParser {
 			Element li = iterator.next();
 			String effect;
 			try {
+				// controllo che ci sia uno span e un anchor
 				Element span = li.child(0);
 				Element anchor = span.child(0);
 				effect = anchor.text();
 			} catch(Exception exception) {
-				effect = String.format("Eccezione: %s html: %s", exception.getMessage(), li.text());
+				log.error(exception.getMessage(), exception);
+				effect = String.format("%s", li.text());
 			}
-			Effect ef = parseEffect(effect);
-			currentItem.addEffect(ef);
+			
+			parseEffect(effect);
 		}
 	}
 	
 	private void parseMinimumLevel(Element e) {
+		int ml;
 		String text = e.text();
 		try {
-			int ml = Integer.parseInt(text);
+			if (text.equalsIgnoreCase("none")) {
+				ml = 1;
+			} else {
+				ml = Integer.parseInt(text);
+			}
 			currentItem.setMinimumLevel(ml);
 		} catch(Exception exception) {
 			log.error(exception.getMessage());
@@ -97,33 +129,116 @@ public class BaseEffectParser extends AItemParser {
 		// DO NOTHING
 	}
 	
-	private Effect parseEffect(String effectDescription) {
-		// Parso il tipo di bonus, se presente
-		String bonusType = parseBonusType(effectDescription);
-		if (bonusType != null) {
-			effectDescription = effectDescription.replace(bonusType, "");
-		}
+	private void parseEffect(String effectDescription) {
+		String bonusType;
+		// Verifico se è un set
+		Optional<ESet> oset = setRepository.findById(effectDescription);
+		if (oset.isPresent()) {
+			bonusType = "Set";
+		} else if (effectDescription.matches("Sacred \\+\\d{1,2}")) {
+			// E' proprio l'effetto sacred, non il tipo di bonus
+			bonusType = "Enhancement";
+		} else {
+			// Parso il tipo di bonus, se presente
+			bonusType = parseBonusType(effectDescription);
+			if (bonusType != null) {
+				effectDescription = effectDescription.replace(bonusType + " ", "");
+			}
+		}		
+		// Parso il valore del bonus, se presente
 		Integer bonusValue = null;
-		int index = effectDescription.indexOf('+');
-		if (index != -1) {
-			String value = effectDescription.substring(index + 1);
-			try { bonusValue = Integer.parseInt(value); } catch(Exception e) { log.error(e.getMessage()); }
-				effectDescription = effectDescription.substring(0, index);
+		// Elimino eventuali simboli percentuali che non servono
+		effectDescription = effectDescription.replace("%", "");
+		// Comincio con gli if "brutti"
+		if (effectDescription.contains("Armor-Piercing")) {
+			effectDescription = effectDescription.replace("-", " ");
 		}
+		// Provo con il più
+		Pattern p = Pattern.compile("\\+\\d{1,4}");  // insert your pattern here
+		Matcher m = p.matcher(effectDescription);
+		if (m.find()) {
+		   String value = effectDescription.substring(m.start() + 1, m.end());
+			try { 
+				bonusValue = Integer.parseInt(value.trim());
+				effectDescription = effectDescription.replace("+" + value, "");
+			} catch(Exception e) { 
+				log.error(e.getMessage()); 
+			}
+		} else {
+			p = Pattern.compile("\\-\\d{1,4}");
+			m = p.matcher(effectDescription);
+			if (m.find()) {
+				String value = effectDescription.substring(m.start(), m.end());
+				try { 
+					bonusValue = Integer.parseInt(value.trim());
+					bonusType = "Penality";
+					effectDescription = effectDescription.replace(value, "");
+				} catch(Exception e) { 
+					log.error(e.getMessage());
+				}
+			} else {
+				p = Pattern.compile("\\d{1,4}");
+				m = p.matcher(effectDescription);
+				if (m.find()) {
+					String value = effectDescription.substring(m.start(), m.end());
+					try { 
+						bonusValue = Integer.parseInt(value.trim());
+						effectDescription = effectDescription.replace(value, "");
+					} catch(Exception e) { 
+						log.error(e.getMessage()); 
+					}
+				}
+			}
+			
+		}
+		// Se ho un valore ma non un tipo allora imposto il default
+		if (bonusType == null && bonusValue != null) {
+			bonusType = "Enhancement";
+		}		
+	
 		effectDescription = effectDescription.trim();
+		if (effectDescription.endsWith(":")) {
+			effectDescription = effectDescription.substring(0, effectDescription.length() - 1);
+		}
+		if (effectDescription.endsWith(" -")) {
+			effectDescription = effectDescription.substring(0, effectDescription.length() - 2);
+		}
+		if (effectDescription.endsWith(" ()")) {
+			effectDescription = effectDescription.substring(0, effectDescription.length() - 3);
+		}
+		
 		if (effectDescription.length() > 100) {
 			effectDescription = effectDescription.substring(0, 100);
 		}
-		Effect effect = new Effect();
-		effect.setName(effectDescription);
-		effect.setType(bonusType);
-		effect.setValue(bonusValue);
-		return effect;
+		
+		// Controllo se è un clickie
+		if (bonusType == null && bonusValue == null && clickies.contains(effectDescription)) {
+			bonusType = "Clickie";
+		}
+		
+		// Controllo se ho un alias per questo effetto
+		List<EEffectAliasList> list = aliasRepository.findByAlias(effectDescription);
+		if (list.isEmpty()) {
+			Effect effect = new Effect();
+			effect.setName(effectDescription);
+			effect.setType(bonusType);
+			effect.setValue(bonusValue);
+			currentItem.addEffect(effect);
+		} else for (EEffectAliasList alias : list) {
+			Effect effect = new Effect();
+			effect.setName(alias.getEffect());
+			effect.setType(alias.getType() != null ? alias.getType() : bonusType);
+			effect.setValue(alias.getValue() != null ? alias.getValue() : bonusValue);
+			currentItem.addEffect(effect);
+		}
 	}
 	
 	private String parseBonusType(String effectDescription) {
 		String type = null;
 		if (effectDescription.contains("Insightful")) {
+			type = "Insightful";
+		}
+		if (effectDescription.contains("Insight")) {
 			type = "Insightful";
 		}
 		if (effectDescription.contains("Quality")) {
