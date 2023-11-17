@@ -1,5 +1,6 @@
 -- https://ddowiki.com/page/Slave_Lords_Crafting
 insert into augment_type(name) values('Slaver''s Prefix Slot');
+insert into augment_type_alias(alias, augment_type) values('Slaver''s Prefix Slot', 'Slaver''s Prefix Slot');
 insert into augment(name, augment_type, ml) values('Strength +5', 'Slaver''s Prefix Slot', 8);
 insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Strength +5', 'Strength', 'Enhancement', 5);
 insert into augment(name, augment_type, ml) values('Dexterity +5', 'Slaver''s Prefix Slot', 8);
@@ -21,6 +22,58 @@ insert into augment_effect(id, augment_name, effect, effect_type, effect_value) 
 insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Sheltering 12', 'Magical Sheltering', 'Enhancement', 12);
 insert into augment(name, augment_type, ml) values('Wizardry +96', 'Slaver''s Prefix Slot', 8);
 insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Wizardry +96', 'Wizardry', 'Enhancement', 96);
-
-
-
+insert into augment_type(name) values('Slaver''s Suffix Slot');
+insert into augment_type_alias(alias, augment_type) values('Slaver''s Suffix Slot', 'Slaver''s Suffix Slot');
+insert into augment(name, augment_type, ml) values('Accuracy +8', 'Slaver''s Suffix Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Accuracy +8', 'Accuracy', 'Competence', 8);
+insert into augment(name, augment_type, ml) values('Armor Piercing +8', 'Slaver''s Suffix Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Armor Piercing +8', 'Armor Piercing', 'Enhancement', 8);
+insert into augment(name, augment_type, ml) values('Deadly +4', 'Slaver''s Suffix Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Deadly +4', 'Deadly', 'Competence', 4);
+insert into augment(name, augment_type, ml) values('Deception +3', 'Slaver''s Suffix Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Deception +3', 'Deception', 'Enhancement', 3);
+insert into augment(name, augment_type, ml) values('Resistance +4', 'Slaver''s Suffix Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Resistance +4', 'Resistance', 'Enhancement', 4);
+insert into augment(name, augment_type, ml) values('Seeker +5', 'Slaver''s Suffix Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Seeker +5', 'Seeker', 'Enhancement', 5);
+-- TODO Spell Lore 10
+-- TODO Spell Power 70
+insert into augment_type(name) values('Slaver''s Extra Slot');
+insert into augment_type_alias(alias, augment_type) values('Slaver''s Extra Slot', 'Slaver''s Extra Slot');
+insert into augment(name, augment_type, ml) values('Shatter +6', 'Slaver''s Extra Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Shatter +6', 'Shatter', 'Enhancement', 6);
+insert into augment(name, augment_type, ml) values('Stunning +6', 'Slaver''s Extra Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Stunning +6', 'Stunning', 'Enhancement', 6);
+insert into augment(name, augment_type, ml) values('Vertigo +6', 'Slaver''s Extra Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Vertigo +6', 'Vertigo', 'Enhancement', 6);
+insert into augment(name, augment_type, ml) values('Spell Focus Mastery +2', 'Slaver''s Extra Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Spell Focus Mastery +2', 'Spell Focus Mastery', 'Equipment', 2);
+insert into augment(name, augment_type, ml) values('Spell Penetration +2', 'Slaver''s Extra Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Spell Penetration +2', 'Spell Penetration', 'Equipment', 2);
+insert into augment(name, augment_type, ml) values('Tendon Slice +4', 'Slaver''s Extra Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Tendon Slice +4', 'Tendon Slice', 'Enhancement', 4);
+-- TODO Skill 10
+-- TODO UMD 1
+insert into augment_type(name) values('Slaver''s Bonus Slot');
+insert into augment_type_alias(alias, augment_type) values('Slaver''s Bonus Slot', 'Slaver''s Bonus Slot');
+insert into augment(name, augment_type, ml) values('Quality Strength +1', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality Strength +1', 'Strength', 'Quality', 1);
+insert into augment(name, augment_type, ml) values('Quality Dexterity +1', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality Dexterity +1', 'Dexterity', 'Quality', 1);
+insert into augment(name, augment_type, ml) values('Quality Constitution +1', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality Constitution +1', 'Constitution', 'Quality', 1);
+insert into augment(name, augment_type, ml) values('Quality Intelligence +1', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality Intelligence +1', 'Intelligence', 'Quality', 1);
+insert into augment(name, augment_type, ml) values('Quality Wisdom +1', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality Wisdom +1', 'Wisdom', 'Quality', 1);
+insert into augment(name, augment_type, ml) values('Quality Charisma +1', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality Charisma +1', 'Charisma', 'Quality', 1);
+insert into augment(name, augment_type, ml) values('Quality False Life +4', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality False Life +4', 'Hit Points', 'Quality', 4);
+insert into augment(name, augment_type, ml) values('Quality Fortification +17', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality Fortification +17', 'Fortification', 'Quality', 17);
+insert into augment(name, augment_type, ml) values('Quality MRR +2', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality MRR +2', 'Magical Sheltering', 'Quality', 2);
+insert into augment(name, augment_type, ml) values('Quality PRR +2', 'Slaver''s Bonus Slot', 8);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Quality PRR +2', 'Physical Sheltering', 'Quality', 2);
+-- TODO Skill +2 quality

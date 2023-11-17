@@ -17,7 +17,7 @@ create table named_set_bonus (
 	id numeric(10,0) not null,
 	set_name varchar(200) not null,
 	effect varchar(100) not null,
-	effect_type varchar(20),
+	effect_type varchar(50),
 	effect_value numeric(4,0)
 );
 alter table named_set_bonus add constraint pk_named_set_bonus primary key (id);

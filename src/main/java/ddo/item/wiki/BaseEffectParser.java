@@ -13,12 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import ddo.item.entity.EAugmentTypeAlias;
 import ddo.item.entity.EEffectAliasList;
 import ddo.item.entity.ESet;
+import ddo.item.model.AugmentSlot;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
 import ddo.item.model.ItemType;
 import ddo.item.model.NamedSet;
+import ddo.item.repository.EAugmentTypeAliasRepository;
 import ddo.item.repository.EEffectAliasListRepository;
 import ddo.item.repository.ESetRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +41,7 @@ public class BaseEffectParser extends AItemParser {
 	
 	@Autowired private ESetRepository setRepository;
 	@Autowired private EEffectAliasListRepository aliasRepository;
+	@Autowired private EAugmentTypeAliasRepository augmentAliasRepository;
 	
 	@Value(value = "${item.skippable}")
 	private Set<String> skippableItems;
@@ -46,6 +50,7 @@ public class BaseEffectParser extends AItemParser {
 	private Set<String> clickies;
 	
 	private Item currentItem;
+	private Optional<EAugmentTypeAlias> currentAugmentAlias;
 	
 	@Override
 	protected Item parseItem(Element row, ItemType type) {
@@ -110,7 +115,8 @@ public class BaseEffectParser extends AItemParser {
 	}
 	
 	private boolean isAugument(String effect) {
-		return effect.contains("Augment Slot");
+		currentAugmentAlias = augmentAliasRepository.findById(effect);
+		return currentAugmentAlias.isPresent();
 	}
 	
 	private boolean isSet(String effect) {
@@ -125,16 +131,9 @@ public class BaseEffectParser extends AItemParser {
 	}
 	
 	private void addAugment(String augment) {
-		String augmentType = augment.replace("Augment Slot", "").trim();
-		augmentType = augmentType.replace(":", "").trim();
-		if (augmentType.contains("Slaver")) {
-			augmentType = "Green";
-		}
-		Effect effect = new Effect();
-		effect.setName("Augment Slot");
-		effect.setType(augmentType);
-		effect.setValue(null);
-		currentItem.addEffect(effect);
+		EAugmentTypeAlias alias = currentAugmentAlias.get();
+		AugmentSlot as = new AugmentSlot(currentItem.getName(), alias.getType());
+		currentItem.addAugment(as);
 	}
 	
 	private void parseMinimumLevel(Element e) {

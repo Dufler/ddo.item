@@ -5,25 +5,25 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="augment")
-public class EAugment implements Serializable {
+@Table(name="item_augment")
+@IdClass(EItemAugmentsPK.class)
+public class EItemAugments implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "augment_type")
+	private String augment;
 	
 	@Id
-	@Column(name = "name")
-	private String name;
-	
-	@Column(name = "augment_type")
-	private String type;
-	
-	@Column(name = "ml")
-	private Integer minimumLevel;
+	@Column(name = "item_name")
+	private String item;
 
 }

@@ -50,7 +50,7 @@ public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriF
 
 	@Override
 	protected ModificatoreValoriCelle<SelectedEffect> creaModificatore() {
-		return null;
+		return new ModificatoreValoriSE(this);
 	}
 
 	@Override

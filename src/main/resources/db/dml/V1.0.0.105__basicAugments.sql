@@ -1,12 +1,33 @@
 -- https://ddowiki.com/page/Augment_Slot#Augment_Slot
 -- Augment Types
 insert into augment_type(name) values('Colorless');
+insert into augment_type_alias(alias, augment_type) values('Colorless Augment Slot: Empty', 'Colorless');
+insert into augment_type_alias(alias, augment_type) values('Colorless Augment Slot:', 'Colorless');
+insert into augment_type_alias(alias, augment_type) values('Colorless Augment Slot', 'Colorless');
 insert into augment_type(name) values('Blue');
+insert into augment_type_alias(alias, augment_type) values('Blue Augment Slot: Empty', 'Blue');
+insert into augment_type_alias(alias, augment_type) values('Blue Augment Slot:', 'Blue');
+insert into augment_type_alias(alias, augment_type) values('Blue Augment Slot', 'Blue');
 insert into augment_type(name) values('Yellow');
+insert into augment_type_alias(alias, augment_type) values('Yellow Augment Slot: Empty', 'Yellow');
+insert into augment_type_alias(alias, augment_type) values('Yellow Augment Slot:', 'Yellow');
+insert into augment_type_alias(alias, augment_type) values('Yellow Augment Slot', 'Yellow');
 insert into augment_type(name) values('Red');
+insert into augment_type_alias(alias, augment_type) values('Red Augment Slot: Empty', 'Red');
+insert into augment_type_alias(alias, augment_type) values('Red Augment Slot:', 'Red');
+insert into augment_type_alias(alias, augment_type) values('Red Augment Slot', 'Red');
 insert into augment_type(name) values('Green');
+insert into augment_type_alias(alias, augment_type) values('Green Augment Slot: Empty', 'Green');
+insert into augment_type_alias(alias, augment_type) values('Green Augment Slot:', 'Green');
+insert into augment_type_alias(alias, augment_type) values('Green Augment Slot', 'Green');
 insert into augment_type(name) values('Purple');
+insert into augment_type_alias(alias, augment_type) values('Purple Augment Slot: Empty', 'Purple');
+insert into augment_type_alias(alias, augment_type) values('Purple Augment Slot:', 'Purple');
+insert into augment_type_alias(alias, augment_type) values('Purple Augment Slot', 'Purple');
 insert into augment_type(name) values('Orange');
+insert into augment_type_alias(alias, augment_type) values('Orange Augment Slot: Empty', 'Orange');
+insert into augment_type_alias(alias, augment_type) values('Orange Augment Slot:', 'Orange');
+insert into augment_type_alias(alias, augment_type) values('Orange Augment Slot', 'Orange');
 -- Colorless
 -- stat +1 ml 1
 insert into augment(name, augment_type, ml) values('Diamond of Strength +1', 'Colorless', 1);

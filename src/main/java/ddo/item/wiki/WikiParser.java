@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 
 import ddo.item.entity.EItem;
 import ddo.item.entity.EItemEffects;
+import ddo.item.model.AugmentSlot;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
 import ddo.item.model.ItemType;
@@ -83,11 +84,19 @@ public class WikiParser {
 		entity.setName(item.getName());
 		entity.setSlot(item.getType());
 		entity.setMinimumLevel(item.getMinimumLevel());
+		// Aggiungo i set
 		Set<String> sets = new HashSet<>();
 		for (NamedSet ns :item.getSets()) {
 			sets.add(ns.getName());
 		}
 		entity.setSets(sets);
+		// Aggiungo gli augment
+		Set<String> augments = new HashSet<>();
+		for (AugmentSlot as :item.getAugments()) {
+			augments.add(as.getType());
+		}
+		entity.setAugments(augments);
+		// Salvo l'oggetto
 		itemRepository.save(entity);
 		for (Effect e : item.getEffects()) {
 			EItemEffects effect = new EItemEffects();

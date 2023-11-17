@@ -1,4 +1,4 @@
-package ddo.item;
+package test.ddo.item;
 
 import org.junit.jupiter.api.Test;
 

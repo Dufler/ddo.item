@@ -1,5 +1,7 @@
 package ddo.item.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,9 @@ import lombok.Data;
 @Entity
 @Table(name="effect_alias_list")
 @SequenceGenerator(name="effect_alias_list_sequence", initialValue = 1, allocationSize = 1)
-public class EEffectAliasList {
+public class EEffectAliasList implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column(name = "id")

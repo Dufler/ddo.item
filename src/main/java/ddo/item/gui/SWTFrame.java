@@ -229,6 +229,7 @@ public class SWTFrame {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				parseItems();
+				EquippedItems.getInstance().reloadData();
 				itemTable.aggiornaContenuto();
 			}
 		});

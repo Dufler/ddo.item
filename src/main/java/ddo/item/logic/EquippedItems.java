@@ -37,8 +37,8 @@ public class EquippedItems {
 	@Autowired private EItemRepository repositoryItems;
 	@Autowired private EItemEffectsRepository repositoryEffects;
 	
-	private final Set<String> effects = new HashSet<>();
-	private final Map<String, SelectedEffect> selectedEffects = new HashMap<>();
+	private final Set<String> effects;
+	private final Map<String, SelectedEffect> selectedEffects;
 	private final Map<String, Item> items;
 	private final Map<BodySlot, Item> equippedItems;
 	private final Set<AugmentSlot> augments;
@@ -53,6 +53,8 @@ public class EquippedItems {
 		for (BodySlot slot : BodySlot.values()) {
 			equippedItems.put(slot, null);
 		}
+		effects = new HashSet<>();
+		selectedEffects = new HashMap<>();
 		items = new HashMap<>();
 		augments = new HashSet<>();
 		// Di questo se ne occupa spring.
@@ -61,6 +63,13 @@ public class EquippedItems {
 	
 	public static EquippedItems getInstance() {
 		return singleton;
+	}
+	
+	public void reloadData() {
+		effects.clear();
+		items.clear();
+		augments.clear();
+		loadItems();
 	}
 	
 	@PostConstruct
@@ -73,15 +82,9 @@ public class EquippedItems {
 		List<EItemEffects> effectList = repositoryEffects.findAll();
 		for (EItemEffects e : effectList) {
 			Item i = items.get(e.getItemName());
-			// Se è un augment lo aggiungo alla lista opportuna, se invece è un effetto alla lista degli effetti
-			if (e.getEffect().equalsIgnoreCase("Augment Slot")) {
-				AugmentSlot augment = new AugmentSlot(i.getName(), e.getType());
-				i.addAugment(augment);
-			} else {
-				effects.add(e.getEffect());
-				Effect f = trasforma(e);
-				i.addEffect(f);
-			}
+			effects.add(e.getEffect());
+			Effect f = trasforma(e);
+			i.addEffect(f);
 		}
 	}
 	
@@ -99,6 +102,12 @@ public class EquippedItems {
 	
 	private Item trasforma(EItem e) {
 		Item i = new Item(e.getSlot(), e.getName());
+		// Non c'è bisogno di aggiungere i set, vengono aggiunti dopo dal SetManager al caricamento dei set.
+		// Aggiungo gli augment
+		for (String a : e.getAugments()) {
+			AugmentSlot as = new AugmentSlot(e.getName(), a);
+			i.addAugment(as);
+		}		
 		return i;
 	}
 	

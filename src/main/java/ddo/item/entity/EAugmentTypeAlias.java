@@ -11,19 +11,16 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="augment")
-public class EAugment implements Serializable {
+@Table(name="augment_type_alias")
+public class EAugmentTypeAlias implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@Column(name = "name")
-	private String name;
+	@Column(name = "alias")
+	private String alias;
 	
 	@Column(name = "augment_type")
 	private String type;
-	
-	@Column(name = "ml")
-	private Integer minimumLevel;
 
 }

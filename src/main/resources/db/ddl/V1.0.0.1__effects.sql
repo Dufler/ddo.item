@@ -15,7 +15,7 @@ create table effect_alias_list (
 	id numeric(10,0) not null,
 	effect_name varchar(200) not null,
 	effect varchar(100) not null,
-	effect_type varchar(20),
+	effect_type varchar(50),
 	effect_value numeric(4,0)
 );
 alter table effect_alias_list add constraint pk_effect_alias_list primary key (id);

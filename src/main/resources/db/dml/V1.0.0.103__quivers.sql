@@ -8,7 +8,7 @@ insert into item_effects (id, item_name, effect, effect_type, effect_value) valu
 insert into item_effects (id, item_name, effect, effect_type, effect_value) values (item_effects_sequence.nextval, 'Quiver of Alacrity', 'Striding', 'Enhancement', 30);
 insert into item_effects (id, item_name, effect, effect_type, effect_value) values (item_effects_sequence.nextval, 'Epic Quiver of Alacrity', 'Ranged Alacrity', 'Enhancement', 15);
 insert into item_effects (id, item_name, effect, effect_type, effect_value) values (item_effects_sequence.nextval, 'Epic Quiver of Alacrity', 'Distant Diversion', 'Insightful', 15);
-insert into item_effects (id, item_name, effect, effect_type, effect_value) values (item_effects_sequence.nextval, 'Epic Quiver of Alacrity', 'Sneak Attack Bonus', 'Insightful', 4);
+insert into item_effects (id, item_name, effect, effect_type, effect_value) values (item_effects_sequence.nextval, 'Epic Quiver of Alacrity', 'Deception', 'Insightful', 4);
 insert into item_effects (id, item_name, effect, effect_type, effect_value) values (item_effects_sequence.nextval, 'Epic Quiver of Alacrity', 'Doubleshot', 'Enhancement', 8);
 
 insert into item (name, slot, ml) values ('Quiver of Poison (ML 12)', 'QUIVER', 12);

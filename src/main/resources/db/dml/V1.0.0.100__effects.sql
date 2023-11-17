@@ -69,9 +69,9 @@ insert into effect(name, description) values ('Accuracy', '');
 insert into effect(name, description) values ('Deadly', '');
 insert into effect(name, description) values ('Dazing', '');
 insert into effect(name, description) values ('Stunning', '');
+insert into effect(name, description) values ('Deception', '');
 insert into effect(name, description) values ('Ranged Alacrity', 'Ranged attack speed');
 insert into effect(name, description) values ('Distant Diversion', 'ranged treath reduction');
-insert into effect(name, description) values ('Sneak Attack Bonus', 'bonus to hit and damage while sneak attacking');
 insert into effect(name, description) values ('Doubleshot', 'chanche to make another ranged attack');
 insert into effect(name, description) values ('Ranged Power', 'Increase the damage of ranged attacks');
 -- Guard

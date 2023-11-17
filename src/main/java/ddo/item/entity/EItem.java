@@ -39,5 +39,10 @@ public class EItem implements Serializable {
 	@CollectionTable(name = "named_set_item", joinColumns = @JoinColumn(name = "item_name"))
 	@Column(name = "set_name")
 	private Set<String> sets;
+	
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "item_augment", joinColumns = @JoinColumn(name = "item_name"))
+	@Column(name = "augment_type")
+	private Set<String> augments;
 
 }

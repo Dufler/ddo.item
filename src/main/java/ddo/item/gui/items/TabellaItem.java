@@ -30,7 +30,7 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 	protected void aggiungiColonne() {
 		aggiungiColonna("Name", 200, 0);
 		aggiungiColonna("Slot", 80, 1);
-		aggiungiColonna("Effetti", 300, 1);
+		aggiungiColonna("Effetti", 300, 2);
 	}
 
 	@Override
