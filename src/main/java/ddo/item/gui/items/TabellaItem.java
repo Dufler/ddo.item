@@ -6,13 +6,12 @@ import com.dufler.swt.utils.elements.Etichettatore;
 import com.dufler.swt.utils.elements.ModificatoreValoriCelle;
 import com.dufler.swt.utils.elements.Ordinatore;
 import com.dufler.swt.utils.elements.TabellaCheckBoxConFiltro;
-import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
 import ddo.item.logic.EquippedItems;
 import ddo.item.model.Item;
 
-public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggioSoloTesto> {
+public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggioItem> {
 	
 	private EquippedItems itemsManager = EquippedItems.getInstance();
 
@@ -22,7 +21,7 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 	}
 
 	@Override
-	protected FiltroTabella<Item, CriteriFiltraggioSoloTesto> creaFiltro() {
+	protected FiltroTabella<Item, CriteriFiltraggioItem> creaFiltro() {
 		return new FiltroEffetti();
 	}
 
@@ -64,11 +63,15 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 		
 	}
 	
-	private class FiltroEffetti extends FiltroTabella<Item, CriteriFiltraggioSoloTesto> {
+	private class FiltroEffetti extends FiltroTabella<Item, CriteriFiltraggioItem> {
 		
 		@Override
 		protected boolean checkElemento(Item item) {
-			return item.getName().toLowerCase().contains(criteri.getTesto().toLowerCase());
+			return checkSlot(item) && item.getName().toLowerCase().contains(criteri.getTesto());
+		}
+		
+		private boolean checkSlot(Item item) {
+			return criteri.getSlot() != null && criteri.getSlot() == item.getType().getSlot();
 		}
 		
 	}

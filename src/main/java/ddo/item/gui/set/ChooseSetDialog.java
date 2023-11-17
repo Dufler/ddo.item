@@ -1,4 +1,4 @@
-package ddo.item.gui.items;
+package ddo.item.gui.set;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyAdapter;
@@ -15,30 +15,29 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.dufler.swt.utils.input.ComboBox;
+import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 
-import ddo.item.logic.EquippedItems;
-import ddo.item.model.BodySlot;
-import ddo.item.model.Item;
+import ddo.item.logic.SetManager;
+import ddo.item.model.NamedSet;
 
 @Component
-public class ChooseItemDialog {
-		
-	protected Shell simpleShell;
-	private Text filterText;
-	private ComboBox<BodySlot> comboSlot;
-	private TabellaItem tabella;
+public class ChooseSetDialog {
 	
-	private BodySlot filterSlot;
+	@Autowired private SetManager setManager;
+	
+	protected Shell shlChooseEffects;
+	private Text filterText;
+	private TabellaSet tabella;
 	
 	/**
 	 * Create the dialog.
 	 * @param parent
 	 * @param style
 	 */
-	public ChooseItemDialog() {
+	public ChooseSetDialog() {
 		
 	}
 
@@ -46,13 +45,12 @@ public class ChooseItemDialog {
 	 * Open the dialog.
 	 * @return the result
 	 */
-	public void open(BodySlot slot) {
-		filterSlot = slot;
+	public void open() {
 		createContents();
-		simpleShell.open();
-		simpleShell.layout();
+		shlChooseEffects.open();
+		shlChooseEffects.layout();
 		Display display = Display.getDefault();
-		while (!simpleShell.isDisposed()) {
+		while (!shlChooseEffects.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
@@ -64,12 +62,12 @@ public class ChooseItemDialog {
 	 * @wbp.parser.entryPoint
 	 */
 	private void createContents() {
-		simpleShell = new Shell();
-		simpleShell.setText("Choose effects");
-		simpleShell.setSize(450, 300);
-		simpleShell.setLayout(new GridLayout(1, false));
+		shlChooseEffects = new Shell();
+		shlChooseEffects.setText("Choose Sets");
+		shlChooseEffects.setSize(450, 300);
+		shlChooseEffects.setLayout(new GridLayout(1, false));
 		
-		Composite filterComposite = new Composite(simpleShell, SWT.NONE);
+		Composite filterComposite = new Composite(shlChooseEffects, SWT.NONE);
 		filterComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		filterComposite.setLayout(new RowLayout(SWT.HORIZONTAL));
 		
@@ -80,40 +78,29 @@ public class ChooseItemDialog {
 		filterText.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				CriteriFiltraggioItem c = new CriteriFiltraggioItem(filterText.getText().toLowerCase(), comboSlot.getSelectedValue());
+				CriteriFiltraggioSoloTesto c = new CriteriFiltraggioSoloTesto(filterText.getText());
 				tabella.filtra(c);
 			}
 		});
 		filterText.setLayoutData(new RowData(100, SWT.DEFAULT));
-		
-		comboSlot = new ComboBox<BodySlot>(filterComposite);
-		comboSlot.setItems(BodySlot.values());
-		comboSlot.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				CriteriFiltraggioItem c = new CriteriFiltraggioItem(filterText.getText().toLowerCase(), comboSlot.getSelectedValue());
-				tabella.filtra(c);
-			}
-		});
 		
 		Button btnClear = new Button(filterComposite, SWT.NONE);
 		btnClear.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				filterText.setText("");
-				comboSlot.setSelectedValue(null);
 				tabella.annullaFiltro();
 			}
 		});
 		btnClear.setText("clear");
 		
-		Composite effectsComposite = new Composite(simpleShell, SWT.NONE);
+		Composite effectsComposite = new Composite(shlChooseEffects, SWT.NONE);
 		effectsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		effectsComposite.setLayout(new GridLayout(1, false));
 		
-		tabella = new TabellaItem(effectsComposite);
+		tabella = new TabellaSet(effectsComposite);
 		
-		Composite buttonComposite = new Composite(simpleShell, SWT.NONE);
+		Composite buttonComposite = new Composite(shlChooseEffects, SWT.NONE);
 		buttonComposite.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		buttonComposite.setBounds(0, 0, 64, 64);
 		buttonComposite.setLayout(new RowLayout(SWT.HORIZONTAL));
@@ -122,11 +109,16 @@ public class ChooseItemDialog {
 		okButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Item item = tabella.getRigaSelezionata();
-				if (item != null) {
-					EquippedItems.getInstance().equip(item.getType().getSlot(), item);
+				for (NamedSet ns : tabella.getRigheSelezionate()) {
+					if (!setManager.getSelectedSet().containsKey(ns.getName())) {
+						SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
+						ss.setActualNumberOfPieces(0);
+						ss.getEffects().addAll(ns.getEffects());
+						ss.setUserSelected(true);
+						setManager.getSelectedSet().put(ns.getName(), ss);
+					}
 				}
-				simpleShell.close();
+				shlChooseEffects.close();
 			}
 		});
 		okButton.setText("Ok");
@@ -135,14 +127,11 @@ public class ChooseItemDialog {
 		cancelButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				simpleShell.close();
+				shlChooseEffects.close();
 			}
 		});
 		cancelButton.setText("Cancel");
 		
-		if (filterSlot != null) {
-			comboSlot.setSelectedValue(filterSlot);
-		}
 	}	
-	
+
 }

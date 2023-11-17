@@ -1,23 +1,24 @@
 package ddo.item.model;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import lombok.Data;
 
 @Data
-public class Effect {
+public class NamedSet {
 	
 	private String name;
-	private String type;
-	private Integer value;
+	private final Set<Item> items;
+	private final Set<Effect> effects;
+	private int pieces;
 	
-	@Override
-	public String toString() {
-		String t = type != null ? String.format("%s ", type) : "";
-		String v = value != null ? String.format(" %d", value) : "";
-		return String.format("%s%s%s", t, name, v);
+	public NamedSet() {
+		items = new HashSet<>();
+		effects = new HashSet<>();
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -26,13 +27,18 @@ public class Effect {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Effect other = (Effect) obj;
+		NamedSet other = (NamedSet) obj;
 		return Objects.equals(name, other.name);
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(name);
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
+
 }

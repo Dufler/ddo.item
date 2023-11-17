@@ -1,9 +1,11 @@
 package ddo.item.wiki;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -19,6 +21,7 @@ import ddo.item.entity.EItemEffects;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
 import ddo.item.model.ItemType;
+import ddo.item.model.NamedSet;
 import ddo.item.repository.EItemEffectsRepository;
 import ddo.item.repository.EItemRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -80,6 +83,11 @@ public class WikiParser {
 		entity.setName(item.getName());
 		entity.setSlot(item.getType());
 		entity.setMinimumLevel(item.getMinimumLevel());
+		Set<String> sets = new HashSet<>();
+		for (NamedSet ns :item.getSets()) {
+			sets.add(ns.getName());
+		}
+		entity.setSets(sets);
 		itemRepository.save(entity);
 		for (Effect e : item.getEffects()) {
 			EItemEffects effect = new EItemEffects();

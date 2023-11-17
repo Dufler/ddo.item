@@ -1,0 +1,2 @@
+-- https://ddowiki.com/page/Named_item_sets
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Seasons of the Feywild', 'Hit Points', 'artifact', 10);

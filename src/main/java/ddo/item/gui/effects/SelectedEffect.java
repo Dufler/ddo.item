@@ -12,6 +12,8 @@ public class SelectedEffect {
 	private String name;
 	private final Map<String, Integer> bonuses = new HashMap<>();
 	
+	private boolean userSelected;
+	
 	public int getTotalBonus() {
 		int total = 0;
 		for (Integer i : bonuses.values()) {

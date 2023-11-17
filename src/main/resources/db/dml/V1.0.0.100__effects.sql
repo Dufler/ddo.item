@@ -83,6 +83,9 @@ insert into effect(name, description) values ('Reflex Save', '');
 insert into effect(name, description) values ('Will Save', '');
 insert into effect(name, description) values ('Fortitude Save', '');
 
+insert into effect(name, description) values ('Physical Sheltering', '');
+insert into effect(name, description) values ('Magical Sheltering', '');
+
 
 insert into effect(name, description) values ('Venomed Ammunition', 'Adds venom damage to ranged attacks');
 insert into effect(name, description) values ('Arrow Spitting', 'Creates ammunition randomly');

@@ -6,6 +6,7 @@ import org.eclipse.swt.graphics.Image;
 
 import com.dufler.swt.utils.elements.Etichettatore;
 
+import ddo.item.model.AugmentSlot;
 import ddo.item.model.BodySlot;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
@@ -19,6 +20,7 @@ public class EtichettatoreEntry extends Etichettatore<Entry<BodySlot, Item>> {
 			case 0 : testo = oggetto.getKey().toString(); break;
 			case 1 : testo = oggetto.getValue() != null ? oggetto.getValue().getName() : "<equip something!>"; break;
 			case 2 : testo = getDescrizioneEffetti(oggetto.getValue()); break;
+			case 3 : testo = getDescrizioneAugments(oggetto.getValue()); break;
 		}
 		return testo;
 	}
@@ -37,6 +39,18 @@ public class EtichettatoreEntry extends Etichettatore<Entry<BodySlot, Item>> {
 		StringBuilder sb = new StringBuilder();
 		if (oggetto != null) for (Effect e : oggetto.getEffects()) {
 			sb.append(e.toString());
+			sb.append(", ");
+		}
+		if (sb.length() >= 2) {
+			sb.delete(sb.length() - 2, sb.length());
+		}
+		return sb.toString();
+	}
+	
+	private String getDescrizioneAugments(Item oggetto) {
+		StringBuilder sb = new StringBuilder();
+		if (oggetto != null) for (AugmentSlot a: oggetto.getAugments()) {
+			sb.append(a.toString());
 			sb.append(", ");
 		}
 		if (sb.length() >= 2) {

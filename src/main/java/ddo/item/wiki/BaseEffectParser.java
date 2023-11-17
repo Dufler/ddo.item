@@ -18,6 +18,7 @@ import ddo.item.entity.ESet;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
 import ddo.item.model.ItemType;
+import ddo.item.model.NamedSet;
 import ddo.item.repository.EEffectAliasListRepository;
 import ddo.item.repository.ESetRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -79,7 +80,7 @@ public class BaseEffectParser extends AItemParser {
 			}
 		}
 		// Creo il nuovo oggetto sul current e lo aggiungo alla lista
-		currentItem = new Item(slot, titolo);
+		currentItem = new Item(slot, titolo);		
 	}
 	
 	private void parseEffects(Element e, ItemType type) {
@@ -97,9 +98,43 @@ public class BaseEffectParser extends AItemParser {
 				log.error(exception.getMessage(), exception);
 				effect = String.format("%s", li.text());
 			}
-			
-			parseEffect(effect);
+			// Verifico se è un set
+			if (isSet(effect)) {
+				saveSetItem(effect);
+			} else if (isAugument(effect)) {
+				addAugment(effect);
+			} else {
+				parseEffect(effect);
+			}
 		}
+	}
+	
+	private boolean isAugument(String effect) {
+		return effect.contains("Augment Slot");
+	}
+	
+	private boolean isSet(String effect) {
+		Optional<ESet> oset = setRepository.findById(effect);
+		return oset.isPresent();
+	}
+	
+	private void saveSetItem(String setName) {
+		NamedSet ns = new NamedSet();
+		ns.setName(setName);
+		currentItem.addSet(ns);
+	}
+	
+	private void addAugment(String augment) {
+		String augmentType = augment.replace("Augment Slot", "").trim();
+		augmentType = augmentType.replace(":", "").trim();
+		if (augmentType.contains("Slaver")) {
+			augmentType = "Green";
+		}
+		Effect effect = new Effect();
+		effect.setName("Augment Slot");
+		effect.setType(augmentType);
+		effect.setValue(null);
+		currentItem.addEffect(effect);
 	}
 	
 	private void parseMinimumLevel(Element e) {
@@ -131,11 +166,7 @@ public class BaseEffectParser extends AItemParser {
 	
 	private void parseEffect(String effectDescription) {
 		String bonusType;
-		// Verifico se è un set
-		Optional<ESet> oset = setRepository.findById(effectDescription);
-		if (oset.isPresent()) {
-			bonusType = "Set";
-		} else if (effectDescription.matches("Sacred \\+\\d{1,2}")) {
+		if (effectDescription.matches("Sacred \\+\\d{1,2}")) {
 			// E' proprio l'effetto sacred, non il tipo di bonus
 			bonusType = "Enhancement";
 		} else {

@@ -95,7 +95,6 @@ public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriF
 
 		@Override
 		public Image getIcona(SelectedEffect oggetto, int colonna) {
-			// TODO Auto-generated method stub
 			return null;
 		}
 		
@@ -120,7 +119,5 @@ public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriF
 	protected boolean eliminaElemento(SelectedEffect elemento) {
 		return effectsManager.getSelectedEffects().remove(elemento.getName()) != null;
 	}
-
-
 
 }
