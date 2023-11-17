@@ -9,6 +9,7 @@ import com.dufler.swt.utils.elements.TabellaCheckBoxConFiltro;
 import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
 import ddo.item.logic.EquippedItems;
+import ddo.item.model.BodySlot;
 import ddo.item.model.Item;
 
 public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggioItem> {
@@ -71,7 +72,16 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 		}
 		
 		private boolean checkSlot(Item item) {
-			return criteri.getSlot() != null && criteri.getSlot() == item.getType().getSlot();
+			boolean check = false;
+			if (criteri.getSlot() != null) {
+				for (BodySlot bs : item.getType().getSlot()) {
+					if (bs == criteri.getSlot()) {
+						check = true;
+						break;
+					}
+				}
+			}
+			return check;
 		}
 		
 	}

@@ -49,6 +49,7 @@ public class TabellaSelectedSets extends TabellaCRUD<SelectedSet, CriteriFiltrag
 	protected void aggiungiColonne() {
 		aggiungiColonna("Name", 150, 0);
 		aggiungiColonna("Pieces", 100, 1);
+		aggiungiColonna("Selected", 50, 2);
 	}
 	
 	@Override
@@ -93,6 +94,7 @@ public class TabellaSelectedSets extends TabellaCRUD<SelectedSet, CriteriFiltrag
 			switch (colonna) {
 				case 0 : testo = oggetto.getName(); break;
 				case 1 : testo = String.format("%d/%d", oggetto.getActualNumberOfPieces(), oggetto.getMaxNumberOfPieces()); break;
+				case 2 : testo = oggetto.isUserSelected() ? "Yes" : "No"; break;
 				default : testo = "";
 			}
 			return testo;

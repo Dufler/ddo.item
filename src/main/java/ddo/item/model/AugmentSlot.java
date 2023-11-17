@@ -9,10 +9,10 @@ import lombok.Data;
 public class AugmentSlot {
 	
 	private final String item;
-	private final AugmentType type;
+	private final String type;
 	private final Set<Effect> effects;
 	
-	public AugmentSlot(String item, AugmentType type) {
+	public AugmentSlot(String item, String type) {
 		this.item = item;
 		this.type = type;
 		this.effects = new HashSet<>();

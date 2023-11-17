@@ -91,6 +91,11 @@ public class SWTFrame {
 		addTabItems();
 		
 		tabFolder.pack();
+		
+		// Aggiungo i riferimenti al manager
+		equippedItems.setEffectTable(effectsTable);
+		equippedItems.setItemTable(equipmentTable);
+		equippedItems.setSetsTable(setsTable);
 	}
 	
 	private void addTabOptimizer() {
@@ -124,10 +129,9 @@ public class SWTFrame {
 		btnAddEffect.setText("Add Effect");
 		
 		effectsTable = new TabellaSelectedEffects(compositeEffects);
-		refreshEffectsTable();
 		
 		Composite compositeEquipment = new Composite(compositeOptimizer, SWT.NONE);
-		compositeEquipment.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		compositeEquipment.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2));
 		compositeEquipment.setLayout(new GridLayout(1, false));
 		compositeEquipment.setBounds(0, 0, 64, 64);
 		
@@ -150,7 +154,7 @@ public class SWTFrame {
 		equipmentTable = new TabellaEquippedItems(compositeEquipment);
 		
 		Composite compositeSet = new Composite(compositeOptimizer, SWT.NONE);
-		compositeSet.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		compositeSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		compositeSet.setLayout(new GridLayout(1, false));
 		
 		Composite compositeSetControl = new Composite(compositeSet, SWT.NONE);
@@ -239,27 +243,16 @@ public class SWTFrame {
 	
 	private void addEffect() {
 		dialogChooseEffects.open();
-		refreshEffectsTable();		
+		effectsTable.aggiornaContenuto();	
 	}
 	
 	private void addItem() {
 		dialogChooseItem.open(null);
-		refreshEquippedItemsTable();
-		refreshEffectsTable();
+		equipmentTable.aggiornaContenuto();
 	}
 	
 	private void addSet() {
 		dialogChooseSet.open();
-		setsTable.aggiornaContenuto();
-	}
-	
-	private void refreshEffectsTable() {
-		effectsTable.setElementi(equippedItems.getSelectedEffects().values());
-	}
-	
-	private void refreshEquippedItemsTable() {
-		equipmentTable.setElementi(equippedItems.getEquippedItems().entrySet());
-		setManager.updateSelectedSet();
 		setsTable.aggiornaContenuto();
 	}
 	

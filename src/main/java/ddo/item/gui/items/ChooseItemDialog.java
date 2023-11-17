@@ -124,7 +124,8 @@ public class ChooseItemDialog {
 			public void widgetSelected(SelectionEvent e) {
 				Item item = tabella.getRigaSelezionata();
 				if (item != null) {
-					EquippedItems.getInstance().equip(item.getType().getSlot(), item);
+					BodySlot bs = filterSlot != null ? filterSlot : item.getType().getSlot()[0]; 
+					EquippedItems.getInstance().equip(bs, item);
 				}
 				simpleShell.close();
 			}

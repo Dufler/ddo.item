@@ -1,5 +1,7 @@
 package ddo.item.gui.effects;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map.Entry;
 
 import org.eclipse.swt.graphics.Image;
@@ -27,6 +29,13 @@ public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriF
 	protected void aggiungiColonne() {
 		aggiungiColonna("Effect", 200, 0);
 		aggiungiColonna("Total Bonus", 300, 1);
+		aggiungiColonna("Selected", 50, 2);
+		aggiungiColonna("Priority", 50, 3);
+	}
+	
+	@Override
+	protected Collection<SelectedEffect> elaboraContenutoInAutonomia() {
+		return EquippedItems.getInstance() != null ? EquippedItems.getInstance().getSelectedEffects().values() : Collections.emptyList();
 	}
 
 	@Override
@@ -66,6 +75,9 @@ public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriF
 			switch (colonna) {
 				case 0 : testo = oggetto.getName(); break;
 				case 1 : testo = Integer.toString(oggetto.getTotalBonus()); break;
+				case 2 : testo = oggetto.isUserSelected() ? "Yes" : "No"; break;
+				case 3 : testo = oggetto.getPriority() != null ? Integer.toString(oggetto.getPriority()) : ""; break;
+				default : testo = "NA";
 			}
 			return testo;
 		}
@@ -76,6 +88,9 @@ public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriF
 			switch (colonna) {
 				case 0 : testo = oggetto.getName(); break;
 				case 1 : testo = getDescrizione(oggetto); break;
+				case 2 : testo = oggetto.isUserSelected() ? "Yes" : "No"; break;
+				case 3 : testo = oggetto.getPriority() != null ? Integer.toString(oggetto.getPriority()) : ""; break;
+				default : testo = "NA";
 			}
 			return testo;
 		}

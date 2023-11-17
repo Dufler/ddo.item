@@ -18,9 +18,11 @@ import org.springframework.stereotype.Component;
 import ddo.item.entity.EItem;
 import ddo.item.entity.EItemEffects;
 import ddo.item.gui.effects.SelectedEffect;
+import ddo.item.gui.effects.TabellaSelectedEffects;
+import ddo.item.gui.items.TabellaEquippedItems;
 import ddo.item.gui.set.SelectedSet;
+import ddo.item.gui.set.TabellaSelectedSets;
 import ddo.item.model.AugmentSlot;
-import ddo.item.model.AugmentType;
 import ddo.item.model.BodySlot;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
@@ -40,6 +42,11 @@ public class EquippedItems {
 	private final Map<String, Item> items;
 	private final Map<BodySlot, Item> equippedItems;
 	private final Set<AugmentSlot> augments;
+	
+	// Tabelle da aggiornare
+	private TabellaSelectedEffects tableEffects;
+	private TabellaSelectedSets tableSets;
+	private TabellaEquippedItems tableItems;
 	
 	private EquippedItems() {
 		equippedItems = new HashMap<>();
@@ -68,7 +75,7 @@ public class EquippedItems {
 			Item i = items.get(e.getItemName());
 			// Se è un augment lo aggiungo alla lista opportuna, se invece è un effetto alla lista degli effetti
 			if (e.getEffect().equalsIgnoreCase("Augment Slot")) {
-				AugmentSlot augment = new AugmentSlot(i.getName(), AugmentType.valueOf(e.getType()));
+				AugmentSlot augment = new AugmentSlot(i.getName(), e.getType());
 				i.addAugment(augment);
 			} else {
 				effects.add(e.getEffect());
@@ -76,6 +83,18 @@ public class EquippedItems {
 				i.addEffect(f);
 			}
 		}
+	}
+	
+	public void setItemTable(TabellaEquippedItems t) {
+		tableItems = t;
+	}
+	
+	public void setEffectTable(TabellaSelectedEffects t) {
+		tableEffects = t;
+	}
+	
+	public void setSetsTable(TabellaSelectedSets t) {
+		tableSets = t;
 	}
 	
 	private Item trasforma(EItem e) {
@@ -105,7 +124,7 @@ public class EquippedItems {
 		// Aggiorno i bonus
 		updateSelectedEffects();
 	}
-	
+
 	public void updateSelectedEffects() {
 		// resetto la mappa degli effetti lasciando solo quelli selezionati dall'utente
 		clearEffectsNotSelectedbyUser();
@@ -136,6 +155,14 @@ public class EquippedItems {
 				}
 			}
 		}
+		// refresho le tabelle
+		refreshTables();
+	}
+	
+	private void refreshTables() {
+		tableEffects.aggiornaContenuto();
+		tableItems.aggiornaContenuto();
+		tableSets.aggiornaContenuto();
 	}
 	
 	private void clearEffectsNotSelectedbyUser() {

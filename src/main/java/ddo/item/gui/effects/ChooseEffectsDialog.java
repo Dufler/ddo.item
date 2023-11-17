@@ -112,6 +112,7 @@ public class ChooseEffectsDialog {
 					if (!effectsManager.getSelectedEffects().containsKey(effect)) {
 						SelectedEffect se = new SelectedEffect();
 						se.setName(effect);
+						se.setUserSelected(true);
 						effectsManager.getSelectedEffects().put(effect, se);
 					}
 				}

@@ -13,7 +13,7 @@ public class Effect {
 	
 	@Override
 	public String toString() {
-		String t = type != null ? String.format("%s ", type) : "";
+		String t = type != null && !type.equalsIgnoreCase("Enhancement") ? String.format("%s ", type) : "";
 		String v = value != null ? String.format(" %d", value) : "";
 		return String.format("%s%s%s", t, name, v);
 	}

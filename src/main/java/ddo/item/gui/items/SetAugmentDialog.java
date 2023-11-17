@@ -22,6 +22,7 @@ import org.eclipse.swt.widgets.Text;
 import com.dufler.swt.utils.input.ComboBox;
 
 import ddo.item.logic.AugmentManager;
+import ddo.item.logic.EquippedItems;
 import ddo.item.model.Augment;
 import ddo.item.model.AugmentSlot;
 import ddo.item.model.Effect;
@@ -110,12 +111,12 @@ public class SetAugmentDialog {
 	    	AugmentSlot as = (AugmentSlot) items[i].getData();
 	    	TableEditor editorType = new TableEditor(table);
 		    Text textType = new Text(table, SWT.NONE);
-		    textType.setText(as.getType().name());
+		    textType.setText(as.getType());
 		    editorType.grabHorizontal = true;
 		    editorType.setEditor(textType, items[i], 0);
 		    TableEditor editorCombo = new TableEditor(table);
 		    ComboAugment combo = new ComboAugment(table);
-		    combo.setItems(AugmentManager.getInstance().getAugmentForType(as.getType().name()));
+		    combo.setItems(AugmentManager.getInstance().getAugmentForType(as.getType()));
 		    combo.addSelectionListener(new SelectionListener() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
@@ -150,6 +151,7 @@ public class SetAugmentDialog {
 		btnOk.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				EquippedItems.getInstance().updateSelectedEffects();
 				simpleShell.close();
 			}
 		});

@@ -1,5 +1,7 @@
 package ddo.item.gui.items;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map.Entry;
 
 import org.eclipse.swt.SWT;
@@ -17,6 +19,7 @@ import com.dufler.swt.utils.elements.Tabella;
 import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
+import ddo.item.logic.EquippedItems;
 import ddo.item.model.BodySlot;
 import ddo.item.model.Item;
 
@@ -35,6 +38,11 @@ public class TabellaEquippedItems extends Tabella<Entry<BodySlot, Item>, Criteri
 		aggiungiColonna("Item", 200, 1);
 		aggiungiColonna("Effects", 300, 2);
 		aggiungiColonna("Augments", 300, 3);
+	}
+	
+	@Override
+	protected Collection<Entry<BodySlot, Item>> elaboraContenutoInAutonomia() {
+		return EquippedItems.getInstance() != null ? EquippedItems.getInstance().getEquippedItems().entrySet() : Collections.emptyList();
 	}
 
 	@Override

@@ -13,6 +13,7 @@ public class SelectedEffect {
 	private final Map<String, Integer> bonuses = new HashMap<>();
 	
 	private boolean userSelected;
+	private Integer priority;
 	
 	public int getTotalBonus() {
 		int total = 0;
