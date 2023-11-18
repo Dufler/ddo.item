@@ -35,6 +35,7 @@ public class WikiParser {
 	@Autowired private EItemEffectsRepository effectsRepository;
 	
 	@Autowired private BaseEffectParser baseParser;
+	@Autowired private ArmorEffectParser armorParser;
 	
 	private List<Item> items;
 	
@@ -57,6 +58,7 @@ public class WikiParser {
 	private void parseTable(Element table, ItemType type) {
 		Elements rows = table.children().select("tr");
 		switch (type) {
+			case ARMOR_CLOTH : case ARMOR_LIGHT : case ARMOR_MEDIUM : case ARMOR_HEAVY : items = armorParser.parseRows(rows, type); break;
 			default : items = baseParser.parseRows(rows, type); break;
 		}
 		log.info(String.format("Trovati %d oggetti per la categoria %s", items.size(), type));
