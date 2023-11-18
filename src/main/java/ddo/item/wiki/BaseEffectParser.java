@@ -1,19 +1,13 @@
 package ddo.item.wiki;
 
-import java.util.List;
 import java.util.ListIterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Component;
 
-import ddo.item.entity.EEffectAliasList;
-import ddo.item.model.Effect;
 import ddo.item.model.Item;
 import ddo.item.model.ItemType;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Base parser good for most item types. It expects that the row has 6 cells:
@@ -25,7 +19,6 @@ import lombok.extern.slf4j.Slf4j;
  *  6 - chest
  */
 @Component
-@Slf4j
 public class BaseEffectParser extends AItemParser {
 	
 	@Override

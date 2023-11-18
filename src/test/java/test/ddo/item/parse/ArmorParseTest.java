@@ -1,5 +1,8 @@
 package test.ddo.item.parse;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -12,14 +15,9 @@ import ddo.item.entity.EItem;
 import ddo.item.model.ItemType;
 import ddo.item.repository.EItemRepository;
 import ddo.item.wiki.WikiParser;
-import lombok.extern.slf4j.Slf4j;
 import test.ddo.item.TestConfiguration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 @SpringBootTest(classes = TestConfiguration.class)
-@Slf4j
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class ArmorParseTest {
 	
@@ -71,9 +69,6 @@ public class ArmorParseTest {
 		String resource = String.format("src/main/resources/pages/%s.html", type.name().toLowerCase());
 		wp.updateItems(resource, type);
 		items = itemRepository.findAll();
-		for (EItem i : items) {
-			log.info(i.toString());
-		}
 		assertEquals(181, items.size());
 	}
 
