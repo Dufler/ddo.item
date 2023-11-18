@@ -1,0 +1,1 @@
+java -jar ddo.item-1.0.0.jar
