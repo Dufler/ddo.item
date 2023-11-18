@@ -36,6 +36,7 @@ public class WikiParser {
 	
 	@Autowired private BaseEffectParser baseParser;
 	@Autowired private ArmorEffectParser armorParser;
+	@Autowired private WeaponEffectParser weaponParser;
 	
 	private List<Item> items;
 	
@@ -58,7 +59,63 @@ public class WikiParser {
 	private void parseTable(Element table, ItemType type) {
 		Elements rows = table.children().select("tr");
 		switch (type) {
-			case ARMOR_CLOTH : case ARMOR_LIGHT : case ARMOR_MEDIUM : case ARMOR_HEAVY : items = armorParser.parseRows(rows, type); break;
+			// Armors
+			case ARMOR_CLOTH : 
+			case ARMOR_LIGHT : 
+			case ARMOR_MEDIUM : 
+			case ARMOR_HEAVY : items = armorParser.parseRows(rows, type); break;
+			// Simple Weapons
+			case CLUB : 
+			case QUARTERSTAFF : 
+			case DAGGER : 
+			case SICKLE : 
+			case MORNINGSTAR :
+			case LIGHTMACE : 
+			case HEAVYMACE : 
+			case LIGHTCROSSBOW : 
+			case HEAVYCROSSBOW : items = weaponParser.parseRows(rows, type); break;
+			// Martial Weapons
+			case HANDAXE :
+			case BATTLEAXE :
+			case GREATAXE :
+			case KUKRI :
+			case SHORTSWORD :
+			case LONGSWORD :
+			case GREATSWORD :
+			case SCIMITAR :
+			case FALCHION :
+			case RAPIER : 
+			case LIGHTPICK :
+			case HEAVYPICK :
+			case LIGHTHAMMER :
+			case WARHAMMER :
+			case MAUL :
+			case GREATCLUB :
+			case SHORTBOW :
+			case LONGBOW : items = weaponParser.parseRows(rows, type); break;
+			// Exotic Weapons
+			case BASTARDSWORD :
+			case DWARVENWARAXE :
+			case KAMA :
+			case KHOPESH :
+			case HANDWRAPS :
+			case RUNEARM :
+			case GREATCROSSBOW :
+			case REPEATINGLIGHTCROSSBOW :
+			case REPEATINGHEAVYCROSSBOW : items = weaponParser.parseRows(rows, type); break;
+			// Throwing weapons
+			case THROWINGAXE :
+			case THROWINGHAMMER :
+			case THROWINGDAGGER :
+			case DART :
+			case SHURIKEN : items = weaponParser.parseRows(rows, type); break;
+			// Shields and orbs
+			case BUCKLER :
+			case SMALLSHIELD :
+			case LARGESHIELD :
+			case TOWERSHIELD :
+			case ORB : items = weaponParser.parseRows(rows, type); break;
+			// The rest
 			default : items = baseParser.parseRows(rows, type); break;
 		}
 		log.info(String.format("Trovati %d oggetti per la categoria %s", items.size(), type));
