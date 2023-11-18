@@ -18,6 +18,7 @@ import org.eclipse.swt.widgets.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.dufler.swt.utils.dialog.DialogMessaggio;
 import com.dufler.swt.utils.input.ComboBox;
 
 import ddo.item.gui.effects.ChooseEffectsDialog;
@@ -50,6 +51,8 @@ public class SWTFrame {
 	protected Shell shlDdoGearOptimizer;
 	
 	private TabFolder tabFolder;
+	
+	private Composite compositeOptimizer;
 	
 	private TabellaSelectedEffects effectsTable;
 	private TabellaEquippedItems equipmentTable;
@@ -102,10 +105,97 @@ public class SWTFrame {
 		TabItem tabOptimizer = new TabItem(tabFolder, SWT.NONE);
 		tabOptimizer.setText("Optimizer");
 		
-		Composite compositeOptimizer = new Composite(tabFolder, SWT.NONE);
+		compositeOptimizer = new Composite(tabFolder, SWT.NONE);
 		tabOptimizer.setControl(compositeOptimizer);
 		compositeOptimizer.setLayout(new GridLayout(2, false));
 		
+		addCompositeUserFunctions();
+		
+		addCompositeEffects();
+		
+		addCompositeEquipment();
+		
+		addCompositeSet();
+	}
+	
+	private void addCompositeUserFunctions() {
+		Composite compositeUserFunctions = new Composite(compositeOptimizer, SWT.NONE);
+		compositeUserFunctions.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+		compositeUserFunctions.setLayout(new GridLayout(4, false));
+		
+		Button btnBuildSetup = new Button(compositeUserFunctions, SWT.NONE);
+		btnBuildSetup.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String message = "This button will open a wizard that will let you choose a basic setup for your build (e.g. melee, ranged, DC caster, ...)\r\nThose info will be used to optmize gear selection.";
+				DialogMessaggio m = new DialogMessaggio(shlDdoGearOptimizer, "Build Setup Wizard", null, message, DialogMessaggio.INFORMATION, 0, "Ok");
+				m.open();
+			}
+		});
+		btnBuildSetup.setBounds(0, 0, 75, 25);
+		btnBuildSetup.setText("Build Setup");
+		
+		Button btnOptimize = new Button(compositeUserFunctions, SWT.NONE);
+		btnOptimize.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String message = "This button will start a process of automatic gear selection.";
+				DialogMessaggio m = new DialogMessaggio(shlDdoGearOptimizer, "Build Optimization", null, message, DialogMessaggio.INFORMATION, 0, "Ok");
+				m.open();
+			}
+		});
+		btnOptimize.setBounds(0, 0, 75, 25);
+		btnOptimize.setText("Optimize");
+		
+		Button btnSave = new Button(compositeUserFunctions, SWT.NONE);
+		btnSave.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String message = "On next release.";
+				DialogMessaggio m = new DialogMessaggio(shlDdoGearOptimizer, "Save", null, message, DialogMessaggio.INFORMATION, 0, "Ok");
+				m.open();
+			}
+		});
+		btnSave.setText("Save");
+		
+		Button btnLoad = new Button(compositeUserFunctions, SWT.NONE);
+		btnLoad.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String message = "On next release.";
+				DialogMessaggio m = new DialogMessaggio(shlDdoGearOptimizer, "Load", null, message, DialogMessaggio.INFORMATION, 0, "Ok");
+				m.open();
+			}
+		});
+		btnLoad.setText("Load");
+	}
+	
+	private void addCompositeEquipment() {
+		Composite compositeEquipment = new Composite(compositeOptimizer, SWT.NONE);
+		compositeEquipment.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2));
+		compositeEquipment.setLayout(new GridLayout(1, false));
+		compositeEquipment.setBounds(0, 0, 64, 64);
+		
+		Composite compositeControlEquipment = new Composite(compositeEquipment, SWT.NONE);
+		compositeControlEquipment.setLayout(new GridLayout(2, false));
+		compositeControlEquipment.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		Label equipmentLabel = new Label(compositeControlEquipment, SWT.NONE);
+		equipmentLabel.setText("Equipment");
+		
+		Button btnAddEquip = new Button(compositeControlEquipment, SWT.NONE);
+		btnAddEquip.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				addItem();
+			}
+		});
+		btnAddEquip.setText("Add Item");
+		
+		equipmentTable = new TabellaEquippedItems(compositeEquipment);
+	}
+	
+	private void addCompositeEffects() {
 		Composite compositeEffects = new Composite(compositeOptimizer, SWT.NONE);
 		compositeEffects.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		compositeEffects.setLayout(new GridLayout(1, false));
@@ -129,36 +219,15 @@ public class SWTFrame {
 		btnAddEffect.setText("Add Effect");
 		
 		effectsTable = new TabellaSelectedEffects(compositeEffects);
-		
-		Composite compositeEquipment = new Composite(compositeOptimizer, SWT.NONE);
-		compositeEquipment.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2));
-		compositeEquipment.setLayout(new GridLayout(1, false));
-		compositeEquipment.setBounds(0, 0, 64, 64);
-		
-		Composite compositeControlEquipment = new Composite(compositeEquipment, SWT.NONE);
-		compositeControlEquipment.setLayout(new GridLayout(2, false));
-		compositeControlEquipment.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label equipmentLabel = new Label(compositeControlEquipment, SWT.NONE);
-		equipmentLabel.setText("Equipment");
-		
-		Button btnAddEquip = new Button(compositeControlEquipment, SWT.NONE);
-		btnAddEquip.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				addItem();
-			}
-		});
-		btnAddEquip.setText("Add Item");
-		
-		equipmentTable = new TabellaEquippedItems(compositeEquipment);
-		
+	}
+	
+	private void addCompositeSet() {
 		Composite compositeSet = new Composite(compositeOptimizer, SWT.NONE);
-		compositeSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		compositeSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		compositeSet.setLayout(new GridLayout(1, false));
 		
 		Composite compositeSetControl = new Composite(compositeSet, SWT.NONE);
-		compositeSetControl.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
+		compositeSetControl.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		compositeSetControl.setLayout(new GridLayout(2, false));
 		
 		Label lblSet = new Label(compositeSetControl, SWT.NONE);
@@ -172,7 +241,6 @@ public class SWTFrame {
 			}
 		});
 		btnAddSet.setText("Add Set");
-		new Label(compositeOptimizer, SWT.NONE);
 		
 		setsTable = new TabellaSelectedSets(compositeSet);
 	}
@@ -234,6 +302,7 @@ public class SWTFrame {
 			}
 		});
 		btnReloadItem.setText("Update Items Database");
+		//btnReloadItem.setEnabled(false);
 		
 		Composite compositeItemTable = new Composite(compositeItems, SWT.NONE);
 		compositeItemTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));

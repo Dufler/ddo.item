@@ -618,6 +618,12 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Sheltering', 'Magical Sheltering', NULL, NULL);
 insert into effect_alias (name, description) values ('Sneak Attack Bonus', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Sneak Attack Bonus', 'Deception', NULL, NULL);
+insert into effect_alias (name, description) values ('Protection', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Protection', 'Armor Bonus', 'Deflection', NULL);
+insert into effect_alias (name, description) values ('Natural Armor', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Natural Armor', 'Armor Bonus', 'Natural Armor', NULL);
+insert into effect_alias (name, description) values ('False Life', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'False Life', 'Hit Points', 'Enhancement', NULL);
 
 --insert into effect_alias (name, description) values ('', '');
 --insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, '', '', , );
