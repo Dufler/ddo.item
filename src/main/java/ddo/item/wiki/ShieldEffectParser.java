@@ -4,11 +4,13 @@ import java.util.ListIterator;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 
 import ddo.item.model.Item;
 import ddo.item.model.ItemType;
 
-public class ShileldEffectParser extends AItemParser {
+@Component
+public class ShieldEffectParser extends AItemParser {
 
 	@Override
 	protected Item parseItem(Element row, ItemType type) {
@@ -20,7 +22,7 @@ public class ShileldEffectParser extends AItemParser {
 		int columnIndex = 0;
 		while (iterator.hasNext()) {
 			Element e = iterator.next();
-			switch (columnIndex % 10) {
+			switch (columnIndex % 13) {
 				case 0 : parseName(e, type); break;
 				case 1 : parseEffects(e, type); break;
 				case 2 : parseMinimumLevel(e); break;
@@ -62,6 +64,14 @@ public class ShileldEffectParser extends AItemParser {
 	}
 	
 	private void parseMaterial(Element e) {
+		
+	}
+	
+	private void parseDamage(Element e) {
+		
+	}
+	
+	private void parseCriticalRoll(Element e) {
 		
 	}
 

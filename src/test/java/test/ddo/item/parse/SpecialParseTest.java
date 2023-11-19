@@ -19,21 +19,33 @@ import test.ddo.item.TestConfiguration;
 
 @SpringBootTest(classes = TestConfiguration.class)
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
-public class ShieldParseTest {
+public class SpecialParseTest {
 	
 	@Autowired private EItemRepository itemRepository;
 	@Autowired private WikiParser wp;
 	
 	@Test
-	public void parseBuckler() {
+	public void parseOrbs() {
 		// Verifico che non ci siano ancora oggetti nel DB
 		List<EItem> items = itemRepository.findAll();
 		assertTrue(items.isEmpty());
-		ItemType type = ItemType.BUCKLER;
+		ItemType type = ItemType.ORB;
 		String resource = String.format("src/main/resources/pages/%s.html", type.name().toLowerCase());
 		wp.updateItems(resource, type);
 		items = itemRepository.findAll();
-		assertEquals(50, items.size());
+		assertEquals(95, items.size());
+	}
+	
+	@Test
+	public void parseRuneArm() {
+		// Verifico che non ci siano ancora oggetti nel DB
+		List<EItem> items = itemRepository.findAll();
+		assertTrue(items.isEmpty());
+		ItemType type = ItemType.RUNEARM;
+		String resource = String.format("src/main/resources/pages/%s.html", type.name().toLowerCase());
+		wp.updateItems(resource, type);
+		items = itemRepository.findAll();
+		assertEquals(114, items.size());
 	}
 
 }

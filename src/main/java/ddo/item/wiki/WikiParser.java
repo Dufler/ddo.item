@@ -37,6 +37,8 @@ public class WikiParser {
 	@Autowired private BaseEffectParser baseParser;
 	@Autowired private ArmorEffectParser armorParser;
 	@Autowired private WeaponEffectParser weaponParser;
+	@Autowired private ShieldEffectParser shieldParser;
+	@Autowired private OrbEffectParser orbParser;
 	
 	private List<Item> items;
 	
@@ -113,8 +115,8 @@ public class WikiParser {
 			case BUCKLER :
 			case SMALLSHIELD :
 			case LARGESHIELD :
-			case TOWERSHIELD :
-			case ORB : items = weaponParser.parseRows(rows, type); break;
+			case TOWERSHIELD : items = shieldParser.parseRows(rows, type); break;
+			case ORB : items = orbParser.parseRows(rows, type); break; 
 			// The rest
 			default : items = baseParser.parseRows(rows, type); break;
 		}
