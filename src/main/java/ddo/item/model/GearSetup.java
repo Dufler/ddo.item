@@ -1,6 +1,7 @@
 package ddo.item.model;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import lombok.Data;
@@ -12,6 +13,10 @@ public class GearSetup {
 	private String name;
 	private String description;
 	private Date lastSaved;
-	private Map<BodySlot, Item> items;
+	private final Map<BodySlot, Item> items;
+	
+	public GearSetup() {
+		items = new HashMap<>();
+	}
 
 }

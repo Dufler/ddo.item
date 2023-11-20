@@ -27,7 +27,7 @@ public class ChooseEffectsDialog {
 	
 	@Autowired private EquippedItems effectsManager;
 	
-	protected Shell shlChooseEffects;
+	protected Shell simpleShell;
 	private Text filterText;
 	private TabellaEffects tabella;
 	
@@ -46,10 +46,10 @@ public class ChooseEffectsDialog {
 	 */
 	public void open() {
 		createContents();
-		shlChooseEffects.open();
-		shlChooseEffects.layout();
+		simpleShell.open();
+		simpleShell.layout();
 		Display display = Display.getDefault();
-		while (!shlChooseEffects.isDisposed()) {
+		while (!simpleShell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
@@ -61,12 +61,12 @@ public class ChooseEffectsDialog {
 	 * @wbp.parser.entryPoint
 	 */
 	private void createContents() {
-		shlChooseEffects = new Shell();
-		shlChooseEffects.setText("Choose effects");
-		shlChooseEffects.setSize(450, 300);
-		shlChooseEffects.setLayout(new GridLayout(1, false));
+		simpleShell = new Shell();
+		simpleShell.setText("Choose effects");
+		simpleShell.setSize(450, 300);
+		simpleShell.setLayout(new GridLayout(1, false));
 		
-		Composite filterComposite = new Composite(shlChooseEffects, SWT.NONE);
+		Composite filterComposite = new Composite(simpleShell, SWT.NONE);
 		filterComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		filterComposite.setLayout(new RowLayout(SWT.HORIZONTAL));
 		
@@ -93,13 +93,13 @@ public class ChooseEffectsDialog {
 		});
 		btnClear.setText("clear");
 		
-		Composite effectsComposite = new Composite(shlChooseEffects, SWT.NONE);
+		Composite effectsComposite = new Composite(simpleShell, SWT.NONE);
 		effectsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		effectsComposite.setLayout(new GridLayout(1, false));
 		
 		tabella = new TabellaEffects(effectsComposite);
 		
-		Composite buttonComposite = new Composite(shlChooseEffects, SWT.NONE);
+		Composite buttonComposite = new Composite(simpleShell, SWT.NONE);
 		buttonComposite.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		buttonComposite.setBounds(0, 0, 64, 64);
 		buttonComposite.setLayout(new RowLayout(SWT.HORIZONTAL));
@@ -117,7 +117,7 @@ public class ChooseEffectsDialog {
 						effectsManager.getSelectedEffects().put(effect, se);
 					}
 				}
-				shlChooseEffects.close();
+				simpleShell.close();
 			}
 		});
 		okButton.setText("Ok");
@@ -126,7 +126,7 @@ public class ChooseEffectsDialog {
 		cancelButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				shlChooseEffects.close();
+				simpleShell.close();
 			}
 		});
 		cancelButton.setText("Cancel");

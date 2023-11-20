@@ -1,10 +1,12 @@
 package ddo.item.logic;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,6 +17,8 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import ddo.item.entity.EGearSetup;
+import ddo.item.entity.EGearSetupItem;
 import ddo.item.entity.EItem;
 import ddo.item.entity.EItemEffects;
 import ddo.item.gui.effects.SelectedEffect;
@@ -25,7 +29,10 @@ import ddo.item.gui.set.TabellaSelectedSets;
 import ddo.item.model.AugmentSlot;
 import ddo.item.model.BodySlot;
 import ddo.item.model.Effect;
+import ddo.item.model.GearSetup;
 import ddo.item.model.Item;
+import ddo.item.repository.EGearSetupItemRepository;
+import ddo.item.repository.EGearSetupRepository;
 import ddo.item.repository.EItemEffectsRepository;
 import ddo.item.repository.EItemRepository;
 
@@ -36,12 +43,16 @@ public class EquippedItems {
 	
 	@Autowired private EItemRepository repositoryItems;
 	@Autowired private EItemEffectsRepository repositoryEffects;
+	@Autowired private EGearSetupRepository repositorySetup;
+	@Autowired private EGearSetupItemRepository repositorySetupItem;
 	
 	private final Set<String> effects;
 	private final Map<String, SelectedEffect> selectedEffects;
 	private final Map<String, Item> items;
-	private final Map<BodySlot, Item> equippedItems;
 	private final Set<AugmentSlot> augments;
+	
+	private GearSetup setup;
+	private Map<BodySlot, Item> equippedItems;
 	
 	// Tabelle da aggiornare
 	private TabellaSelectedEffects tableEffects;
@@ -49,7 +60,10 @@ public class EquippedItems {
 	private TabellaEquippedItems tableItems;
 	
 	private EquippedItems() {
-		equippedItems = new HashMap<>();
+		setup = new GearSetup();
+		setup.setName("");
+		setup.setDescription("");
+		equippedItems = setup.getItems();
 		for (BodySlot slot : BodySlot.values()) {
 			equippedItems.put(slot, null);
 		}
@@ -65,6 +79,10 @@ public class EquippedItems {
 		return singleton;
 	}
 	
+	public GearSetup getSetup() {
+		return setup;
+	}
+ 	
 	public void reloadData() {
 		effects.clear();
 		items.clear();
@@ -128,13 +146,13 @@ public class EquippedItems {
 			}
 		}
 		equippedItems.put(slot, item);
-		// Aggiorno i set
-		SetManager.getInstance().updateSelectedSet();
 		// Aggiorno i bonus
 		updateSelectedEffects();
 	}
 
 	public void updateSelectedEffects() {
+		// Aggiorno i set
+		SetManager.getInstance().updateSelectedSet();
 		// resetto la mappa degli effetti lasciando solo quelli selezionati dall'utente
 		clearEffectsNotSelectedbyUser();
 		// per ogni oggetto inserisco gli effetti
@@ -225,6 +243,55 @@ public class EquippedItems {
 
 	public Item getItem(String name) {
 		return items.get(name);
+	}
+	
+	public void saveGearSetup() {
+		EGearSetup eSetup = new EGearSetup();
+		eSetup.setId(setup.getId());
+		eSetup.setName(setup.getName());
+		eSetup.setDescription(setup.getDescription());
+		repositorySetup.save(eSetup);
+		for (Entry<BodySlot, Item> entry : equippedItems.entrySet()) {
+			EGearSetupItem item = new EGearSetupItem();
+			item.setIdSetup(eSetup.getId());
+			item.setItem(entry.getValue() != null ? entry.getValue().getName() : null);
+			item.setSlot(entry.getKey());
+			repositorySetupItem.save(item);
+		}
+	}
+	
+	public void loadGearSetup(Integer id) {
+		EGearSetup eSetup = repositorySetup.findById(id).get();
+		setup = new GearSetup();
+		setup.setId(eSetup.getId());
+		setup.setName(eSetup.getName());
+		setup.setDescription(eSetup.getDescription());
+		setup.setLastSaved(eSetup.getLastSaved());
+		List<EGearSetupItem> itemList = repositorySetupItem.findByIdSetup(id);
+		equippedItems = setup.getItems();
+		for (EGearSetupItem item : itemList) {
+			Item i = items.get(item.getItem());
+			equippedItems.put(item.getSlot(), i);
+		}
+		updateSelectedEffects();
+	}
+
+	public Collection<GearSetup> getAllSetups() {
+		List<GearSetup> result = new LinkedList<>();
+		List<EGearSetup> setupList = repositorySetup.findAll();
+		for (EGearSetup eSetup : setupList) {
+			GearSetup setup = new GearSetup();
+			setup.setId(eSetup.getId());
+			setup.setName(eSetup.getName());
+			setup.setDescription(eSetup.getDescription());
+			setup.setLastSaved(eSetup.getLastSaved());
+			result.add(setup);
+		}
+		return result;
+	}
+
+	public void deleteGearSetup(Integer id) {
+		repositorySetup.deleteById(id);
 	}
 
 }

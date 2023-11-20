@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import ddo.item.entity.EGearSetup;
 
 @Repository
-public interface EGearSetpRepository extends JpaRepository<EGearSetup, Integer> {
+public interface EGearSetupRepository extends JpaRepository<EGearSetup, Integer> {
 
 }

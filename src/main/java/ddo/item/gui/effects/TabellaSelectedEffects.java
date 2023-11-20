@@ -122,7 +122,7 @@ public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriF
 	
 	@Override
 	protected boolean isPermessoDelete() {
-		return true;
+		return false;
 	}
 
 	@Override

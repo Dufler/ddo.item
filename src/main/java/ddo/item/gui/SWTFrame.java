@@ -23,6 +23,8 @@ import com.dufler.swt.utils.input.ComboBox;
 
 import ddo.item.gui.effects.ChooseEffectsDialog;
 import ddo.item.gui.effects.TabellaSelectedEffects;
+import ddo.item.gui.gearsetp.DialogLoadGearSetup;
+import ddo.item.gui.gearsetp.DialogSaveGearSetup;
 import ddo.item.gui.items.ChooseItemDialog;
 import ddo.item.gui.items.CriteriFiltraggioItem;
 import ddo.item.gui.items.TabellaEquippedItems;
@@ -151,9 +153,8 @@ public class SWTFrame {
 		btnSave.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String message = "On next release.";
-				DialogMessaggio m = new DialogMessaggio(shlDdoGearOptimizer, "Save", null, message, DialogMessaggio.INFORMATION, 0, "Ok");
-				m.open();
+				DialogSaveGearSetup dialog = new DialogSaveGearSetup();
+				dialog.open();
 			}
 		});
 		btnSave.setText("Save");
@@ -162,9 +163,8 @@ public class SWTFrame {
 		btnLoad.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String message = "On next release.";
-				DialogMessaggio m = new DialogMessaggio(shlDdoGearOptimizer, "Load", null, message, DialogMessaggio.INFORMATION, 0, "Ok");
-				m.open();
+				DialogLoadGearSetup dialog = new DialogLoadGearSetup();
+				dialog.open();
 			}
 		});
 		btnLoad.setText("Load");

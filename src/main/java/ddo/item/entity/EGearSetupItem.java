@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 import ddo.item.model.BodySlot;
@@ -15,6 +16,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="gear_setup_item")
+@IdClass(EGearSetupItemPK.class)
 public class EGearSetupItem implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
