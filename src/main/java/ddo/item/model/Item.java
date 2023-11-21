@@ -1,6 +1,8 @@
 package ddo.item.model;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -12,14 +14,14 @@ public class Item {
 	private final ItemType type;
 	private final String name;
 	private int minimumLevel;
-	private final Set<Effect> effects;
+	private final List<Effect> effects;
 	private final Set<NamedSet> sets;
 	private final Set<AugmentSlot> augments;
 	
 	public Item(ItemType type, String name) {
 		this.type = type;
 		this.name = name;
-		this.effects = new HashSet<>();
+		this.effects = new LinkedList<>();
 		this.sets = new HashSet<>();
 		this.augments = new HashSet<>();
 	}

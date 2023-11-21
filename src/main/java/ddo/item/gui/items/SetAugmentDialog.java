@@ -1,7 +1,5 @@
 package ddo.item.gui.items;
 
-import java.util.Set;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.SelectionAdapter;
