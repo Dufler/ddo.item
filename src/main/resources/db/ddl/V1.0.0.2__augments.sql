@@ -10,6 +10,12 @@ create table augment_type_alias (
 alter table augment_type_alias add constraint pk_augment_type_alias primary key(alias);
 alter table augment_type_alias add constraint fk_augment_type_alias foreign key(augment_type) references augment_type(name);
 
+create table augment_type_equivalent (
+	base varchar(100) not null,
+	usable varchar(100) not null
+);
+alter table augment_type_equivalent add constraint pk_augment_type_equivalent primary key(base, usable);
+
 create table augment (
 	name varchar(100) not null,
 	augment_type varchar(100) not null,

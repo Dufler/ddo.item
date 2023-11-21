@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import ddo.item.entity.EGearSetup;
+import ddo.item.entity.EGearSetupAugment;
 import ddo.item.entity.EGearSetupItem;
 import ddo.item.entity.EItem;
 import ddo.item.entity.EItemEffects;
@@ -26,11 +27,13 @@ import ddo.item.gui.effects.TabellaSelectedEffects;
 import ddo.item.gui.items.TabellaEquippedItems;
 import ddo.item.gui.set.SelectedSet;
 import ddo.item.gui.set.TabellaSelectedSets;
+import ddo.item.model.Augment;
 import ddo.item.model.AugmentSlot;
 import ddo.item.model.BodySlot;
 import ddo.item.model.Effect;
 import ddo.item.model.GearSetup;
 import ddo.item.model.Item;
+import ddo.item.repository.EGearSetupAugmentRepository;
 import ddo.item.repository.EGearSetupItemRepository;
 import ddo.item.repository.EGearSetupRepository;
 import ddo.item.repository.EItemEffectsRepository;
@@ -43,8 +46,10 @@ public class EquippedItems {
 	
 	@Autowired private EItemRepository repositoryItems;
 	@Autowired private EItemEffectsRepository repositoryEffects;
+	
 	@Autowired private EGearSetupRepository repositorySetup;
 	@Autowired private EGearSetupItemRepository repositorySetupItem;
+	@Autowired private EGearSetupAugmentRepository repositorySetupAugment;
 	
 	private final Set<String> effects;
 	private final Map<String, SelectedEffect> selectedEffects;
@@ -166,7 +171,7 @@ public class EquippedItems {
 				}
 				// Aggiungo gli effetti degli augment, se presenti
 				for (AugmentSlot a : item.getAugments()) {
-					for (Effect f : a.getEffects()) {
+					if (a.getAugment() != null) for (Effect f : a.getAugment().getEffects()) {
 						addEffect(f);
 					}
 				}
@@ -251,12 +256,28 @@ public class EquippedItems {
 		eSetup.setName(setup.getName());
 		eSetup.setDescription(setup.getDescription());
 		repositorySetup.save(eSetup);
+		// Elimino tutti gli augment
+		List<EGearSetupAugment> listToDelete = repositorySetupAugment.findByIdSetup(eSetup.getId());
+		for (EGearSetupAugment eas : listToDelete) {
+			repositorySetupAugment.delete(eas);
+		}
 		for (Entry<BodySlot, Item> entry : equippedItems.entrySet()) {
+			Item i = entry.getValue();
 			EGearSetupItem item = new EGearSetupItem();
 			item.setIdSetup(eSetup.getId());
-			item.setItem(entry.getValue() != null ? entry.getValue().getName() : null);
+			item.setItem(i != null ? i.getName() : null);
 			item.setSlot(entry.getKey());
 			repositorySetupItem.save(item);
+			if (i != null) {
+				for (AugmentSlot as : i.getAugments()) {
+					EGearSetupAugment esa = new EGearSetupAugment();
+					esa.setIdSetup(eSetup.getId());
+					esa.setItem(i.getName());
+					esa.setAugmentType(as.getType());
+					esa.setAugment(as.getAugment().getName());
+					repositorySetupAugment.save(esa);
+				}
+			}
 		}
 	}
 	
@@ -270,7 +291,16 @@ public class EquippedItems {
 		List<EGearSetupItem> itemList = repositorySetupItem.findByIdSetup(id);
 		equippedItems = setup.getItems();
 		for (EGearSetupItem item : itemList) {
+			List<EGearSetupAugment> augmentList = repositorySetupAugment.findByIdSetupAndItem(id, item.getItem());
 			Item i = items.get(item.getItem());
+			if (i != null) for (AugmentSlot as : i.getAugments()) {
+				for (EGearSetupAugment a : augmentList) {
+					if (as.getType().equals(a.getAugmentType()) && a.getAugment() != null) {
+						Augment augment = AugmentManager.getInstance().getByName(a.getAugment());
+						as.setAugment(augment);
+					}
+				}
+			}
 			equippedItems.put(item.getSlot(), i);
 		}
 		updateSelectedEffects();

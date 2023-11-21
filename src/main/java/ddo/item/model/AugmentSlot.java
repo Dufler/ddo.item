@@ -1,8 +1,5 @@
 package ddo.item.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import lombok.Data;
 
 @Data
@@ -10,22 +7,23 @@ public class AugmentSlot {
 	
 	private final String item;
 	private final String type;
-	private final Set<Effect> effects;
+//	private final Set<Effect> effects;
+	private Augment augment;
 	
 	public AugmentSlot(String item, String type) {
 		this.item = item;
 		this.type = type;
-		this.effects = new HashSet<>();
+//		this.effects = new HashSet<>();
 	}
 	
 	@Override
 	public String toString() {
 		String e;
-		if (effects.isEmpty()) {
+		if (augment == null) {
 			e = "Empty";
 		} else {
 			StringBuilder sb = new StringBuilder();
-			for (Effect f : effects) {
+			for (Effect f : augment.getEffects()) {
 				sb.append(f.toString());
 				sb.append(", ");
 			}

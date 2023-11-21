@@ -116,14 +116,13 @@ public class SetAugmentDialog {
 		    editorType.setEditor(textType, items[i], 0);
 		    TableEditor editorCombo = new TableEditor(table);
 		    ComboAugment combo = new ComboAugment(table);
-		    combo.setItems(AugmentManager.getInstance().getAugmentForType(as.getType()));
+		    combo.setItems(AugmentManager.getInstance().getAugmentSlottableInType(as.getType()));
 		    combo.addSelectionListener(new SelectionListener() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
 					Augment a = combo.getSelectedValue();
 					if (a != null) {
-						as.getEffects().clear();
-						as.getEffects().addAll(a.getEffects());
+						as.setAugment(a);
 					}
 				}
 				@Override
@@ -135,7 +134,7 @@ public class SetAugmentDialog {
 		    editorCombo.setEditor(combo, items[i], 1);
 		    TableEditor editorCurrentEffects = new TableEditor(table);
 		    Text textCurrentEffects = new Text(table, SWT.NONE);
-		    textCurrentEffects.setText(getEffectsDescription(as.getEffects()));
+		    textCurrentEffects.setText(getEffectsDescription(as.getAugment()));
 		    editorCurrentEffects.grabHorizontal = true;
 		    editorCurrentEffects.setEditor(textCurrentEffects, items[i], 2);
 	    }
@@ -157,9 +156,9 @@ public class SetAugmentDialog {
 		});
 	}
 	
-	private String getEffectsDescription(Set<Effect> effects) {
+	private String getEffectsDescription(Augment a) {
 		StringBuilder sb = new StringBuilder();
-		for (Effect e : effects) {
+		if (a != null) for (Effect e : a.getEffects()) {
 			sb.append(e.toString());
 			sb.append(", ");
 		}
