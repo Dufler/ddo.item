@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @ComponentScan({
 	"ddo.item.wiki",
-	"ddo.item.logic"
+	"ddo.item.logic",
+	"test.ddo.item.util"
 })
 @EnableJpaRepositories(basePackages = "ddo.item.repository")
 @EntityScan("ddo.item.entity")

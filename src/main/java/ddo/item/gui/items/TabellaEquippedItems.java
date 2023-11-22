@@ -95,8 +95,10 @@ public class TabellaEquippedItems extends Tabella<Entry<BodySlot, Item>, Criteri
 			setItem.setImage(Immagine.COPIA_16X16.getImage());
 			setItem.addListener(SWT.Selection, new Listener() {
 		    	public void handleEvent(Event event) {
+		    		CriteriFiltraggioItem c = new CriteriFiltraggioItem();
+		    		c.setSlot(riga.getKey());
 		    		ChooseItemDialog dialogChooseItem = new ChooseItemDialog();
-		    		dialogChooseItem.open(riga.getKey());
+		    		dialogChooseItem.open(c);
 		    		aggiornaContenuto();
 		    	}
 		    });

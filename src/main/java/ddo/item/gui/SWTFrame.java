@@ -266,8 +266,15 @@ public class SWTFrame {
 		textFilterItem.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				CriteriFiltraggioItem c = new CriteriFiltraggioItem(textFilterItem.getText().toLowerCase(), comboSlotFilter.getSelectedValue());
-				itemTable.filtra(c);
+				String text = textFilterItem.getText();
+				if (text != null && text.length() > 2) {
+					text = text.toLowerCase();
+					CriteriFiltraggioItem c = new CriteriFiltraggioItem();
+					c.setTesto(text);
+					c.setSlot(comboSlotFilter.getSelectedValue());
+					itemTable.filtra(c);
+				}
+				
 			}
 		});
 		textFilterItem.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -277,7 +284,9 @@ public class SWTFrame {
 		comboSlotFilter.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				CriteriFiltraggioItem c = new CriteriFiltraggioItem(textFilterItem.getText().toLowerCase(), comboSlotFilter.getSelectedValue());
+				CriteriFiltraggioItem c = new CriteriFiltraggioItem();
+				c.setTesto(textFilterItem.getText().toLowerCase());
+				c.setSlot(comboSlotFilter.getSelectedValue());
 				itemTable.filtra(c);
 			}
 		});

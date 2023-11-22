@@ -629,9 +629,6 @@ insert into effect_alias (name, description) values ('Natural Armor', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Natural Armor', 'Armor Bonus', 'Natural Armor', NULL);
 insert into effect_alias (name, description) values ('False Life', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'False Life', 'Hit Points', 'Enhancement', NULL);
-insert into effect_alias (name, description) values ('Adamantine Lined', '');
-insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Adamantine Lined', 'Adamantine', NULL, NULL);
-
 
 --insert into effect_alias (name, description) values ('', '');
 --insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, '', '', , );

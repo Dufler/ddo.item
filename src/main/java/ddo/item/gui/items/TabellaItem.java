@@ -9,7 +9,6 @@ import com.dufler.swt.utils.elements.TabellaCheckBoxConFiltro;
 import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
 import ddo.item.logic.EquippedItems;
-import ddo.item.model.BodySlot;
 import ddo.item.model.Item;
 
 public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggioItem> {
@@ -23,7 +22,7 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 
 	@Override
 	protected FiltroTabella<Item, CriteriFiltraggioItem> creaFiltro() {
-		return new FiltroEffetti();
+		return new FiltroItem();
 	}
 
 	@Override
@@ -60,28 +59,6 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 		@Override
 		protected int compare(Item t1, Item t2, int property) {
 			return t1.getName().compareTo(t2.getName());
-		}
-		
-	}
-	
-	private class FiltroEffetti extends FiltroTabella<Item, CriteriFiltraggioItem> {
-		
-		@Override
-		protected boolean checkElemento(Item item) {
-			return checkSlot(item) && item.getName().toLowerCase().contains(criteri.getTesto());
-		}
-		
-		private boolean checkSlot(Item item) {
-			boolean check = false;
-			if (criteri.getSlot() != null) {
-				for (BodySlot bs : item.getType().getSlot()) {
-					if (bs == criteri.getSlot()) {
-						check = true;
-						break;
-					}
-				}
-			}
-			return check;
 		}
 		
 	}

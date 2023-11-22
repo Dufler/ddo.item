@@ -34,6 +34,9 @@ public abstract class AItemParser {
 	@Value(value = "${item.skippable}")
 	protected Set<String> skippableItems;
 	
+	@Value(value = "${set.misplaced}")
+	protected Set<String> misplacedSet;
+	
 	@Value(value = "${item.clickie}")
 	protected Set<String> clickies;
 	
@@ -205,11 +208,23 @@ public abstract class AItemParser {
 	}
 	
 	protected boolean isSet(String effect) {
+		for (String set : misplacedSet) {
+			if (effect.contains(set)) {
+				effect = set;
+				break;
+			}
+		}
 		Optional<ESet> oset = setRepository.findById(effect);
 		return oset.isPresent();
 	}
 	
 	protected void saveSetItem(String setName) {
+		for (String set : misplacedSet) {
+			if (setName.contains(set)) {
+				setName = set;
+				break;
+			}
+		}
 		NamedSet ns = new NamedSet();
 		ns.setName(setName);
 		currentItem.addSet(ns);

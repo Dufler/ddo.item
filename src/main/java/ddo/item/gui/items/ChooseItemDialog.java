@@ -31,7 +31,7 @@ public class ChooseItemDialog {
 	private ComboBox<BodySlot> comboSlot;
 	private TabellaItem tabella;
 	
-	private BodySlot filterSlot;
+	private CriteriFiltraggioItem filtro;
 	
 	/**
 	 * Create the dialog.
@@ -46,8 +46,8 @@ public class ChooseItemDialog {
 	 * Open the dialog.
 	 * @return the result
 	 */
-	public void open(BodySlot slot) {
-		filterSlot = slot;
+	public void open(CriteriFiltraggioItem filter) {
+		filtro = filter != null ? filter : new CriteriFiltraggioItem();
 		createContents();
 		simpleShell.open();
 		simpleShell.layout();
@@ -80,8 +80,12 @@ public class ChooseItemDialog {
 		filterText.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				CriteriFiltraggioItem c = new CriteriFiltraggioItem(filterText.getText().toLowerCase(), comboSlot.getSelectedValue());
-				tabella.filtra(c);
+				String text = filterText.getText();
+				if (text != null && text.length() > 2) {
+					filtro.setTesto(text.toLowerCase());
+					filtro.setSlot(comboSlot.getSelectedValue());
+					tabella.filtra(filtro);
+				}				
 			}
 		});
 		filterText.setLayoutData(new RowData(100, SWT.DEFAULT));
@@ -91,8 +95,9 @@ public class ChooseItemDialog {
 		comboSlot.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				CriteriFiltraggioItem c = new CriteriFiltraggioItem(filterText.getText().toLowerCase(), comboSlot.getSelectedValue());
-				tabella.filtra(c);
+				filtro.setTesto(filterText.getText().toLowerCase());
+				filtro.setSlot(comboSlot.getSelectedValue());
+				tabella.filtra(filtro);
 			}
 		});
 		
@@ -124,13 +129,13 @@ public class ChooseItemDialog {
 			public void widgetSelected(SelectionEvent e) {
 				Item item = tabella.getRigaSelezionata();
 				if (item != null) {
-					BodySlot bs = filterSlot != null ? filterSlot : item.getType().getSlot()[0]; 
+					BodySlot bs = filtro != null && filtro.getSlot() != null ? filtro.getSlot() : item.getType().getSlot()[0]; 
 					EquippedItems.getInstance().equip(bs, item);
 				}
 				simpleShell.close();
 			}
 		});
-		okButton.setText("Ok");
+		okButton.setText("Equip");
 		
 		Button cancelButton = new Button(buttonComposite, SWT.NONE);
 		cancelButton.addSelectionListener(new SelectionAdapter() {
@@ -141,8 +146,8 @@ public class ChooseItemDialog {
 		});
 		cancelButton.setText("Cancel");
 		
-		if (filterSlot != null) {
-			comboSlot.setSelectedValue(filterSlot);
+		if (filtro != null) {
+			tabella.filtra(filtro);
 		}
 	}	
 	

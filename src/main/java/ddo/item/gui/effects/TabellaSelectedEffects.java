@@ -2,22 +2,32 @@ package ddo.item.gui.effects;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map.Entry;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
 
-import com.dufler.swt.utils.dialog.DialogApribile;
+import com.dufler.swt.utils.decoration.Immagine;
 import com.dufler.swt.utils.elements.Etichettatore;
 import com.dufler.swt.utils.elements.ModificatoreValoriCelle;
 import com.dufler.swt.utils.elements.Ordinatore;
-import com.dufler.swt.utils.elements.TabellaCRUD;
+import com.dufler.swt.utils.elements.Tabella;
 import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
+import ddo.item.gui.items.ChooseItemDialog;
+import ddo.item.gui.items.CriteriFiltraggioItem;
 import ddo.item.logic.EquippedItems;
 
-public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriFiltraggioSoloTesto> {
+public class TabellaSelectedEffects extends Tabella<SelectedEffect, CriteriFiltraggioSoloTesto> {
+	
+	protected MenuItem searchItem;
 	
 	private EquippedItems effectsManager = EquippedItems.getInstance();
 			
@@ -116,23 +126,40 @@ public class TabellaSelectedEffects extends TabellaCRUD<SelectedEffect, CriteriF
 	}
 
 	@Override
-	protected boolean isPermesso() {
-		return false;
+	protected void aggiungiListener() {}
+
+	@Override
+	protected void aggiungiMenu(Menu menu) {}
+
+	@Override
+	protected void mostraVociSpecificheMenu(Menu menu) {
+		if (searchItem != null) searchItem.dispose();
+		SelectedEffect riga = getRigaSelezionata();
+		if (riga != null) {
+			searchItem = new MenuItem(menu, SWT.PUSH);
+			searchItem.setText("Set Item");
+			searchItem.setImage(Immagine.COPIA_16X16.getImage());
+			searchItem.addListener(SWT.Selection, new Listener() {
+		    	public void handleEvent(Event event) {
+		    		CriteriFiltraggioItem c = new CriteriFiltraggioItem();
+		    		c.setEffect(riga.getName());
+		    		HashSet<String> types = new HashSet<>();
+		    		types.add("Insightful");
+		    		types.add("Quality");
+		    		types.add("Profane");
+		    		types.add("Sacred");
+		    		types.add("Sacred");
+		    		types.add("Enhancement");
+		    		for (String bonusType : riga.getBonuses().keySet()) {
+		    			types.remove(bonusType);
+		    		}
+		    		c.setEffectType(types);
+		    		ChooseItemDialog dialogChooseItem = new ChooseItemDialog();
+		    		dialogChooseItem.open(c);
+		    		aggiornaContenuto();
+		    	}
+		    });
+		}
 	}
 	
-	@Override
-	protected boolean isPermessoDelete() {
-		return false;
-	}
-
-	@Override
-	protected DialogApribile creaDialog(SelectedEffect elemento) {
-		return null;
-	}
-
-	@Override
-	protected boolean eliminaElemento(SelectedEffect elemento) {
-		return effectsManager.getSelectedEffects().remove(elemento.getName()) != null;
-	}
-
 }
