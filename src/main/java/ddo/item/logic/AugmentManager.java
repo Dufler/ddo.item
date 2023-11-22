@@ -1,6 +1,7 @@
 package ddo.item.logic;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -90,17 +91,19 @@ public class AugmentManager {
 	}
 	
 	public List<Augment> getAugmentForType(String type) {
-		return mapForType.get(type);
+		return mapForType.containsKey(type) ? mapForType.get(type) : Collections.emptyList();
 	}
 	
 	public List<Augment> getAugmentSlottableInType(String type) {
 		List<Augment> augments = new LinkedList<>();
 		// recupero tutti i colori disponibili per quel type
 		Set<String> types = equivalent.get(type);
-		for (String t : types) {
-			List<Augment> list = mapForType.get(t);
-			if (list != null)
-				augments.addAll(list);
+		if (types != null) {
+			for (String t : types) {
+				augments.addAll(getAugmentForType(t));
+			}
+		} else {
+			augments.addAll(getAugmentForType(type));
 		}
 		return augments;
 	}

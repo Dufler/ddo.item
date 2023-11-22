@@ -274,7 +274,7 @@ public class EquippedItems {
 					esa.setIdSetup(eSetup.getId());
 					esa.setItem(i.getName());
 					esa.setAugmentType(as.getType());
-					esa.setAugment(as.getAugment().getName());
+					esa.setAugment(as.getAugment() != null ? as.getAugment().getName() : null);
 					repositorySetupAugment.save(esa);
 				}
 			}
