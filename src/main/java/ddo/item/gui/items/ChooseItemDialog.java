@@ -147,6 +147,9 @@ public class ChooseItemDialog {
 		cancelButton.setText("Cancel");
 		
 		if (filtro != null) {
+			if (filtro.getSlot() != null) {
+				comboSlot.setSelectedValue(filtro.getSlot());
+			}
 			tabella.filtra(filtro);
 		}
 	}	

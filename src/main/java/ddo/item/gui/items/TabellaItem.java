@@ -41,7 +41,7 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 
 	@Override
 	protected Ordinatore<Item> creaOrdinatore() {
-		return new OrdinatoreEffetti();
+		return new OrdinatoreItem();
 	}
 
 	@Override
@@ -54,11 +54,17 @@ public class TabellaItem extends TabellaCheckBoxConFiltro<Item, CriteriFiltraggi
 		return null;
 	}
 	
-	private class OrdinatoreEffetti extends Ordinatore<Item> {
+	private class OrdinatoreItem extends Ordinatore<Item> {
 
 		@Override
 		protected int compare(Item t1, Item t2, int property) {
-			return t1.getName().compareTo(t2.getName());
+			int compare;
+			switch (property) {
+				case 0 : compare = t1.getName().compareTo(t2.getName()); break;
+				case 1 : compare = t1.getType().compareTo(t2.getType()); break;
+				default : compare = 0;
+			}
+			return compare;
 		}
 		
 	}

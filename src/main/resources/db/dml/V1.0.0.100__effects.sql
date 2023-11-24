@@ -157,4 +157,8 @@ insert into effect(name, description) values ('Melee Alacrity', '');
 insert into effect(name, description) values ('Spell Focus Mastery', '');
 
 insert into effect(name, description) values ('Spell Penetration', '');
+
+--DR Bypass
+insert into effect(name, description) values ('Adamantine', '');
+
 --insert into effect(name, description) values ('', '');

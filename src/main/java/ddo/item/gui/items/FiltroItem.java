@@ -5,12 +5,13 @@ import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 import ddo.item.model.BodySlot;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
+import ddo.item.model.NamedSet;
 
 public class FiltroItem extends FiltroTabella<Item, CriteriFiltraggioItem> {
 	
 	@Override
 	protected boolean checkElemento(Item item) {
-		return checkSlot(item) && checkName(item) && checkEffect(item);
+		return checkSlot(item) && checkName(item) && checkEffect(item) && checkSet(item);
 	}
 	
 	private boolean checkName(Item item) {
@@ -48,6 +49,21 @@ public class FiltroItem extends FiltroTabella<Item, CriteriFiltraggioItem> {
 					} else {
 						check = true;
 					}
+				}
+			}
+		} else {
+			check = true;
+		}
+		return check;
+	}
+	
+	private boolean checkSet(Item item) {
+		boolean check = false;
+		if (criteri.getSet() != null) {
+			for (NamedSet ns : item.getSets()) {
+				if (ns.getName().equalsIgnoreCase(criteri.getSet())) {
+					check = true;
+					break;
 				}
 			}
 		} else {

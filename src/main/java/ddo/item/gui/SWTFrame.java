@@ -22,7 +22,9 @@ import com.dufler.swt.utils.dialog.DialogMessaggio;
 import com.dufler.swt.utils.input.ComboBox;
 
 import ddo.item.gui.effects.ChooseEffectsDialog;
+import ddo.item.gui.effects.TabellaCompareEffects;
 import ddo.item.gui.effects.TabellaSelectedEffects;
+import ddo.item.gui.gearsetp.DialogLoadCompareGearSetup;
 import ddo.item.gui.gearsetp.DialogLoadGearSetup;
 import ddo.item.gui.gearsetp.DialogSaveGearSetup;
 import ddo.item.gui.items.ChooseItemDialog;
@@ -31,9 +33,11 @@ import ddo.item.gui.items.TabellaEquippedItems;
 import ddo.item.gui.items.TabellaItem;
 import ddo.item.gui.set.ChooseSetDialog;
 import ddo.item.gui.set.TabellaSelectedSets;
+import ddo.item.logic.ComparisonManager;
 import ddo.item.logic.EquippedItems;
 import ddo.item.logic.SetManager;
 import ddo.item.model.BodySlot;
+import ddo.item.model.GearSetup;
 import ddo.item.model.ItemType;
 import ddo.item.wiki.WikiParser;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +50,9 @@ public class SWTFrame {
 	@Autowired private EquippedItems equippedItems;
 	@Autowired private SetManager setManager;
 	
+	@Autowired private ComparisonManager firstComparison;
+	@Autowired private ComparisonManager secondComparison;
+	
 	@Autowired private ChooseEffectsDialog dialogChooseEffects;
 	@Autowired private ChooseItemDialog dialogChooseItem;
 	@Autowired private ChooseSetDialog dialogChooseSet;
@@ -55,8 +62,11 @@ public class SWTFrame {
 	private TabFolder tabFolder;
 	
 	private Composite compositeOptimizer;
+	private Composite compositeCompare;
 	
 	private TabellaSelectedEffects effectsTable;
+	private TabellaCompareEffects effectsFirstTable;
+	private TabellaCompareEffects effectsSecondTable;
 	private TabellaEquippedItems equipmentTable;
 	private TabellaItem itemTable;
 	private TabellaSelectedSets setsTable;
@@ -94,6 +104,7 @@ public class SWTFrame {
 		
 		addTabOptimizer();		
 		addTabItems();
+		addTabComparison();
 		
 		tabFolder.pack();
 		
@@ -101,6 +112,62 @@ public class SWTFrame {
 		equippedItems.setEffectTable(effectsTable);
 		equippedItems.setItemTable(equipmentTable);
 		equippedItems.setSetsTable(setsTable);
+	}
+	
+	private void addTabComparison() {
+		TabItem tabComparison = new TabItem(tabFolder, SWT.NONE);
+		tabComparison.setText("Compare");
+		
+		compositeCompare = new Composite(tabFolder, SWT.NONE);
+		tabComparison.setControl(compositeCompare);
+		compositeCompare.setLayout(new GridLayout(2, false));
+		
+		Composite compositeCompareControls = new Composite(compositeCompare, SWT.NONE);
+		compositeCompareControls.setLayout(new GridLayout(2, false));
+		compositeCompareControls.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		
+		Button btnLoadstSetup = new Button(compositeCompareControls, SWT.NONE);
+		btnLoadstSetup.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				DialogLoadCompareGearSetup dialog = new DialogLoadCompareGearSetup();
+				GearSetup setup = dialog.open();
+				firstComparison.loadGearSetup(setup);
+			}
+		});
+		btnLoadstSetup.setText("Load 1st setup");
+		
+		Button btnLoadndSetup = new Button(compositeCompareControls, SWT.NONE);
+		btnLoadndSetup.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				DialogLoadCompareGearSetup dialog = new DialogLoadCompareGearSetup();
+				GearSetup setup = dialog.open();
+				secondComparison.loadGearSetup(setup);
+			}
+		});
+		btnLoadndSetup.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true, false, 1, 1));
+		btnLoadndSetup.setText("Load 2nd setup");
+		
+		Label lblstSetup = new Label(compositeCompareControls, SWT.NONE);
+		lblstSetup.setText("1st setup");
+		
+		Label lblndSetup = new Label(compositeCompareControls, SWT.NONE);
+		lblndSetup.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblndSetup.setText("2nd setup");
+		
+		Composite compositeFirstSet = new Composite(compositeCompare, SWT.NONE);
+		compositeFirstSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
+		effectsFirstTable = new TabellaCompareEffects(compositeFirstSet);
+		
+		Composite compositeSecondSet = new Composite(compositeCompare, SWT.NONE);
+		compositeSecondSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
+		effectsSecondTable = new TabellaCompareEffects(compositeSecondSet);
+		
+		firstComparison.setTabella(effectsFirstTable);
+		secondComparison.setTabella(effectsSecondTable);
 	}
 	
 	private void addTabOptimizer() {

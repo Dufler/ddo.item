@@ -16,6 +16,7 @@ public class CriteriFiltraggioItem extends CriteriFiltraggio {
 	private BodySlot slot;
 	private String effect;
 	private Set<String> effectType;
+	private String set;
 
 	public CriteriFiltraggioItem() {}
 

@@ -47,24 +47,24 @@ public class EquippedItems {
 	@Autowired private EItemRepository repositoryItems;
 	@Autowired private EItemEffectsRepository repositoryEffects;
 	
-	@Autowired private EGearSetupRepository repositorySetup;
-	@Autowired private EGearSetupItemRepository repositorySetupItem;
-	@Autowired private EGearSetupAugmentRepository repositorySetupAugment;
+	@Autowired protected EGearSetupRepository repositorySetup;
+	@Autowired protected EGearSetupItemRepository repositorySetupItem;
+	@Autowired protected EGearSetupAugmentRepository repositorySetupAugment;
 	
 	private final Set<String> effects;
-	private final Map<String, SelectedEffect> selectedEffects;
-	private final Map<String, Item> items;
+	protected final Map<String, SelectedEffect> selectedEffects;
+	protected final Map<String, Item> items;
 	private final Set<AugmentSlot> augments;
 	
-	private GearSetup setup;
-	private Map<BodySlot, Item> equippedItems;
+	protected GearSetup setup;
+	protected Map<BodySlot, Item> equippedItems;
 	
 	// Tabelle da aggiornare
 	private TabellaSelectedEffects tableEffects;
 	private TabellaSelectedSets tableSets;
 	private TabellaEquippedItems tableItems;
 	
-	private EquippedItems() {
+	protected EquippedItems() {
 		setup = new GearSetup();
 		setup.setName("");
 		setup.setDescription("");

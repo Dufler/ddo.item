@@ -1,30 +1,27 @@
 package ddo.item.gui.gearsetp;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
 
-import ddo.item.logic.EquippedItems;
 import ddo.item.model.GearSetup;
 
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
-
-public class DialogLoadGearSetup {
-	
-	private EquippedItems itemManager = EquippedItems.getInstance();
+public class DialogLoadCompareGearSetup {
 
 	private Shell simpleShell;
 	private TabellaGearSetup tabella;
+	private GearSetup setup;
 	
-	public void open() {
+	public GearSetup open() {
 		createContents();
 		simpleShell.open();
 		simpleShell.layout();
@@ -34,6 +31,7 @@ public class DialogLoadGearSetup {
 				display.sleep();
 			}
 		}
+		return setup;
 	}
 
 	/**
@@ -41,7 +39,7 @@ public class DialogLoadGearSetup {
 	 */
 	private void createContents() {
 		simpleShell = new Shell();
-		simpleShell.setText("Load Gear Setup");
+		simpleShell.setText("Compare Gear Setup");
 		simpleShell.setSize(450, 300);
 		simpleShell.setLayout(new GridLayout(1, false));
 		
@@ -87,11 +85,10 @@ public class DialogLoadGearSetup {
 	}
 	
 	private void caricaGearSetup() {
-		GearSetup setup = tabella.getRigaSelezionata();
-		if (setup != null) {
-			itemManager.loadGearSetup(setup.getId());
+		setup = tabella.getRigaSelezionata();
+		if (setup != null) {	
+			simpleShell.close();
 		}
-		simpleShell.close();
 	}
 
 }

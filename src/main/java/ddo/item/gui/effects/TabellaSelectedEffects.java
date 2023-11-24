@@ -2,11 +2,9 @@ package ddo.item.gui.effects;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -28,9 +26,7 @@ import ddo.item.logic.EquippedItems;
 public class TabellaSelectedEffects extends Tabella<SelectedEffect, CriteriFiltraggioSoloTesto> {
 	
 	protected MenuItem searchItem;
-	
-	private EquippedItems effectsManager = EquippedItems.getInstance();
-			
+				
 	public TabellaSelectedEffects(Composite parent) {
 		super(parent);
 	}
@@ -38,9 +34,13 @@ public class TabellaSelectedEffects extends Tabella<SelectedEffect, CriteriFiltr
 	@Override
 	protected void aggiungiColonne() {
 		aggiungiColonna("Effect", 200, 0);
-		aggiungiColonna("Total Bonus", 300, 1);
-		aggiungiColonna("Selected", 50, 2);
-		aggiungiColonna("Priority", 50, 3);
+		aggiungiColonna("Selected", 50, 1);
+		aggiungiColonna("Priority", 50, 2);
+		aggiungiColonna("Total Bonus", 300, 3);
+		aggiungiColonna("Enhancement", 50, 4);
+		aggiungiColonna("Insightful", 50, 5);
+		aggiungiColonna("Quality", 50, 6);
+		aggiungiColonna("Other", 50, 7);
 	}
 	
 	@Override
@@ -67,63 +67,6 @@ public class TabellaSelectedEffects extends Tabella<SelectedEffect, CriteriFiltr
 	protected FiltroTabella<SelectedEffect, CriteriFiltraggioSoloTesto> creaFiltro() {
 		return null;
 	}
-	
-	private class OrdinatoreSE extends Ordinatore<SelectedEffect> {
-
-		@Override
-		protected int compare(SelectedEffect t1, SelectedEffect t2, int property) {
-			return t1.getName().compareTo(t2.getName());
-		}
-		
-	}
-	
-	private class EtichettatoreSE extends Etichettatore<SelectedEffect> {
-
-		@Override
-		public String getTesto(SelectedEffect oggetto, int colonna) {
-			String testo = null;
-			switch (colonna) {
-				case 0 : testo = oggetto.getName(); break;
-				case 1 : testo = Integer.toString(oggetto.getTotalBonus()); break;
-				case 2 : testo = oggetto.isUserSelected() ? "Yes" : "No"; break;
-				case 3 : testo = oggetto.getPriority() != null ? Integer.toString(oggetto.getPriority()) : ""; break;
-				default : testo = "NA";
-			}
-			return testo;
-		}
-
-		@Override
-		public String getTestoTooltip(SelectedEffect oggetto, int colonna) {
-			String testo = null;
-			switch (colonna) {
-				case 0 : testo = oggetto.getName(); break;
-				case 1 : testo = getDescrizione(oggetto); break;
-				case 2 : testo = oggetto.isUserSelected() ? "Yes" : "No"; break;
-				case 3 : testo = oggetto.getPriority() != null ? Integer.toString(oggetto.getPriority()) : ""; break;
-				default : testo = "NA";
-			}
-			return testo;
-		}
-		
-		private String getDescrizione(SelectedEffect oggetto) {
-			StringBuilder sb = new StringBuilder();
-			for (Entry<String, Integer> e : oggetto.getBonuses().entrySet()) {
-				sb.append(e.getKey() != null ? e.getKey() : "<missing>");
-				if (e.getValue() != null) {
-					sb.append(": ");
-					sb.append(e.getValue());
-				}				
-				sb.append("\r\n");
-			}
-			return sb.toString();
-		}
-
-		@Override
-		public Image getIcona(SelectedEffect oggetto, int colonna) {
-			return null;
-		}
-		
-	}
 
 	@Override
 	protected void aggiungiListener() {}
@@ -137,22 +80,13 @@ public class TabellaSelectedEffects extends Tabella<SelectedEffect, CriteriFiltr
 		SelectedEffect riga = getRigaSelezionata();
 		if (riga != null) {
 			searchItem = new MenuItem(menu, SWT.PUSH);
-			searchItem.setText("Set Item");
+			searchItem.setText("Search Item");
 			searchItem.setImage(Immagine.COPIA_16X16.getImage());
 			searchItem.addListener(SWT.Selection, new Listener() {
 		    	public void handleEvent(Event event) {
 		    		CriteriFiltraggioItem c = new CriteriFiltraggioItem();
 		    		c.setEffect(riga.getName());
-		    		HashSet<String> types = new HashSet<>();
-		    		types.add("Insightful");
-		    		types.add("Quality");
-		    		types.add("Profane");
-		    		types.add("Sacred");
-		    		types.add("Sacred");
-		    		types.add("Enhancement");
-		    		for (String bonusType : riga.getBonuses().keySet()) {
-		    			types.remove(bonusType);
-		    		}
+		    		Set<String> types = riga.getBonusesNotPresent();	    		
 		    		c.setEffectType(types);
 		    		ChooseItemDialog dialogChooseItem = new ChooseItemDialog();
 		    		dialogChooseItem.open(c);
