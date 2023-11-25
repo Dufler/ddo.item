@@ -73,6 +73,9 @@ public class SWTFrame {
 	
 	private Text textFilterItem;
 	private ComboBox<BodySlot> comboSlotFilter;
+	
+	private Label lblstSetup;
+	private Label lbl2ndSetup;
 
 	/**
 	 * Open the window.
@@ -124,7 +127,7 @@ public class SWTFrame {
 		
 		Composite compositeCompareControls = new Composite(compositeCompare, SWT.NONE);
 		compositeCompareControls.setLayout(new GridLayout(2, false));
-		compositeCompareControls.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		compositeCompareControls.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 2, 1));
 		
 		Button btnLoadstSetup = new Button(compositeCompareControls, SWT.NONE);
 		btnLoadstSetup.addSelectionListener(new SelectionAdapter() {
@@ -132,7 +135,12 @@ public class SWTFrame {
 			public void widgetSelected(SelectionEvent e) {
 				DialogLoadCompareGearSetup dialog = new DialogLoadCompareGearSetup();
 				GearSetup setup = dialog.open();
-				firstComparison.loadGearSetup(setup);
+				if (setup != null) {
+					lblstSetup.setText(String.format("1st setup: %s", setup.getName()));
+					firstComparison.loadGearSetup(setup);
+				} else {
+					lblstSetup.setText("1st setup");
+				}
 			}
 		});
 		btnLoadstSetup.setText("Load 1st setup");
@@ -143,25 +151,32 @@ public class SWTFrame {
 			public void widgetSelected(SelectionEvent e) {
 				DialogLoadCompareGearSetup dialog = new DialogLoadCompareGearSetup();
 				GearSetup setup = dialog.open();
-				secondComparison.loadGearSetup(setup);
+				if (setup != null) {
+					lbl2ndSetup.setText(String.format("2nd setup: %s", setup.getName()));
+					secondComparison.loadGearSetup(setup);
+				} else {
+					lbl2ndSetup.setText("2nd setup");
+				}
 			}
 		});
 		btnLoadndSetup.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true, false, 1, 1));
 		btnLoadndSetup.setText("Load 2nd setup");
 		
-		Label lblstSetup = new Label(compositeCompareControls, SWT.NONE);
+		lblstSetup = new Label(compositeCompareControls, SWT.NONE);
 		lblstSetup.setText("1st setup");
 		
-		Label lblndSetup = new Label(compositeCompareControls, SWT.NONE);
-		lblndSetup.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblndSetup.setText("2nd setup");
+		lbl2ndSetup = new Label(compositeCompareControls, SWT.NONE);
+		lbl2ndSetup.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lbl2ndSetup.setText("2nd setup");
 		
 		Composite compositeFirstSet = new Composite(compositeCompare, SWT.NONE);
+		compositeFirstSet.setLayout(new GridLayout(1, false));
 		compositeFirstSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
 		effectsFirstTable = new TabellaCompareEffects(compositeFirstSet);
 		
 		Composite compositeSecondSet = new Composite(compositeCompare, SWT.NONE);
+		compositeSecondSet.setLayout(new GridLayout(1, false));
 		compositeSecondSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
 		effectsSecondTable = new TabellaCompareEffects(compositeSecondSet);
