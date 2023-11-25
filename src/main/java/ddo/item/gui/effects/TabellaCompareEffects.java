@@ -10,7 +10,7 @@ import com.dufler.swt.utils.elements.Tabella;
 import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 import com.dufler.swt.utils.elements.table.filter.FiltroTabella;
 
-public class TabellaCompareEffects extends Tabella<SelectedEffect, CriteriFiltraggioSoloTesto> {
+public class TabellaCompareEffects extends Tabella<CompareSelectedEffect, CriteriFiltraggioSoloTesto> {
 	
 	public TabellaCompareEffects(Composite parent) {
 		super(parent);
@@ -19,26 +19,27 @@ public class TabellaCompareEffects extends Tabella<SelectedEffect, CriteriFiltra
 	@Override
 	protected void aggiungiColonne() {
 		aggiungiColonna("Effect", 200, 0);
-		aggiungiColonna("Total Bonus", 300, 3);
+		aggiungiColonna("Total Bonus 1st", 300, 1);
+		aggiungiColonna("Total Bonus 2nd", 300, 2);
 	}
 	
 	@Override
-	protected Ordinatore<SelectedEffect> creaOrdinatore() {
-		return new OrdinatoreSE();
+	protected Ordinatore<CompareSelectedEffect> creaOrdinatore() {
+		return new OrdinatoreCE();
 	}
 
 	@Override
-	protected Etichettatore<SelectedEffect> creaEtichettatore() {
-		return new EtichettatoreSE();
+	protected Etichettatore<CompareSelectedEffect> creaEtichettatore() {
+		return new EtichettatoreCE();
 	}
 
 	@Override
-	protected ModificatoreValoriCelle<SelectedEffect> creaModificatore() {
+	protected ModificatoreValoriCelle<CompareSelectedEffect> creaModificatore() {
 		return null;
 	}
 
 	@Override
-	protected FiltroTabella<SelectedEffect, CriteriFiltraggioSoloTesto> creaFiltro() {
+	protected FiltroTabella<CompareSelectedEffect, CriteriFiltraggioSoloTesto> creaFiltro() {
 		return null;
 	}
 

@@ -25,3 +25,8 @@ create table item_augment (
 alter table item_augment add constraint pk_item_augment primary key (item_name,augment_type);
 alter table item_augment add constraint fk_item_augment_item foreign key (item_name) references item(name) on delete cascade;
 alter table item_augment add constraint fk_item_augment_augment foreign key (augment_type) references augment_type(name) on delete cascade;
+
+create table item_skippable (
+	name varchar(200) not null
+);
+alter table item_skippable add constraint pk_item primary key (name);

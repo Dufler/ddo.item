@@ -50,8 +50,7 @@ public class SWTFrame {
 	@Autowired private EquippedItems equippedItems;
 	@Autowired private SetManager setManager;
 	
-	@Autowired private ComparisonManager firstComparison;
-	@Autowired private ComparisonManager secondComparison;
+	@Autowired private ComparisonManager comparisonManager;
 	
 	@Autowired private ChooseEffectsDialog dialogChooseEffects;
 	@Autowired private ChooseItemDialog dialogChooseItem;
@@ -65,8 +64,7 @@ public class SWTFrame {
 	private Composite compositeCompare;
 	
 	private TabellaSelectedEffects effectsTable;
-	private TabellaCompareEffects effectsFirstTable;
-	private TabellaCompareEffects effectsSecondTable;
+	private TabellaCompareEffects effectsCompareTable;
 	private TabellaEquippedItems equipmentTable;
 	private TabellaItem itemTable;
 	private TabellaSelectedSets setsTable;
@@ -123,11 +121,11 @@ public class SWTFrame {
 		
 		compositeCompare = new Composite(tabFolder, SWT.NONE);
 		tabComparison.setControl(compositeCompare);
-		compositeCompare.setLayout(new GridLayout(2, false));
+		compositeCompare.setLayout(new GridLayout(1, false));
 		
 		Composite compositeCompareControls = new Composite(compositeCompare, SWT.NONE);
 		compositeCompareControls.setLayout(new GridLayout(2, false));
-		compositeCompareControls.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 2, 1));
+		compositeCompareControls.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
 		
 		Button btnLoadstSetup = new Button(compositeCompareControls, SWT.NONE);
 		btnLoadstSetup.addSelectionListener(new SelectionAdapter() {
@@ -137,7 +135,7 @@ public class SWTFrame {
 				GearSetup setup = dialog.open();
 				if (setup != null) {
 					lblstSetup.setText(String.format("1st setup: %s", setup.getName()));
-					firstComparison.loadGearSetup(setup);
+					comparisonManager.loadFirstGearSetup(setup);
 				} else {
 					lblstSetup.setText("1st setup");
 				}
@@ -153,7 +151,7 @@ public class SWTFrame {
 				GearSetup setup = dialog.open();
 				if (setup != null) {
 					lbl2ndSetup.setText(String.format("2nd setup: %s", setup.getName()));
-					secondComparison.loadGearSetup(setup);
+					comparisonManager.loadSecondGearSetup(setup);
 				} else {
 					lbl2ndSetup.setText("2nd setup");
 				}
@@ -169,20 +167,12 @@ public class SWTFrame {
 		lbl2ndSetup.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lbl2ndSetup.setText("2nd setup");
 		
-		Composite compositeFirstSet = new Composite(compositeCompare, SWT.NONE);
-		compositeFirstSet.setLayout(new GridLayout(1, false));
-		compositeFirstSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		Composite compositeComparetSet = new Composite(compositeCompare, SWT.NONE);
+		compositeComparetSet.setLayout(new GridLayout(1, false));
+		compositeComparetSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
-		effectsFirstTable = new TabellaCompareEffects(compositeFirstSet);
-		
-		Composite compositeSecondSet = new Composite(compositeCompare, SWT.NONE);
-		compositeSecondSet.setLayout(new GridLayout(1, false));
-		compositeSecondSet.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		
-		effectsSecondTable = new TabellaCompareEffects(compositeSecondSet);
-		
-		firstComparison.setTabella(effectsFirstTable);
-		secondComparison.setTabella(effectsSecondTable);
+		effectsCompareTable = new TabellaCompareEffects(compositeComparetSet);
+		comparisonManager.setTabella(effectsCompareTable);
 	}
 	
 	private void addTabOptimizer() {

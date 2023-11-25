@@ -1,6 +1,7 @@
 package ddo.item.wiki;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
@@ -14,32 +15,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import ddo.item.entity.EAugmentTypeAlias;
+import ddo.item.entity.EEffect;
 import ddo.item.entity.EEffectAliasList;
 import ddo.item.entity.EItem;
 import ddo.item.entity.ESet;
+import ddo.item.entity.ESkippableItem;
 import ddo.item.model.AugmentSlot;
 import ddo.item.model.Effect;
+import ddo.item.model.EffectType;
 import ddo.item.model.Item;
 import ddo.item.model.ItemType;
 import ddo.item.model.NamedSet;
 import ddo.item.repository.EAugmentTypeAliasRepository;
 import ddo.item.repository.EEffectAliasListRepository;
+import ddo.item.repository.EEffectRepository;
 import ddo.item.repository.EItemRepository;
 import ddo.item.repository.ESetRepository;
+import ddo.item.repository.ESkippableItemRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class AItemParser {
 	
-	@Value(value = "${item.skippable}")
-	protected Set<String> skippableItems;
-	
 	@Value(value = "${set.misplaced}")
 	protected Set<String> misplacedSet;
 	
-	@Value(value = "${item.clickie}")
-	protected Set<String> clickies;
+	protected final Set<String> clickies;
 	
+	@Autowired protected EEffectRepository effectRepository;
+	@Autowired protected ESkippableItemRepository skippableItemRepository;
 	@Autowired protected ESetRepository setRepository;
 	@Autowired protected EEffectAliasListRepository aliasRepository;
 	@Autowired protected EAugmentTypeAliasRepository augmentAliasRepository;
@@ -47,6 +51,14 @@ public abstract class AItemParser {
 	
 	protected Item currentItem;
 	protected Optional<EAugmentTypeAlias> currentAugmentAlias;
+	
+	protected AItemParser() {
+		clickies = new HashSet<>();
+		List<EEffect> list = effectRepository.findByType(EffectType.clikie);
+		for (EEffect e : list) {
+			clickies.add(e.getEffect());
+		}
+	}
 
 	public List<Item> parseRows(List<Element> rows, ItemType type) {
 		ArrayList<Item> itemList = new ArrayList<>();
@@ -198,10 +210,9 @@ public abstract class AItemParser {
 	protected void parseName(Element e, ItemType slot) {
 		// Parso il titolo
 		String titolo = e.text();
-		for (String skip : skippableItems) {
-			if (titolo.contains(skip)) {
-				throw new SkipItemException(titolo);
-			}
+		Optional<ESkippableItem> skip = skippableItemRepository.findById(titolo);
+		if (skip.isPresent()) {
+			throw new SkipItemException(titolo);
 		}
 		// Creo il nuovo oggetto sul current e lo aggiungo alla lista
 		currentItem = new Item(slot, titolo);		

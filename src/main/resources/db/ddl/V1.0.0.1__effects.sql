@@ -1,6 +1,7 @@
 create table effect (
 	name varchar(100) not null,
-	description varchar(500) not null
+	description varchar(500),
+	effect_type varchar(50) not null
 );
 alter table effect add constraint pk_effect primary key (name);
 

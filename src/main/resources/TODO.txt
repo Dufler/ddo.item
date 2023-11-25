@@ -3,3 +3,4 @@
 - sostituire &#160; con uno spazio su tutti i files html
 - accorpare i concealment nello script alias (blurry, lesser displacement, smoke screen)
 - Superior Heroism/Heroism deve diventare un bonus ai TS e Skills morale in alias
+- censire tutti gli effect e dargli un tipo così da averli "tipati" per mostrarli in maniera migliore in tabella (es. ability, skills, melee combat, ranged combat, spellcasting,... simile alla divisione nella scheda del pg)

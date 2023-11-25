@@ -100,7 +100,7 @@ public class SetManager {
 		// Elimino i set che non sono stati selezionati dall'utente e che hanno 0 pezzi
 		for (String set : selectedSets.keySet()) {
 			Integer actual = conteggioPezziSet.get(set);
-			SelectedSet ss =selectedSets.get(set);
+			SelectedSet ss = selectedSets.get(set);
 			if (actual == null && !ss.isUserSelected()) {
 				selectedSets.remove(set);
 			} else {
