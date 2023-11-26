@@ -90,6 +90,8 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Dazing X', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dazing X', 'Dazing', NULL, NULL);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dazing X', 'Stunning', 'Enhancement', 15);
+insert into effect_alias (name, description) values ('Deadly IV', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Deadly IV', 'Deadly','Competence' , 4);
 insert into effect_alias (name, description) values ('Deadly VIII', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Deadly VIII', 'Deadly','Competence' , 8);
 insert into effect_alias (name, description) values ('Deadly X', '');
@@ -139,6 +141,8 @@ insert into effect_alias (name, description) values ('Strength Skills - Exceptio
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Strength Skills - Exceptional Bonus', 'Strength Skills', 'Exceptional', NULL);
 insert into effect_alias (name, description) values ('Diversion 20% (Insight)', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Diversion 20% (Insight)', 'Diversion', 'Insightful', 20);
+insert into effect_alias (name, description) values ('Diversion (Insight)', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Diversion (Insight)', 'Diversion', 'Insightful', NULL);
 insert into effect_alias (name, description) values ('Enchantment Focus I', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Enchantment Focus I', 'Enchantment Focus', 'Equipment', 1);
 insert into effect_alias (name, description) values ('Enchantment Focus II', '');
@@ -631,6 +635,52 @@ insert into effect_alias (name, description) values ('False Life', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'False Life', 'Hit Points', 'Enhancement', NULL);
 insert into effect_alias (name, description) values ('Adamantine Lined', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Adamantine Lined', 'Adamantine', NULL, NULL);
+
+insert into effect_alias (name, description) values ('Acidic', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Acidic', 'Acid', NULL, NULL);
+insert into effect_alias (name, description) values ('Acid II', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Acid II', 'Acid', 'Enhancement', 2);
+insert into effect_alias (name, description) values ('Acid III', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Acid III', 'Acid', 'Enhancement', 3);
+insert into effect_alias (name, description) values ('Acid IV', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Acid IV', 'Acid', 'Enhancement', 4);
+insert into effect_alias (name, description) values ('Acid V', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Acid V', 'Acid', 'Enhancement', 5);
+insert into effect_alias (name, description) values ('Acid VI', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Acid VI', 'Acid', 'Enhancement', 6);
+insert into effect_alias (name, description) values ('Acid VIII', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Acid VIII', 'Acid', 'Enhancement', 8);
+
+insert into effect_alias (name, description) values ('Alignment Absorption', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Alignment Absorption', 'Evil Absorption', NULL, NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Alignment Absorption', 'Good Absorption', NULL, NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Alignment Absorption', 'Chaos Absorption', NULL, NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Alignment Absorption', 'Law Absorption', NULL, NULL);
+
+insert into effect_alias (name, description) values ('Dream Vision', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dream Vision', 'Accuracy', 'Competence', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dream Vision', 'Deadly', 'Competence', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dream Vision', 'Ghost Touch', NULL, NULL);
+
+insert into effect_alias (name, description) values ('Dusk', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dusk', 'Concealment', 'Enhancement', 10);
+insert into effect_alias (name, description) values ('Blurry', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Blurry', 'Concealment', 'Enhancement', 20);
+
+insert into effect_alias (name, description) values ('Ghostly', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ghostly', 'Incorporeal', 'Enhancement', 10);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ghostly', 'Ghost Touch', NULL, NULL);
+
+
+insert into effect_alias (name, description) values ('Enhanced Ghostly', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Enhanced Ghostly', 'Incorporeal', 'Enhancement', 15);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Enhanced Ghostly', 'Ghost Touch', NULL, NULL);
+
+insert into effect_alias (name, description) values ('Exceptional Devotion', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Exceptional Devotion', 'Devotion', 'Exceptional', NULL);
+
+insert into effect_alias (name, description) values ('Exceptional Stunning', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Exceptional Stunning', 'Stunning', 'Exceptional', NULL);
 
 
 --insert into effect_alias (name, description) values ('', '');

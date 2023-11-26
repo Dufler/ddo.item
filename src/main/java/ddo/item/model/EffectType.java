@@ -12,6 +12,9 @@ public enum EffectType {
 	defense,
 	elemental_defense,
 	saves,
-	general	
+	general,
+	material,
+	feat,
+	upgrade
 
 }
