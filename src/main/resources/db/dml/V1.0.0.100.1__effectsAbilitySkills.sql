@@ -21,8 +21,11 @@ insert into effect(name, effect_type) values ('Disable Device', 'skill');
 insert into effect(name, effect_type) values ('Haggle', 'skill');
 insert into effect(name, effect_type) values ('Hide', 'skill');
 insert into effect(name, effect_type) values ('Jump', 'skill');
+insert into effect(name, effect_type) values ('Listen', 'skill');
+insert into effect(name, effect_type) values ('Move Silently', 'skill');
 insert into effect(name, effect_type) values ('Open Lock', 'skill');
 insert into effect(name, effect_type) values ('Perform', 'skill');
+insert into effect(name, effect_type) values ('Repair', 'skill');
 insert into effect(name, effect_type) values ('Search', 'skill');
 
 --insert into effect(name, effect_type) values ('', '');

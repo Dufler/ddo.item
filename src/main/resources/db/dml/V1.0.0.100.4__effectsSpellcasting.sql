@@ -32,11 +32,35 @@ insert into effect(name, effect_type) values ('Enchantment Focus', '');
 insert into effect(name, effect_type) values ('Evocation Focus', '');
 insert into effect(name, effect_type) values ('Illusion Focus', '');
 insert into effect(name, effect_type) values ('Necromancy Focus', '');
+insert into effect(name, effect_type) values ('Deific Focus', '');
 insert into effect(name, effect_type) values ('Spell Focus Mastery', '');
 
 insert into effect(name, effect_type) values ('Spell Penetration', '');
 
 insert into effect(name, effect_type) values ('Energy Siphon', '');
 insert into effect(name, effect_type) values ('Augment Summoning', '');
+insert into effect(name, effect_type) values ('Mystic Diversion', '');
+insert into effect(name, effect_type) values ('Arcane Augmentation I', '');
+insert into effect(name, effect_type) values ('Arcane Augmentation IX', '');
+insert into effect(name, effect_type) values ('Divine Augmentation IX', '');
+insert into effect(name, effect_type) values ('Arcane Casting Dexterity', '');
+
+-- Metamagics
+insert into effect(name, effect_type) values ('Efficient Metamagic - Embolden II', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Empower Healing I', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Empower Healing II', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Empower II', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Enlarge I', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Enlarge II', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Extend I', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Extend II', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Intensify II', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Maximize I', '');
+insert into effect(name, effect_type) values ('Efficient Metamagic - Maximize II', '');
+
+-- Spell proc debuffs
+insert into effect(name, effect_type, description) values ('Bane of the Depths', '', 'Your Negative, Poison and Cold spells automatically apply the effects of Bane to enemies struck.');
+insert into effect(name, effect_type) values ('Cerulean Wave', '');
+
 
 --insert into effect(name, effect_type) values ('', '');
