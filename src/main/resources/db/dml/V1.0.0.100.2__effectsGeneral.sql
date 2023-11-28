@@ -10,10 +10,11 @@ insert into effect(name, effect_type) values ('Unconsciousness Range', '');
 insert into effect(name, effect_type) values ('Hit Points', '');
 insert into effect(name, effect_type) values ('Wizardry', '');
 insert into effect(name, effect_type) values ('Arcane Casting Dexterity', '');
+insert into effect(name, effect_type) values ('Everbright', '');
 
 insert into effect(name, effect_type) values ('True Seeing', '');
 insert into effect(name, effect_type) values ('Freedom of Movement', '');
-insert into effect(name, effect_type) values ('Ghost Touch', '');
+insert into effect(name, effect_type) values ('Ethereal', '');
 
 
 insert into effect(name, effect_type) values ('Slippery Surfaces Immunity', 'general');
@@ -51,8 +52,16 @@ insert into effect(name, effect_type) values ('Clever Strike', 'general');
 insert into effect(name, effect_type, description) values ('Confounding Enchantment', 'general', 'The enchantment varies every time it''s equipped');
 insert into effect(name, effect_type, description) values ('Cursed Level Drain', 'general', 'Each time the player equipping this item is hit there is a small chance it will drain 1 level (no save, almost nothing wards).');
 insert into effect(name, effect_type) values ('Eidolon Summons', 'general');
+insert into effect(name, effect_type) values ('Elemental Spiral', 'general');
 insert into effect(name, effect_type) values ('Embodiment of Law', 'general');
 insert into effect(name, effect_type) values ('Embrace of the Spider Queen', 'general');
+insert into effect(name, effect_type) values ('Enhanced Jet Propulsion', 'general');
+insert into effect(name, effect_type) values ('Epic Nimbleness', 'general');
+insert into effect(name, effect_type) values ('Favored Weapon', 'general');
+insert into effect(name, effect_type, description) values ('Feat', 'general', 'Need to be adjusted');
+insert into effect(name, effect_type) values ('Feeds Off Madness', 'general');
+
+
 
 
 -- aggro
@@ -60,6 +69,13 @@ insert into effect(name, effect_type) values ('Linguistics', 'general');
 insert into effect(name, effect_type) values ('Occultation', 'general');
 insert into effect(name, effect_type) values ('Anathema', 'general');
 
+-- turn undead
+insert into effect(name, effect_type) values ('Eternal Faith', '');
+insert into effect(name, effect_type) values ('Faith', '');
+
+-- Paladin
+insert into effect(name, effect_type) values ('Extra Lay on Hands', '');
+insert into effect(name, effect_type) values ('Extra Smites', '');
 
 
 -- Materials

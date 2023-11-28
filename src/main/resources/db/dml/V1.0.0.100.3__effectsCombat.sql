@@ -95,7 +95,8 @@ insert into effect(name, effect_type) values ('Greater Magical Beast Bane', '');
 insert into effect(name, effect_type) values ('Greater Ooze Bane', '');
 insert into effect(name, effect_type) values ('Greater Undead Bane', '');
 insert into effect(name, effect_type) values ('', '');
-insert into effect(name, effect_type) values ('', '');
+
+insert into effect(name, effect_type) values ('Extra damage vs Undead', '');
 insert into effect(name, effect_type) values ('', '');
 insert into effect(name, effect_type) values ('', '');
 insert into effect(name, effect_type) values ('', '');
@@ -131,6 +132,8 @@ insert into effect(name, effect_type) values ('Cold Vulnerability', '');
 
 insert into effect(name, effect_type) values ('Electric Vulnerability', '');
 
+insert into effect(name, effect_type) values ('Evil Blast', '');
+
 insert into effect(name, effect_type) values ('Blazing', '');
 insert into effect(name, effect_type) values ('Bleed', '');
 insert into effect(name, effect_type) values ('Bloodletter', '');
@@ -144,9 +147,20 @@ insert into effect(name, effect_type) values ('Electrifying', '');
 
 -- Special Weapon Procs that buffs
 insert into effect(name, effect_type) values ('Cannith Combat Infusion', '');
+insert into effect(name, effect_type) values ('Enhanced Bloodrage', '');
+insert into effect(name, effect_type) values ('Enhanced Ki', '');
+insert into effect(name, effect_type) values ('Feeding', '');
 
 -- stat drain
 insert into effect(name, effect_type) values ('Bewildering', '');
+insert into effect(name, effect_type) values ('Enfeebling', '');
+insert into effect(name, effect_type) values ('Critical Befouling', '');
+insert into effect(name, effect_type) values ('Critical Bewildering', '');
+insert into effect(name, effect_type) values ('Critical Weakening', '');
+insert into effect(name, effect_type) values ('Critical Wounding', '');
+insert into effect(name, effect_type) values ('Constitution Poison, Greater', '');
+insert into effect(name, effect_type) values ('Constitution Poison, Lesser', '');
+insert into effect(name, effect_type) values ('Constitution Poison, Virulent', '');
 
 -- Special Weapon Procs
 insert into effect(name, effect_type) values ('Accursed Flame', '');
@@ -178,19 +192,25 @@ insert into effect(name, effect_type) values ('Disruption', '');
 insert into effect(name, effect_type) values ('Dripping with Magma', '');
 insert into effect(name, effect_type) values ('Felling the Oak', '');
 insert into effect(name, effect_type) values ('Earthgrab', '');
-
+insert into effect(name, effect_type) values ('Entropic', '');
+insert into effect(name, effect_type) values ('Epic Freezing Ice', '');
+insert into effect(name, effect_type) values ('Epic Goldcurse', '');
+insert into effect(name, effect_type) values ('Epic Noxious Venom Spike', '');
+insert into effect(name, effect_type) values ('Epic Telekinetic', '');
+insert into effect(name, effect_type) values ('Epic Trap the Soul', '');
+insert into effect(name, effect_type) values ('Eternal Fire', '');
+insert into effect(name, effect_type) values ('Eternal Holy Burst', '');
+insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('', '');
 
 -- Special Weapon debuffs
 insert into effect(name, effect_type) values ('Constricting Nightmare', '');
-insert into effect(name, effect_type) values ('Constitution Poison, Greater', '');
-insert into effect(name, effect_type) values ('Constitution Poison, Lesser', '');
-insert into effect(name, effect_type) values ('Constitution Poison, Virulent', '');
 insert into effect(name, effect_type) values ('Crippling', '');
 insert into effect(name, effect_type) values ('Crippling Flames', '');
-insert into effect(name, effect_type) values ('Critical Befouling', '');
-insert into effect(name, effect_type) values ('Critical Bewildering', '');
-insert into effect(name, effect_type) values ('Critical Weakening', '');
-insert into effect(name, effect_type) values ('Critical Wounding', '');
 insert into effect(name, effect_type) values ('Curse Vector', '');
 insert into effect(name, effect_type) values ('Cursespewing', '');
 insert into effect(name, effect_type) values ('Deadly Spider Venom', '');

@@ -44,6 +44,7 @@ insert into effect(name, effect_type) values ('Arcane Augmentation I', '');
 insert into effect(name, effect_type) values ('Arcane Augmentation IX', '');
 insert into effect(name, effect_type) values ('Divine Augmentation IX', '');
 insert into effect(name, effect_type) values ('Arcane Casting Dexterity', '');
+insert into effect(name, effect_type) values ('Enchanting Death', '');
 
 -- Metamagics
 insert into effect(name, effect_type) values ('Efficient Metamagic - Embolden II', '');
@@ -61,6 +62,7 @@ insert into effect(name, effect_type) values ('Efficient Metamagic - Maximize II
 -- Spell proc debuffs
 insert into effect(name, effect_type, description) values ('Bane of the Depths', '', 'Your Negative, Poison and Cold spells automatically apply the effects of Bane to enemies struck.');
 insert into effect(name, effect_type) values ('Cerulean Wave', '');
+insert into effect(name, effect_type, description) values ('Faeryfire Curse', '', 'Empowered by the Fearylights, your Illusion spells have a chance to curse your enemies with Purple Faery Fire, dispelling stealth, invisibilty, blur, and displacement for 30 seconds, and giving a -40 penalty to hide. Sightless enemies are immune to the dazzle effect.');
 
 
 --insert into effect(name, effect_type) values ('', '');

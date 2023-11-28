@@ -26,9 +26,11 @@ insert into effect(name, effect_type, description) values ('Demonic Retribution'
 insert into effect(name, effect_type) values ('Disease Guard', '');
 insert into effect(name, effect_type) values ('Disintegration Guard', '');
 insert into effect(name, effect_type) values ('Earthgrab Guard', '');
-insert into effect(name, effect_type) values ('Improved Disease Guard', '');
+insert into effect(name, effect_type) values ('Epic Transmuted Platinum Guard', '');
+insert into effect(name, effect_type) values ('Fearsome', '');
 insert into effect(name, effect_type) values ('Greater Disease Guard', '');
 insert into effect(name, effect_type) values ('Haste Guard', '');
+insert into effect(name, effect_type) values ('Improved Disease Guard', '');
 -- Plain Damage guards
 insert into effect(name, effect_type) values ('Acid Guard', '');
 insert into effect(name, effect_type) values ('Lightning Guard', '');
