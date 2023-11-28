@@ -61,9 +61,14 @@ insert into effect(name, effect_type) values ('Orc Bane', '');
 insert into effect(name, effect_type) values ('Reptilian Bane', '');
 insert into effect(name, effect_type) values ('Bane of the Unnatural', '');
 insert into effect(name, effect_type) values ('Elemental Bane', '');
+insert into effect(name, effect_type) values ('Feybane', '');
+insert into effect(name, effect_type) values ('Giant Bane', '');
+insert into effect(name, effect_type) values ('Giant Slayer', '');
 insert into effect(name, effect_type) values ('', '');
 insert into effect(name, effect_type) values ('', '');
 insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('Undead Bane', '');
 insert into effect(name, effect_type) values ('', '');
 insert into effect(name, effect_type) values ('Lesser Aberration Bane', '');
 insert into effect(name, effect_type) values ('Lesser Animal Bane', '');
@@ -134,6 +139,24 @@ insert into effect(name, effect_type) values ('Electric Vulnerability', '');
 
 insert into effect(name, effect_type) values ('Evil Blast', '');
 
+insert into effect(name, effect_type) values ('Fire Touch', '');
+insert into effect(name, effect_type) values ('Fire Vulnerability', '');
+insert into effect(name, effect_type) values ('Flaming', '');
+insert into effect(name, effect_type) values ('Flaming Blast', '');
+insert into effect(name, effect_type) values ('Flaming Burst', '');
+insert into effect(name, effect_type) values ('Greater Flaming Blast', '');
+
+insert into effect(name, effect_type) values ('Force', '');
+insert into effect(name, effect_type) values ('Force Blast', '');
+insert into effect(name, effect_type) values ('Force Burst', '');
+
+insert into effect(name, effect_type) values ('Frost', '');
+insert into effect(name, effect_type) values ('Gashing', '');
+
+insert into effect(name, effect_type) values ('Good Blast', '');
+insert into effect(name, effect_type) values ('Greater Good', '');
+
+
 insert into effect(name, effect_type) values ('Blazing', '');
 insert into effect(name, effect_type) values ('Bleed', '');
 insert into effect(name, effect_type) values ('Bloodletter', '');
@@ -144,6 +167,8 @@ insert into effect(name, effect_type) values ('Coruscating', '');
 insert into effect(name, effect_type) values ('Cosmic', '');
 insert into effect(name, effect_type) values ('Crushing', '');
 insert into effect(name, effect_type) values ('Electrifying', '');
+insert into effect(name, effect_type) values ('Fiery', '');
+insert into effect(name, effect_type) values ('Freezing', '');
 
 -- Special Weapon Procs that buffs
 insert into effect(name, effect_type) values ('Cannith Combat Infusion', '');
@@ -161,6 +186,8 @@ insert into effect(name, effect_type) values ('Critical Wounding', '');
 insert into effect(name, effect_type) values ('Constitution Poison, Greater', '');
 insert into effect(name, effect_type) values ('Constitution Poison, Lesser', '');
 insert into effect(name, effect_type) values ('Constitution Poison, Virulent', '');
+insert into effect(name, effect_type) values ('Greater Puncturing', '');
+insert into effect(name, effect_type) values ('Greater Wounding', '');
 
 -- Special Weapon Procs
 insert into effect(name, effect_type) values ('Accursed Flame', '');
@@ -200,10 +227,27 @@ insert into effect(name, effect_type) values ('Epic Telekinetic', '');
 insert into effect(name, effect_type) values ('Epic Trap the Soul', '');
 insert into effect(name, effect_type) values ('Eternal Fire', '');
 insert into effect(name, effect_type) values ('Eternal Holy Burst', '');
-insert into effect(name, effect_type) values ('', '');
-insert into effect(name, effect_type) values ('', '');
-insert into effect(name, effect_type) values ('', '');
-insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('Fiery Detonation', '');
+insert into effect(name, effect_type) values ('Flamebitten', '');
+insert into effect(name, effect_type) values ('Fracturing', '');
+insert into effect(name, effect_type) values ('Freezing Ice', '');
+insert into effect(name, effect_type) values ('Frostbite', '');
+insert into effect(name, effect_type) values ('Glass Jaw Strike', '');
+insert into effect(name, effect_type) values ('Glass Shards', '');
+insert into effect(name, effect_type) values ('Godly Wrath', '');
+insert into effect(name, effect_type) values ('Goldcurse', '');
+insert into effect(name, effect_type) values ('Greater Acid Arrow', '');
+insert into effect(name, effect_type) values ('Greater Dispelling', '');
+insert into effect(name, effect_type) values ('Greater Disruption', '');
+insert into effect(name, effect_type) values ('Greater Electric Storm', '');
+insert into effect(name, effect_type) values ('Greater Incineration', '');
+insert into effect(name, effect_type) values ('Greater Maiming', '');
+insert into effect(name, effect_type) values ('Greater Shocking Blow', '');
+insert into effect(name, effect_type) values ('Greater Shrieking Bolt', '');
+insert into effect(name, effect_type) values ('Greater Sirocco', '');
+insert into effect(name, effect_type) values ('Greater Stone Prison', '');
+insert into effect(name, effect_type) values ('Greater Sunburst', '');
+insert into effect(name, effect_type) values ('Greater Vorpal', '');
 insert into effect(name, effect_type) values ('', '');
 insert into effect(name, effect_type) values ('', '');
 

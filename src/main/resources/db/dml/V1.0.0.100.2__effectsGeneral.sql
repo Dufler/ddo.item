@@ -5,12 +5,18 @@ insert into effect(name, effect_type) values ('Negative Amplification', '');
 insert into effect(name, effect_type) values ('Repair Amplification', '');
 insert into effect(name, effect_type) values ('Healing Amplification', '');
 insert into effect(name, effect_type) values ('Regeneration', 'HP per minute');
+insert into effect(name, effect_type) values ('Greater Regeneration', 'HP per minute');
 insert into effect(name, effect_type) values ('Auto-Repair', 'HP per minute');
+insert into effect(name, effect_type) values ('Greater Auto-Repair', 'HP per minute');
 insert into effect(name, effect_type) values ('Unconsciousness Range', '');
 insert into effect(name, effect_type) values ('Hit Points', '');
 insert into effect(name, effect_type) values ('Wizardry', '');
 insert into effect(name, effect_type) values ('Arcane Casting Dexterity', '');
 insert into effect(name, effect_type) values ('Everbright', '');
+insert into effect(name, effect_type) values ('Finesse', '');
+insert into effect(name, effect_type) values ('Flameblade', '');
+insert into effect(name, effect_type) values ('Frostblade', '');
+insert into effect(name, effect_type) values ('Frozen Aether', '');
 
 insert into effect(name, effect_type) values ('True Seeing', '');
 insert into effect(name, effect_type) values ('Freedom of Movement', '');
@@ -60,6 +66,17 @@ insert into effect(name, effect_type) values ('Epic Nimbleness', 'general');
 insert into effect(name, effect_type) values ('Favored Weapon', 'general');
 insert into effect(name, effect_type, description) values ('Feat', 'general', 'Need to be adjusted');
 insert into effect(name, effect_type) values ('Feeds Off Madness', 'general');
+insert into effect(name, effect_type) values ('Greater Boon of Undeath', 'general');
+insert into effect(name, effect_type) values ('Greater Chimera''s Ferocity', 'general');
+insert into effect(name, effect_type) values ('Greater Dragonmark Enhancement', 'general');
+insert into effect(name, effect_type) values ('Greater Nimbleness', 'general');
+insert into effect(name, effect_type) values ('Greater Stability', 'general');
+insert into effect(name, effect_type) values ('', 'general');
+insert into effect(name, effect_type) values ('', 'general');
+insert into effect(name, effect_type) values ('', 'general');
+insert into effect(name, effect_type) values ('', 'general');
+insert into effect(name, effect_type) values ('', 'general');
+insert into effect(name, effect_type) values ('', 'general');
 
 
 
@@ -72,10 +89,14 @@ insert into effect(name, effect_type) values ('Anathema', 'general');
 -- turn undead
 insert into effect(name, effect_type) values ('Eternal Faith', '');
 insert into effect(name, effect_type) values ('Faith', '');
+insert into effect(name, effect_type) values ('Greater Turning', '');
 
 -- Paladin
 insert into effect(name, effect_type) values ('Extra Lay on Hands', '');
 insert into effect(name, effect_type) values ('Extra Smites', '');
+
+-- Monk
+insert into effect(name, effect_type) values ('Greater Reinforced Fists', '');
 
 
 -- Materials

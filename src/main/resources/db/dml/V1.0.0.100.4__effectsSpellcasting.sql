@@ -45,6 +45,7 @@ insert into effect(name, effect_type) values ('Arcane Augmentation IX', '');
 insert into effect(name, effect_type) values ('Divine Augmentation IX', '');
 insert into effect(name, effect_type) values ('Arcane Casting Dexterity', '');
 insert into effect(name, effect_type) values ('Enchanting Death', '');
+insert into effect(name, effect_type) values ('Greater Water Elemental Form', '');
 
 -- Metamagics
 insert into effect(name, effect_type) values ('Efficient Metamagic - Embolden II', '');

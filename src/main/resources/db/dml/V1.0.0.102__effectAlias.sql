@@ -260,6 +260,12 @@ insert into effect_alias (name, description) values ('Fire Lore II', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Fire Lore II', 'Fire Lore', 'Equipment', 12);
 insert into effect_alias (name, description) values ('Fire Lore III', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Fire Lore III', 'Fire Lore', 'Equipment', 13);
+insert into effect_alias (name, description) values ('Fire Lore IV', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Fire Lore IV', 'Fire Lore', 'Equipment', 14);
+insert into effect_alias (name, description) values ('Fire Lore V', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Fire Lore V', 'Fire Lore', 'Equipment', 15);
+insert into effect_alias (name, description) values ('Fire Lore VI', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Fire Lore VI', 'Fire Lore', 'Equipment', 16);
 insert into effect_alias (name, description) values ('Fire Lore VIII', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Fire Lore VIII', 'Fire Lore', 'Equipment', 18);
 insert into effect_alias (name, description) values ('Fleshmaker', '');
@@ -426,6 +432,9 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Sacred Ground Lore', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Sacred Ground Lore', 'Radiance Lore', 'Equipment', 22);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Sacred Ground Lore', 'Acid Lore', 'Equipment', 22);
+insert into effect_alias (name, description) values ('Ground Lore', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ground Lore', 'Radiance Lore', 'Equipment', 22);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ground Lore', 'Acid Lore', 'Equipment', 22);
 insert into effect_alias (name, description) values ('Power of the Sacred Ground', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Sacred Ground', 'Radiance', 'Equipment', 148);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Sacred Ground', 'Corrosion', 'Equipment', 148);
@@ -453,6 +462,12 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Power of the Frozen Depths', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Frozen Depths', 'Nullification', 'Equipment', NULL);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Frozen Depths', 'Glaciation', 'Equipment', NULL);
+insert into effect_alias (name, description) values ('Firestorm Lore', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Firestorm Lore', 'Lightning Lore', 'Equipment', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Firestorm Lore', 'Fire Lore', 'Equipment', NULL);
+insert into effect_alias (name, description) values ('Power of the Firestorm', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Firestorm', 'Magnetism', 'Equipment', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Firestorm', 'Combustion', 'Equipment', NULL);
 insert into effect_alias (name, description) values ('Frozen Storm Lore', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frozen Storm Lore', 'Lightning Lore', 'Equipment', NULL);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frozen Storm Lore', 'Ice Lore', 'Equipment', NULL);
@@ -471,6 +486,14 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Power of the Thunderstorm', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Thunderstorm', 'Resonance', 'Equipment', NULL);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Thunderstorm', 'Magnetism', 'Equipment', NULL);
+insert into effect_alias (name, description) values ('Frozen Thunderstorm Lore', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frozen Thunderstorm Lore', 'Sonic Lore', 'Equipment', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frozen Thunderstorm Lore', 'Lightning Lore', 'Equipment', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frozen Thunderstorm Lore', 'Ice Lore', 'Equipment', NULL);
+insert into effect_alias (name, description) values ('Power of the Frozen Thunderstorm', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Frozen Thunderstorm', 'Resonance', 'Equipment', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Frozen Thunderstorm', 'Magnetism', 'Equipment', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Frozen Thunderstorm', 'Glaciation', 'Equipment', NULL);
 insert into effect_alias (name, description) values ('Quori Mind Shield', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Quori Mind Shield', 'Confusion Immunity', NULL, NULL);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Quori Mind Shield', 'Domination Immunity', NULL, NULL);
@@ -727,6 +750,8 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 
 insert into effect_alias (name, description) values ('Bleed', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Bleed', 'Bleeding', NULL, NULL);
+insert into effect_alias (name, description) values ('Greater Bleeding', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Bleeding', 'Bleeding', NULL, 8);
 
 insert into effect_alias (name, description) values ('Bloodletter II', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Bloodletter II', 'Bloodletter', NULL, 2);
@@ -791,6 +816,50 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 
 insert into effect_alias (name, description) values ('Extra Smite', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Extra Smite', 'Extra Smites', 'Enhancement', 1);
+
+insert into effect_alias (name, description) values ('Flaming II', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Flaming II', 'Flaming', NULL, 2);
+insert into effect_alias (name, description) values ('Flaming III', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Flaming III', 'Flaming', NULL, 3);
+insert into effect_alias (name, description) values ('Flaming IV', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Flaming IV', 'Flaming', NULL, 4);
+insert into effect_alias (name, description) values ('Flaming V', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Flaming V', 'Flaming', NULL, 5);
+
+insert into effect_alias (name, description) values ('Frost II', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frost II', 'Frost', NULL, 2);
+insert into effect_alias (name, description) values ('Frost III', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frost III', 'Frost', NULL, 3);
+insert into effect_alias (name, description) values ('Frost IV', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frost IV', 'Frost', NULL, 4);
+insert into effect_alias (name, description) values ('Frost V', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frost V', 'Frost', NULL, 5);
+insert into effect_alias (name, description) values ('Frost VII', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frost VII', 'Frost', NULL, 7);
+insert into effect_alias (name, description) values ('Frost VIII', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Frost VIII', 'Frost', NULL, 8);
+
+insert into effect_alias (name, description) values ('Ghost Touch', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ghost Touch', 'Ethereal', NULL, NULL);
+
+insert into effect_alias (name, description) values ('Ghostbane', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ghostbane', 'Ethereal', NULL, NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ghostbane', 'Undead Bane', NULL, 1);
+insert into effect_alias (name, description) values ('Ghostbane VIII', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ghostbane VIII', 'Ethereal', NULL, NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Ghostbane VIII', 'Undead Bane', NULL, 8);
+
+insert into effect_alias (name, description) values ('Good Luck', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Good Luck', 'Resistance', 'Luck', NULL);
+-- TODO aggiungere le skills
+
+insert into effect_alias (name, description) values ('Greater Heroism', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Heroism', 'Resistance', 'Morale', NULL);
+-- TODO aggiungere le skills
+
+insert into effect_alias (name, description) values ('Greater Marksmanship', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Marksmanship', 'Deadly', 'Competence', 2);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Marksmanship', 'Accuracy', 'Competence', 3);
 
 --insert into effect_alias (name, description) values ('', '');
 --insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, '', '', , );

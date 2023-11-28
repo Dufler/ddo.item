@@ -28,7 +28,12 @@ insert into effect(name, effect_type) values ('Disintegration Guard', '');
 insert into effect(name, effect_type) values ('Earthgrab Guard', '');
 insert into effect(name, effect_type) values ('Epic Transmuted Platinum Guard', '');
 insert into effect(name, effect_type) values ('Fearsome', '');
+insert into effect(name, effect_type) values ('Freezing Ice Guard', '');
+insert into effect(name, effect_type) values ('From The Shadows', '');
 insert into effect(name, effect_type) values ('Greater Disease Guard', '');
+insert into effect(name, effect_type) values ('Greater Dispelling Guard', '');
+insert into effect(name, effect_type) values ('Greater Disruption Guard', '');
+insert into effect(name, effect_type) values ('Greater Poison Guard', '');
 insert into effect(name, effect_type) values ('Haste Guard', '');
 insert into effect(name, effect_type) values ('Improved Disease Guard', '');
 -- Plain Damage guards
@@ -37,6 +42,7 @@ insert into effect(name, effect_type) values ('Lightning Guard', '');
 insert into effect(name, effect_type) values ('Fire Guard', '');
 insert into effect(name, effect_type) values ('Light Guard', '');
 insert into effect(name, effect_type) values ('Damage Guard', '');
+insert into effect(name, effect_type) values ('Greater Thorn Guard', '');
 -- On-Hit buffs
 insert into effect(name, effect_type) values ('Angelic Grace', '');
 insert into effect(name, effect_type, description) values ('Demonic Shield', '', 'Each time you are hit in melee combat there is a chance that a shield of demonic energy will grant you a +30 Profane bonus to temporary hit points.');
