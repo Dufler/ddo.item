@@ -64,7 +64,7 @@ insert into effect(name, effect_type) values ('Elemental Bane', '');
 insert into effect(name, effect_type) values ('Feybane', '');
 insert into effect(name, effect_type) values ('Giant Bane', '');
 insert into effect(name, effect_type) values ('Giant Slayer', '');
-insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('Plant Bane', '');
 insert into effect(name, effect_type) values ('', '');
 insert into effect(name, effect_type) values ('', '');
 insert into effect(name, effect_type) values ('', '');
@@ -149,13 +149,21 @@ insert into effect(name, effect_type) values ('Greater Flaming Blast', '');
 insert into effect(name, effect_type) values ('Force', '');
 insert into effect(name, effect_type) values ('Force Blast', '');
 insert into effect(name, effect_type) values ('Force Burst', '');
-
-insert into effect(name, effect_type) values ('Frost', '');
 insert into effect(name, effect_type) values ('Gashing', '');
 
+insert into effect(name, effect_type) values ('Frost', '');
+insert into effect(name, effect_type) values ('Icy Blast', '');
+insert into effect(name, effect_type) values ('Icy Burst', '');
+
+
+insert into effect(name, effect_type) values ('Holy', '');
+insert into effect(name, effect_type) values ('Holy Burst', '');
 insert into effect(name, effect_type) values ('Good Blast', '');
 insert into effect(name, effect_type) values ('Greater Good', '');
 
+insert into effect(name, effect_type) values ('Poison', '');
+insert into effect(name, effect_type) values ('Poison Blast', '');
+insert into effect(name, effect_type) values ('Poison Burst', '');
 
 insert into effect(name, effect_type) values ('Blazing', '');
 insert into effect(name, effect_type) values ('Bleed', '');
@@ -179,6 +187,7 @@ insert into effect(name, effect_type) values ('Feeding', '');
 -- stat drain
 insert into effect(name, effect_type) values ('Bewildering', '');
 insert into effect(name, effect_type) values ('Enfeebling', '');
+insert into effect(name, effect_type) values ('Puncturing', '');
 insert into effect(name, effect_type) values ('Critical Befouling', '');
 insert into effect(name, effect_type) values ('Critical Bewildering', '');
 insert into effect(name, effect_type) values ('Critical Weakening', '');
@@ -248,7 +257,7 @@ insert into effect(name, effect_type) values ('Greater Sirocco', '');
 insert into effect(name, effect_type) values ('Greater Stone Prison', '');
 insert into effect(name, effect_type) values ('Greater Sunburst', '');
 insert into effect(name, effect_type) values ('Greater Vorpal', '');
-insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('Magma Surge', '');
 insert into effect(name, effect_type) values ('', '');
 
 -- Special Weapon debuffs
@@ -261,11 +270,13 @@ insert into effect(name, effect_type) values ('Deadly Spider Venom', '');
 insert into effect(name, effect_type) values ('Demon Fever', '');
 insert into effect(name, effect_type) values ('Destruction', '');
 insert into effect(name, effect_type) values ('Enervation', '');
+insert into effect(name, effect_type) values ('Identity Crisis', '');
 insert into effect(name, effect_type) values ('Fetters of Unreality', '');
 
 -- Keeper
 insert into effect(name, effect_type) values ('First Litany of the Crimson Covenant', '');
 insert into effect(name, effect_type) values ('Second Litany of the Crimson Covenant', '');
+insert into effect(name, effect_type) values ('Third Litany of the Crimson Covenant', '');
 insert into effect(name, effect_type) values ('Final Litany of the Crimson Covenant', '');
 
 --insert into effect(name, effect_type) values ('', '');

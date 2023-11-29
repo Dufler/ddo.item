@@ -27,5 +27,7 @@ insert into effect(name, effect_type) values ('Open Lock', 'skill');
 insert into effect(name, effect_type) values ('Perform', 'skill');
 insert into effect(name, effect_type) values ('Repair', 'skill');
 insert into effect(name, effect_type) values ('Search', 'skill');
+insert into effect(name, effect_type) values ('Spellcraft', 'skill');
+insert into effect(name, effect_type) values ('Use Magic Device', 'skill');
 
 --insert into effect(name, effect_type) values ('', '');

@@ -8,6 +8,7 @@ insert into effect(name, effect_type) values ('Regeneration', 'HP per minute');
 insert into effect(name, effect_type) values ('Greater Regeneration', 'HP per minute');
 insert into effect(name, effect_type) values ('Auto-Repair', 'HP per minute');
 insert into effect(name, effect_type) values ('Greater Auto-Repair', 'HP per minute');
+insert into effect(name, effect_type) values ('Improved Auto-Repair', 'HP per minute');
 insert into effect(name, effect_type) values ('Unconsciousness Range', '');
 insert into effect(name, effect_type) values ('Hit Points', '');
 insert into effect(name, effect_type) values ('Wizardry', '');
@@ -21,6 +22,7 @@ insert into effect(name, effect_type) values ('Frozen Aether', '');
 insert into effect(name, effect_type) values ('True Seeing', '');
 insert into effect(name, effect_type) values ('Freedom of Movement', '');
 insert into effect(name, effect_type) values ('Ethereal', '');
+insert into effect(name, effect_type) values ('Improved Deception', '');
 
 
 insert into effect(name, effect_type) values ('Slippery Surfaces Immunity', 'general');
@@ -29,10 +31,9 @@ insert into effect(name, effect_type) values ('Anchoring', 'general');
 insert into effect(name, effect_type) values ('Acidic Reaping', '');
 
 -- charges
-insert into effect(name, effect_type) values ('Action Boost Enhancement', 'general');
-insert into effect(name, effect_type) values ('Minor Action Boost Enhancement', 'general');
-insert into effect(name, effect_type) values ('Lesser Action Boost Enhancement', 'general');
+insert into effect(name, effect_type) values ('Action Boost', 'general');
 insert into effect(name, effect_type) values ('Anger', 'general');
+insert into effect(name, effect_type) values ('Minor Anger', 'general');
 insert into effect(name, effect_type) values ('Anthem', 'general');
 insert into effect(name, effect_type) values ('Alchemical Conservation', 'general');
 
@@ -41,8 +42,6 @@ insert into effect(name, effect_type) values ('Arrow Spitting', 'general');
 insert into effect(name, effect_type) values ('Conjure Ice Arrow', 'general');
 
 -- Strange stuff
-insert into effect(name, effect_type) values ('Anthem Melody: La Victoria!', 'general');
-insert into effect(name, effect_type) values ('Balanced Ki Strike', 'general');
 insert into effect(name, effect_type) values ('Better Offhanded', 'general');
 insert into effect(name, effect_type) values ('Bless Ward', 'general');
 insert into effect(name, effect_type) values ('Blood Rage', 'general');
@@ -71,8 +70,8 @@ insert into effect(name, effect_type) values ('Greater Chimera''s Ferocity', 'ge
 insert into effect(name, effect_type) values ('Greater Dragonmark Enhancement', 'general');
 insert into effect(name, effect_type) values ('Greater Nimbleness', 'general');
 insert into effect(name, effect_type) values ('Greater Stability', 'general');
-insert into effect(name, effect_type) values ('', 'general');
-insert into effect(name, effect_type) values ('', 'general');
+insert into effect(name, effect_type) values ('Sink Like a Brick', 'general');
+insert into effect(name, effect_type) values ('Heroic Inspiration', 'general');
 insert into effect(name, effect_type) values ('', 'general');
 insert into effect(name, effect_type) values ('', 'general');
 insert into effect(name, effect_type) values ('', 'general');
@@ -90,13 +89,22 @@ insert into effect(name, effect_type) values ('Anathema', 'general');
 insert into effect(name, effect_type) values ('Eternal Faith', '');
 insert into effect(name, effect_type) values ('Faith', '');
 insert into effect(name, effect_type) values ('Greater Turning', '');
+insert into effect(name, effect_type) values ('Sacred', '');
+insert into effect(name, effect_type) values ('Minor Turning', '');
+insert into effect(name, effect_type) values ('Lesser Turning', '');
+insert into effect(name, effect_type) values ('Hallowed', '');
 
 -- Paladin
 insert into effect(name, effect_type) values ('Extra Lay on Hands', '');
 insert into effect(name, effect_type) values ('Extra Smites', '');
 
 -- Monk
+insert into effect(name, effect_type) values ('Balanced Ki Strike', 'general');
 insert into effect(name, effect_type) values ('Greater Reinforced Fists', '');
+
+-- bard
+insert into effect(name, effect_type) values ('Anthem Melody: La Victoria!', 'general');
+insert into effect(name, effect_type) values ('Songblade', '');
 
 
 -- Materials
@@ -117,7 +125,10 @@ insert into effect(name, effect_type) values ('Green Steel', 'upgrade');
 insert into effect(name, effect_type) values ('Legendary Alchemical Crafting (Prototype)', 'upgrade');
 insert into effect(name, effect_type) values ('Lost Purpose', 'upgrade');
 insert into effect(name, effect_type) values ('Nearly Finished', 'upgrade');
-
+insert into effect(name, effect_type) values ('Upgradeable Item (Black Abbot)', 'upgrade');
+insert into effect(name, effect_type) values ('Upgradeable Item (Stormreaver)', 'upgrade');
+insert into effect(name, effect_type) values ('Upgradeable Item (Temple of Elemental Evil)', 'upgrade');
+insert into effect(name, effect_type) values ('Suppressed Power', 'upgrade');
 
 
 --insert into effect(name, effect_type) values ('', 'general');

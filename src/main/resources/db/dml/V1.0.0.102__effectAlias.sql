@@ -72,7 +72,7 @@ insert into effect_alias (name, description) values ('Damage Bonus', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Damage Bonus', 'Deadly', 'Competence', NULL);
 insert into effect_alias (name, description) values ('Dark Restoration Lore', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dark Restoration Lore', 'Negative Lore', 'Equipment', NULL);
-insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dark Restoration Lore', 'Positive Lore', 'Equipment', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dark Restoration Lore', 'Healing Lore', 'Equipment', NULL);
 insert into effect_alias (name, description) values ('Power of the Dark Restoration', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Dark Restoration', 'Nullification', 'Equipment', NULL);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Dark Restoration', 'Devotion', 'Equipment', NULL);
@@ -284,6 +284,8 @@ insert into effect_alias (name, description) values ('Greater Arcane Casting Dex
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Arcane Casting Dexterity', 'Arcane Casting Dexterity', 'Enhancement', 15);
 insert into effect_alias (name, description) values ('Arcane Casting Dexterity', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Arcane Casting Dexterity', 'Arcane Casting Dexterity', 'Enhancement', 10);
+insert into effect_alias (name, description) values ('Lesser Arcane Casting Dexterity', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Lesser Arcane Casting Dexterity', 'Arcane Casting Dexterity', 'Enhancement', 5);
 insert into effect_alias (name, description) values ('Hammerblock V', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Hammerblock V', 'DR', 'Blunt', 10);
 insert into effect_alias (name, description) values ('Hammerblock VII', '');
@@ -716,6 +718,8 @@ insert into effect_alias (name, description) values ('Dusk', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Dusk', 'Concealment', 'Enhancement', 10);
 insert into effect_alias (name, description) values ('Blurry', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Blurry', 'Concealment', 'Enhancement', 20);
+insert into effect_alias (name, description) values ('Smoke Screen', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Smoke Screen', 'Concealment', 'Enhancement', 20);
 insert into effect_alias (name, description) values ('Lesser Displacement', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Lesser Displacement', 'Concealment', 'Enhancement', 25);
 
@@ -853,6 +857,10 @@ insert into effect_alias (name, description) values ('Good Luck', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Good Luck', 'Resistance', 'Luck', NULL);
 -- TODO aggiungere le skills
 
+insert into effect_alias (name, description) values ('Heroism', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Heroism', 'Resistance', 'Morale', NULL);
+-- TODO aggiungere le skills
+
 insert into effect_alias (name, description) values ('Greater Heroism', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Heroism', 'Resistance', 'Morale', NULL);
 -- TODO aggiungere le skills
@@ -860,6 +868,19 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Greater Marksmanship', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Marksmanship', 'Deadly', 'Competence', 2);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Marksmanship', 'Accuracy', 'Competence', 3);
+
+insert into effect_alias (name, description) values ('Stonework Beam', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Stonework Beam', 'Bewildering', NULL, NULL);
+
+insert into effect_alias (name, description) values ('Action Boost Enhancement', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Action Boost Enhancement', 'Action Boost', 'Enhancement', 3);
+insert into effect_alias (name, description) values ('Lesser Action Boost Enhancement', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Lesser Action Boost Enhancement', 'Action Boost', 'Enhancement', 2);
+insert into effect_alias (name, description) values ('Minor Action Boost Enhancement', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Minor Action Boost Enhancement', 'Action Boost', 'Enhancement', 1);
+
+insert into effect_alias (name, description) values ('Inherent Acid Resistance', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Inherent Acid Resistance', 'Acid Resistance', 'Insightful', NULL);
 
 --insert into effect_alias (name, description) values ('', '');
 --insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, '', '', , );

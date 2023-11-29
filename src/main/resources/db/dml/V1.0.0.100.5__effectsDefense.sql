@@ -36,15 +36,21 @@ insert into effect(name, effect_type) values ('Greater Disruption Guard', '');
 insert into effect(name, effect_type) values ('Greater Poison Guard', '');
 insert into effect(name, effect_type) values ('Haste Guard', '');
 insert into effect(name, effect_type) values ('Improved Disease Guard', '');
+insert into effect(name, effect_type) values ('Magma Surge Guard', '');
+insert into effect(name, effect_type) values ('Lesser Undead Guard', '');
+insert into effect(name, effect_type) values ('', '');
+insert into effect(name, effect_type) values ('', '');
 -- Plain Damage guards
 insert into effect(name, effect_type) values ('Acid Guard', '');
 insert into effect(name, effect_type) values ('Lightning Guard', '');
 insert into effect(name, effect_type) values ('Fire Guard', '');
 insert into effect(name, effect_type) values ('Light Guard', '');
+insert into effect(name, effect_type) values ('Poison Guard', '');
 insert into effect(name, effect_type) values ('Damage Guard', '');
 insert into effect(name, effect_type) values ('Greater Thorn Guard', '');
 -- On-Hit buffs
 insert into effect(name, effect_type) values ('Angelic Grace', '');
+insert into effect(name, effect_type) values ('Healers Bounty', '');
 insert into effect(name, effect_type, description) values ('Demonic Shield', '', 'Each time you are hit in melee combat there is a chance that a shield of demonic energy will grant you a +30 Profane bonus to temporary hit points.');
 insert into effect(name, effect_type, description) values ('Earthen Guard', '', 'When you are successfully attacked, there is a chance that a Stone Skin will be cast on you.');
 

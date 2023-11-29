@@ -2,7 +2,6 @@
 insert into effect(name, effect_type) values ('Spell Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Acid Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Negative Lore', 'spellcasting');
-insert into effect(name, effect_type) values ('Positive Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Ice Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Fire Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Void Lore', 'spellcasting');
@@ -25,6 +24,7 @@ insert into effect(name, effect_type) values ('Glaciation', '');
 insert into effect(name, effect_type) values ('Magnetism', '');
 insert into effect(name, effect_type) values ('Resonance', '');
 insert into effect(name, effect_type) values ('Combustion', '');
+insert into effect(name, effect_type) values ('Reconstruction', '');
 -- Spell Focus
 insert into effect(name, effect_type) values ('Abjuration Focus', '');
 insert into effect(name, effect_type) values ('Conjuration Focus', '');
@@ -41,10 +41,16 @@ insert into effect(name, effect_type) values ('Energy Siphon', '');
 insert into effect(name, effect_type) values ('Augment Summoning', '');
 insert into effect(name, effect_type) values ('Mystic Diversion', '');
 insert into effect(name, effect_type) values ('Arcane Augmentation I', '');
+insert into effect(name, effect_type) values ('Lesser Arcane Augmentation I', '');
 insert into effect(name, effect_type) values ('Arcane Augmentation IX', '');
+insert into effect(name, effect_type) values ('Lesser Arcane Augmentation IX', '');
+insert into effect(name, effect_type) values ('Lesser Evocation Augmentation IX', '');
+insert into effect(name, effect_type) values ('Improved Fire Augmentation IX', '');
 insert into effect(name, effect_type) values ('Divine Augmentation IX', '');
+insert into effect(name, effect_type) values ('Lesser Divine Augmentation IX', '');
 insert into effect(name, effect_type) values ('Arcane Casting Dexterity', '');
 insert into effect(name, effect_type) values ('Enchanting Death', '');
+insert into effect(name, effect_type) values ('Illusory Death', '');
 insert into effect(name, effect_type) values ('Greater Water Elemental Form', '');
 
 -- Metamagics
@@ -59,6 +65,9 @@ insert into effect(name, effect_type) values ('Efficient Metamagic - Extend II',
 insert into effect(name, effect_type) values ('Efficient Metamagic - Intensify II', '');
 insert into effect(name, effect_type) values ('Efficient Metamagic - Maximize I', '');
 insert into effect(name, effect_type) values ('Efficient Metamagic - Maximize II', '');
+insert into effect(name, effect_type) values ('Nymph''s Healing Empowerment', '');
+insert into effect(name, effect_type) values ('Improved Metamagic: Heighten', '');
+
 
 -- Spell proc debuffs
 insert into effect(name, effect_type, description) values ('Bane of the Depths', '', 'Your Negative, Poison and Cold spells automatically apply the effects of Bane to enemies struck.');

@@ -5,11 +5,13 @@ insert into effect(name, effect_type) values ('Electric Resistance', 'elemental_
 insert into effect(name, effect_type) values ('Acid Resistance', 'elemental_defense');
 insert into effect(name, effect_type) values ('Sonic Resistance', 'elemental_defense');
 insert into effect(name, effect_type) values ('Light Resistance', 'elemental_defense');
+insert into effect(name, effect_type) values ('Poison Resistance', 'elemental_defense');
 -- Elemental Absorption
 insert into effect(name, effect_type) values ('Fire Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Acid Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Cold Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Electric Absorption', 'elemental_defense');
+insert into effect(name, effect_type) values ('Sonic Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Light Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Force Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Negative Energy Absorption', 'elemental_defense');
