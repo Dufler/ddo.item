@@ -9,6 +9,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.annotation.PostConstruct;
+
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,12 +56,17 @@ public abstract class AItemParser {
 	
 	protected AItemParser() {
 		clickies = new HashSet<>();
-		List<EEffect> list = effectRepository.findByType(EffectType.clikie);
+		
+	}
+	
+	@PostConstruct
+	private void setUp() {
+		List<EEffect> list = effectRepository.findByType(EffectType.clickie);
 		for (EEffect e : list) {
 			clickies.add(e.getEffect());
 		}
 	}
-
+ 
 	public List<Item> parseRows(List<Element> rows, ItemType type) {
 		ArrayList<Item> itemList = new ArrayList<>();
 		for (Element row : rows) {
@@ -109,7 +116,10 @@ public abstract class AItemParser {
 	
 	protected void parseEffect(String effectDescription) {
 		String bonusType;
-		if (effectDescription.matches("Sacred \\+\\d{1,2}")) {
+		// Controllo se è un clickie
+		if (clickies.contains(effectDescription)) {
+			bonusType = "Clickie";
+		} else if (effectDescription.matches("Sacred \\+\\d{1,2}")) {
 			// E' proprio l'effetto sacred, non il tipo di bonus
 			bonusType = "Enhancement";
 		} else {
@@ -185,14 +195,18 @@ public abstract class AItemParser {
 			effectDescription = effectDescription.substring(0, 100);
 		}
 		
-		// Controllo se è un clickie
-		if (bonusType == null && bonusValue == null && clickies.contains(effectDescription)) {
-			bonusType = "Clickie";
-		}
-		
 		// Controllo se ho un alias per questo effetto
 		List<EEffectAliasList> list = aliasRepository.findByAlias(effectDescription);
 		if (list.isEmpty()) {
+			// Controllo se l'effetto già esiste altrimenti lo aggiungo specificando che va categorizzato
+			Optional<EEffect> opt = effectRepository.findById(effectDescription);
+			if (opt.isEmpty()) {
+				EEffect entity = new EEffect();
+				entity.setEffect(effectDescription);
+				entity.setType(EffectType.uncategorized);
+				effectRepository.save(entity);
+			}
+			// Inserisco l'effetto nell'oggetto
 			Effect effect = new Effect();
 			effect.setName(effectDescription);
 			effect.setType(bonusType);

@@ -19,6 +19,8 @@ insert into effect(name, effect_type) values ('Evil Absorption', 'elemental_defe
 insert into effect(name, effect_type) values ('Good Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Chaos Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Law Absorption', 'elemental_defense');
+insert into effect(name, effect_type) values ('Fire Shield (Cold)', 'elemental_defense');
+insert into effect(name, effect_type) values ('Fire Shield (Hot)', 'elemental_defense');
 -- Spell Absorption
 insert into effect(name, effect_type) values ('Absorb Beholder Spells', 'elemental_defense');
 insert into effect(name, effect_type) values ('Spell Absorption', 'elemental_defense');

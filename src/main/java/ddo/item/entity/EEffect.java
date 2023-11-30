@@ -21,7 +21,7 @@ public class EEffect implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name = "effect")
+	@Column(name = "name")
 	private String effect;
 	
 	@Column(name = "description")

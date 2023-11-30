@@ -37,7 +37,7 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Brilliant Silver Scales', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Brilliant Silver Scales', 'Cold Resistance', 'Enhancement', 52);
 insert into effect_alias (name, description) values ('Blackscale Ferocity', '');
-insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Blackscale Ferocity', 'Haste guard', NULL, NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Blackscale Ferocity', 'Haste Guard', NULL, NULL);
 insert into effect_alias (name, description) values ('Charisma Skills - Exceptional Bonus', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Charisma Skills - Exceptional Bonus', 'Charisma Skills', 'Exceptional', NULL);
 insert into effect_alias (name, description) values ('Competence Healing Amplification', '');
@@ -141,7 +141,7 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Hound''s Blood', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Hound''s Blood', 'Charm Immunity', NULL, NULL);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Hound''s Blood', 'Poison Immunity', NULL, NULL);
-insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Hound''s Blood', 'Pietrification Immunity', NULL, NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Hound''s Blood', 'Petrification Immunity', NULL, NULL);
 insert into effect_alias (name, description) values ('Hound''s Bones', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Hound''s Bones', 'Acid Absorption', 'Enhancement', 23);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Hound''s Bones', 'Evil Absorption', 'Enhancement', 23);
@@ -276,6 +276,8 @@ insert into effect_alias (name, description) values ('Greater Elemental Energy',
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Elemental Energy', 'Hit Points', 'gee', 20); --Stacks with everything
 insert into effect_alias (name, description) values ('Greater Elemental Spell Power', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Elemental Spell Power', 'Wizardry', 'gesp', 100); --Stacks with everything
+insert into effect_alias (name, description) values ('Legendary Elemental Energy', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Legendary Elemental Energy', 'Wizardry', 'lee', 150); --Stacks with everything
 insert into effect_alias (name, description) values ('Archmagi', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Archmagi', 'Wizardry', 'Enhancement', 200);
 insert into effect_alias (name, description) values ('Greater Twilight', '');
@@ -739,7 +741,7 @@ insert into effect_alias (name, description) values ('Exceptional Stunning', '')
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Exceptional Stunning', 'Stunning', 'Exceptional', NULL);
 
 insert into effect_alias (name, description) values ('Pietrification Immunity', '');
-insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Pietrification Immunity', 'Petrification Immunity', , );
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Pietrification Immunity', 'Petrification Immunity', NULL, NULL);
 
 insert into effect_alias (name, description) values ('Anarchic VII', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Anarchic VII', 'Anarchic', NULL, 7);
@@ -865,6 +867,9 @@ insert into effect_alias (name, description) values ('Greater Heroism', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Heroism', 'Resistance', 'Morale', NULL);
 -- TODO aggiungere le skills
 
+insert into effect_alias (name, description) values ('Marksmanship', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Marksmanship', 'Deadly', 'Competence', 1);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Marksmanship', 'Accuracy', 'Competence', 2);
 insert into effect_alias (name, description) values ('Greater Marksmanship', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Marksmanship', 'Deadly', 'Competence', 2);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Marksmanship', 'Accuracy', 'Competence', 3);
@@ -881,6 +886,16 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 
 insert into effect_alias (name, description) values ('Inherent Acid Resistance', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Inherent Acid Resistance', 'Acid Resistance', 'Insightful', NULL);
+
+insert into effect_alias (name, description) values ('Improved Regeneration', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Improved Regeneration', 'Regeneration', 'Enhancement', 2);
+insert into effect_alias (name, description) values ('Greater Regeneration', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Regeneration', 'Regeneration', 'Enhancement', 4);
+insert into effect_alias (name, description) values ('Improved Auto-Repair', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Improved Auto-Repair', 'Auto-Repair', 'Enhancement', 2);
+insert into effect_alias (name, description) values ('Greater Auto-Repair', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Auto-Repair', 'Auto-Repair', 'Enhancement', 4);
+
 
 --insert into effect_alias (name, description) values ('', '');
 --insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, '', '', , );
