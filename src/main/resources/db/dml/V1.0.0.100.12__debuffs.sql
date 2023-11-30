@@ -24,3 +24,5 @@ insert into effect(name, effect_type) values ('Destruction', 'debuff');
 insert into effect(name, effect_type) values ('Enervation', 'debuff');
 insert into effect(name, effect_type) values ('Identity Crisis', 'debuff');
 insert into effect(name, effect_type) values ('Fetters of Unreality', 'debuff');
+insert into effect(name, effect_type, description) values ('Thorn of the Rose', 'debuff', 'Your attacks have a chance to Exhaust your enemies with no save.');
+insert into effect(name, effect_type, description) values ('Vulkoor''s Bite', 'debuff', 'Vulkoor calls to you, and death answers. Attacks and offensive spells have a chance to deal 1d3 Negative levels.');

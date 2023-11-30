@@ -9,6 +9,7 @@ insert into effect(name, effect_type, description) values ('Auto-Repair', 'attri
 insert into effect(name, effect_type) values ('Unconsciousness Range', 'attribute');
 insert into effect(name, effect_type) values ('Hit Points', 'attribute');
 insert into effect(name, effect_type) values ('Wizardry', 'attribute');
+insert into effect(name, effect_type) values ('Mind Drain', 'attribute');
 
 insert into effect(name, effect_type) values ('True Seeing', 'general');
 insert into effect(name, effect_type) values ('Freedom of Movement', 'general');
@@ -17,6 +18,7 @@ insert into effect(name, effect_type) values ('Improved Deception', 'general');
 insert into effect(name, effect_type) values ('Slippery Surfaces Immunity', 'general');
 insert into effect(name, effect_type) values ('Heroic Inspiration', 'general');
 insert into effect(name, effect_type) values ('Relentless Fury', 'general');
+insert into effect(name, effect_type) values ('Water Breathing', 'general');
 
 -- charges
 insert into effect(name, effect_type) values ('Action Boost', 'charges');
@@ -24,11 +26,19 @@ insert into effect(name, effect_type) values ('Anger', 'charges');
 insert into effect(name, effect_type) values ('Minor Anger', 'charges');
 insert into effect(name, effect_type) values ('Anthem', 'charges');
 insert into effect(name, effect_type) values ('Alchemical Conservation', 'charges');
+insert into effect(name, effect_type) values ('Minor Lesser Dragonmark Enhancement', 'charges');
+insert into effect(name, effect_type) values ('Lesser Dragonmark Enhancement', 'charges');
+insert into effect(name, effect_type) values ('Major Lesser Dragonmark Enhancement', 'charges');
+insert into effect(name, effect_type) values ('Minor Greater Dragonmark Enhancement', 'charges');
+insert into effect(name, effect_type) values ('', 'charges');
+insert into effect(name, effect_type) values ('', 'charges');
+insert into effect(name, effect_type) values ('', 'charges');
 
 -- aggro
 insert into effect(name, effect_type) values ('Linguistics', 'general');
 insert into effect(name, effect_type) values ('Occultation', 'general');
 insert into effect(name, effect_type) values ('Anathema', 'general');
+insert into effect(name, effect_type) values ('Subtle Target', 'general');
 
 -- turn undead
 insert into effect(name, effect_type) values ('Eternal Faith', 'general');
@@ -37,7 +47,9 @@ insert into effect(name, effect_type) values ('Greater Turning', 'general');
 insert into effect(name, effect_type) values ('Sacred', 'general');
 insert into effect(name, effect_type) values ('Minor Turning', 'general');
 insert into effect(name, effect_type) values ('Lesser Turning', 'general');
+insert into effect(name, effect_type) values ('Turning', 'general');
 insert into effect(name, effect_type) values ('Hallowed', 'general');
+insert into effect(name, effect_type) values ('Silver Flame', 'general');
 
 -- Paladin
 insert into effect(name, effect_type) values ('Extra Lay on Hands', 'general');
@@ -45,14 +57,20 @@ insert into effect(name, effect_type) values ('Extra Smites', 'general');
 
 -- Monk
 insert into effect(name, effect_type) values ('Balanced Ki Strike', 'general');
+insert into effect(name, effect_type) values ('Reinforced Fists', 'general');
 insert into effect(name, effect_type) values ('Greater Reinforced Fists', 'general');
 insert into effect(name, effect_type) values ('Superior Reinforced Fists', 'general');
+insert into effect(name, effect_type) values ('Soul of the Elements', 'general');
 
 -- bard
 insert into effect(name, effect_type) values ('Anthem Melody: La Victoria!', 'general');
 insert into effect(name, effect_type) values ('Songblade', 'general');
 insert into effect(name, effect_type) values ('Melody: Bulwark', 'general');
+insert into effect(name, effect_type, description) values ('Melody: Imperial Resonance', 'general', 'This powerful item is attuned to your ability to perform musical magic. If you have 15 or more bonus effective Bard levels from Feats, additional Bard songs, or enhancements, it provides 30 Exceptional Sonic Spell Power and 15% Exceptional Sonic Spell Lore.');
 
+-- Barbarian
+insert into effect(name, effect_type) values ('Raging Strength', 'ability');
+insert into effect(name, effect_type) values ('Raging Resilience', 'saves');
 
 -- Materials
 insert into effect(name, effect_type) values ('Densewood', 'material');
@@ -69,6 +87,7 @@ insert into effect(name, effect_type) values ('Flawed Shadowscale Armor', 'upgra
 insert into effect(name, effect_type) values ('Fragmented', 'upgrade');
 insert into effect(name, effect_type) values ('Fusible', 'upgrade');
 insert into effect(name, effect_type) values ('Green Steel', 'upgrade');
+insert into effect(name, effect_type) values ('Incredible Potential', 'upgrade');
 insert into effect(name, effect_type) values ('Legendary Alchemical Crafting (Prototype)', 'upgrade');
 insert into effect(name, effect_type) values ('Lost Purpose', 'upgrade');
 insert into effect(name, effect_type) values ('Nearly Finished', 'upgrade');
@@ -78,6 +97,10 @@ insert into effect(name, effect_type) values ('Upgradeable Item (Temple of Eleme
 insert into effect(name, effect_type) values ('Suppressed Power', 'upgrade');
 insert into effect(name, effect_type) values ('Legendary Taint of Shavarath', 'upgrade');
 insert into effect(name, effect_type) values ('Unraveling Enchantments', 'upgrade');
+insert into effect(name, effect_type) values ('Upgradeable - Tier', 'upgrade');
+insert into effect(name, effect_type) values ('Trace of Madness', 'upgrade');
+insert into effect(name, effect_type) values ('Treasure of Crystal Cove Hat Upgrades', 'upgrade');
+insert into effect(name, effect_type) values ('Zhentarim Attuned', 'upgrade');
 
 
 --insert into effect(name, effect_type) values ('', 'general');

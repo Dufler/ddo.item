@@ -25,5 +25,6 @@ insert into effect(name, effect_type) values ('Fire Shield (Hot)', 'elemental_de
 insert into effect(name, effect_type) values ('Absorb Beholder Spells', 'elemental_defense');
 insert into effect(name, effect_type) values ('Spell Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Absorbs Magic Missiles', 'elemental_defense');
+insert into effect(name, effect_type) values ('Whirlwind Absorption', 'elemental_defense');
 
 --insert into effect(name, effect_type) values ('', '');

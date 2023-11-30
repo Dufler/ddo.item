@@ -32,6 +32,7 @@ insert into effect(name, effect_type) values ('Enchantment Focus', 'spellcasting
 insert into effect(name, effect_type) values ('Evocation Focus', 'spellcasting');
 insert into effect(name, effect_type) values ('Illusion Focus', 'spellcasting');
 insert into effect(name, effect_type) values ('Necromancy Focus', 'spellcasting');
+insert into effect(name, effect_type) values ('Transmutation Focus', 'spellcasting');
 insert into effect(name, effect_type) values ('Deific Focus', 'spellcasting');
 insert into effect(name, effect_type) values ('Spell Focus Mastery', 'spellcasting');
 
@@ -52,6 +53,8 @@ insert into effect(name, effect_type) values ('Arcane Casting Dexterity', 'spell
 insert into effect(name, effect_type) values ('Enchanting Death', 'spellcasting');
 insert into effect(name, effect_type) values ('Illusory Death', 'spellcasting');
 insert into effect(name, effect_type) values ('Greater Water Elemental Form', 'spellcasting');
+insert into effect(name, effect_type, description) values ('Sky Attunement', 'spellcasting', 'While you are a Fire Elemental, you gain bonuses to the caster level, spell power, and crit chance for your Fire spells.');
+insert into effect(name, effect_type, description) values ('Sea Attunement', 'spellcasting', 'While you are a Water Elemental, you gain bonuses to the caster level, spell power, and crit chance for your Ice spells.');
 
 -- Metamagics
 insert into effect(name, effect_type) values ('Efficient Metamagic - Embolden II', 'spellcasting');
@@ -71,11 +74,17 @@ insert into effect(name, effect_type) values ('Improved Metamagic: Heighten', 's
 -- Spell point discount
 insert into effect(name, effect_type) values ('Magical Efficiency', 'spellcasting');
 
+-- Spell proc damage
+insert into effect(name, effect_type) values ('Radiant Glory', 'spellcasting');
+insert into effect(name, effect_type) values ('Sounding', 'spellcasting');
 
 -- Spell proc debuffs
 insert into effect(name, effect_type, description) values ('Bane of the Depths', 'special', 'Your Negative, Poison and Cold spells automatically apply the effects of Bane to enemies struck.');
 insert into effect(name, effect_type) values ('Cerulean Wave', 'special');
+insert into effect(name, effect_type) values ('Paragon Cerulean Wave', 'special');
+insert into effect(name, effect_type) values ('Nightsinger', 'special');
 insert into effect(name, effect_type, description) values ('Faeryfire Curse', 'special', 'Empowered by the Fearylights, your Illusion spells have a chance to curse your enemies with Purple Faery Fire, dispelling stealth, invisibilty, blur, and displacement for 30 seconds, and giving a -40 penalty to hide. Sightless enemies are immune to the dazzle effect.');
+insert into effect(name, effect_type, description) values ('Overwhelming Despair', 'special', 'The moon empowers your Necromancy spells - causing them to bring Terror to your enemies. Your offensive Necromancy spells automatically apply Crushing Despair with no save.');
 
 
 --insert into effect(name, effect_type) values ('', 'spellcasting');

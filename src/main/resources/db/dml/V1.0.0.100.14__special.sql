@@ -36,10 +36,29 @@ insert into effect(name, effect_type) values ('Greater Chimera''s Ferocity', 'sp
 insert into effect(name, effect_type) values ('Greater Dragonmark Enhancement', 'special');
 insert into effect(name, effect_type) values ('Greater Nimbleness', 'special');
 insert into effect(name, effect_type) values ('Greater Stability', 'special');
+insert into effect(name, effect_type) values ('Stability', 'special');
 insert into effect(name, effect_type) values ('Sink Like a Brick', 'special');
+insert into effect(name, effect_type) values ('Weighty Asset', 'special');
 insert into effect(name, effect_type) values ('Swim like a Fish', 'special');
 insert into effect(name, effect_type) values ('Jet Propulsion', 'special');
 insert into effect(name, effect_type) values ('Wondrous Craftsmanship', 'special');
+insert into effect(name, effect_type) values ('Kick ''Em While They''re Down', 'special');
+insert into effect(name, effect_type) values ('Halcyon Mind', 'special');
+insert into effect(name, effect_type) values ('Tet-zik, The Enlightened Change', 'special');
+insert into effect(name, effect_type) values ('Legendary Tet-zik, The Enlightened Change', 'special');
+insert into effect(name, effect_type) values ('Maker''s Touch', 'special');
+insert into effect(name, effect_type) values ('High Spirits', 'special');
+insert into effect(name, effect_type) values ('Shocking Blow', 'special');
+insert into effect(name, effect_type) values ('Spike-Studded', 'special');
+insert into effect(name, effect_type, description) values ('Temperance of Spirit', 'special', 'You have a +1 Quality Bonus to Physical Resistance Rating per Religious Lore Feat.');
+insert into effect(name, effect_type, description) values ('Temperance of Belief', 'special', 'You have a +1 Quality Bonus to Magical Resistance Rating per Religious Lore Feat.');
+insert into effect(name, effect_type) values ('Secret Door Detection', 'special');
+insert into effect(name, effect_type) values ('Intercession Ward', 'special');
+insert into effect(name, effect_type) values ('Winged Allure', 'special');
+insert into effect(name, effect_type) values ('Transform Kinetic Energy', 'special');
+insert into effect(name, effect_type) values ('The Mummy''s Gift', 'special');
+insert into effect(name, effect_type) values ('Starter', 'special');
+insert into effect(name, effect_type) values ('Scarab of Protection Ward', 'special');
 
 -- ranged stuff
 insert into effect(name, effect_type) values ('Arrow Spitting', 'special');

@@ -60,6 +60,9 @@ insert into effect_alias (name, description) values ('Conjuration Focus V', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Conjuration Focus V', 'Conjuration Focus', 'Equipment', 5);
 insert into effect_alias (name, description) values ('Constitution Skills - Exceptional Bonus', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Constitution Skills - Exceptional Bonus', 'Constitution Skills', 'Exceptional', NULL);
+insert into effect_alias (name, description) values ('Overfocus', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Overfocus', 'Search', 'Penality', -10);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Overfocus', 'Spot', 'Penality', -10);
 insert into effect_alias (name, description) values ('Curse of Clumsiness', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Curse of Clumsiness', 'Dexterity', 'Penality', -1);
 insert into effect_alias (name, description) values ('Curse of Dullness', '');
@@ -310,6 +313,8 @@ insert into effect_alias (name, description) values ('Heightened Awareness', '')
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Heightened Awareness', 'Armor Bonus', 'Insightful', NULL);
 insert into effect_alias (name, description) values ('Holding On', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Holding On', 'Unconsciousness Range', 'Enhancement', 40);
+insert into effect_alias (name, description) values ('Undying', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Undying', 'Unconsciousness Range', 'Enhancement', NULL);
 insert into effect_alias (name, description) values ('Strength of Purpose', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Strength of Purpose', 'Unconsciousness Range', 'Enhancement', 128);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Strength of Purpose', 'Regeneration', 'Enhancement', 160);
@@ -355,6 +360,13 @@ insert into effect_alias (name, description) values ('Lightning Lore IV', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Lightning Lore IV', 'Lightning Lore', 'Equipment', 14);
 insert into effect_alias (name, description) values ('Lightning Lore VI', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Lightning Lore VI', 'Lightning Lore', 'Equipment', 16);
+insert into effect_alias (name, description) values ('Well Rounded', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Well Rounded', 'Strength', 'Profane', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Well Rounded', 'Dexterity', 'Profane', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Well Rounded', 'Constitution', 'Profane', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Well Rounded', 'Intelligence', 'Profane', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Well Rounded', 'Wisdom', 'Profane', NULL);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Well Rounded', 'Charisma', 'Profane', NULL);
 insert into effect_alias (name, description) values ('Litany of the Dead - Ability Bonus', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Litany of the Dead - Ability Bonus', 'Strength', 'Profane', 1);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Litany of the Dead - Ability Bonus', 'Dexterity', 'Profane', 1);
@@ -442,6 +454,9 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Power of the Sacred Ground', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Sacred Ground', 'Radiance', 'Equipment', 148);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Sacred Ground', 'Corrosion', 'Equipment', 148);
+insert into effect_alias (name, description) values ('Power of the Ground', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Ground', 'Radiance', 'Equipment', 148);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power of the Ground', 'Corrosion', 'Equipment', 148);
 insert into effect_alias (name, description) values ('Blighted Lore', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Blighted Lore', 'Acid Lore', 'Equipment', NULL);
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Blighted Lore', 'Void Lore', 'Equipment', NULL);
@@ -811,6 +826,14 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Elemental Spell Power', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Elemental Spell Power', 'Wizardry', 'esp', 50);
 
+insert into effect_alias (name, description) values ('Paragon Evil Guard', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Paragon Evil Guard', 'Evil Guard', 'Enhancement', 4);
+insert into effect_alias (name, description) values ('Paragon Good Guard', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Paragon Good Guard', 'Good Guard', 'Enhancement', 4);
+insert into effect_alias (name, description) values ('Paragon Light Guard', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Paragon Light Guard', 'Light Guard', 'Enhancement', 4);
+insert into effect_alias (name, description) values ('Paragon Negative Guard', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Paragon Negative Guard', 'Negative Guard', 'Enhancement', 4);
 insert into effect_alias (name, description) values ('Epic Paragon Evil Guard', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Epic Paragon Evil Guard', 'Evil Guard', 'Enhancement', 8);
 insert into effect_alias (name, description) values ('Epic Paragon Good Guard', '');
@@ -896,6 +919,25 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Greater Auto-Repair', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Greater Auto-Repair', 'Auto-Repair', 'Enhancement', 4);
 
+insert into effect_alias (name, description) values ('Power Store', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Power Store', 'Magical Efficiency', 'Enhancement', 10);
+
+insert into effect_alias (name, description) values ('Treason', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Treason', 'Diversion', 'Enhancement', 20);
+insert into effect_alias (name, description) values ('Diversion  (Insight)', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Diversion  (Insight)', 'Diversion', 'Insightful', NULL);
+insert into effect_alias (name, description) values ('Stealth Strike', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Stealth Strike', 'Distant Diversion', 'Insightful', 15);
+
+insert into effect_alias (name, description) values ('Spellcasting Implement', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Spellcasting Implement', 'Spell Power', 'Implement', NULL);
+
+insert into effect_alias (name, description) values ('Touch of Immortality', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Touch of Immortality', 'Regeneration', 'Enhancement', 12);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Touch of Immortality', 'Heal', 'Competence', 20);
+
+insert into effect_alias (name, description) values ('Psychic Ward', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Psychic Ward', 'Domination Immunity', NULL, NULL);
 
 --insert into effect_alias (name, description) values ('', '');
 --insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, '', '', , );

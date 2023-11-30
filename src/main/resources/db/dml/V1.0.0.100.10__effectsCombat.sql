@@ -23,9 +23,11 @@ insert into effect(name, effect_type) values ('Aligned', 'dr_bypass');
 -- Tactical
 insert into effect(name, effect_type) values ('Assassinate', 'tactical');
 insert into effect(name, effect_type) values ('Breath Weapon Focus', 'tactical');
+insert into effect(name, effect_type) values ('Rune Arm Focus', 'tactical');
 insert into effect(name, effect_type) values ('Dazing', 'tactical');
 insert into effect(name, effect_type) values ('Stunning', 'tactical');
 insert into effect(name, effect_type) values ('Vertigo', 'tactical');
+insert into effect(name, effect_type) values ('Shatter', 'tactical');
 insert into effect(name, effect_type) values ('Combat Mastery', 'tactical');
 
 -- Melee
@@ -112,6 +114,17 @@ insert into effect(name, effect_type) values ('Greater Stone Prison', 'weapon_pr
 insert into effect(name, effect_type) values ('Greater Sunburst', 'weapon_proc');
 insert into effect(name, effect_type) values ('Greater Vorpal', 'weapon_proc');
 insert into effect(name, effect_type) values ('Magma Surge', 'weapon_proc');
+insert into effect(name, effect_type) values ('Sound and Silence', 'weapon_proc');
+insert into effect(name, effect_type) values ('Legendary Electric Storm', 'weapon_proc');
+insert into effect(name, effect_type) values ('Scorching Sun', 'weapon_proc');
+insert into effect(name, effect_type) values ('Stormreaver''s Thunderclap', 'weapon_proc');
+insert into effect(name, effect_type) values ('Sovereign Lightning Strike', 'weapon_proc');
+insert into effect(name, effect_type) values ('Manslayer', 'weapon_proc');
+insert into effect(name, effect_type) values ('Shadow Spike', 'weapon_proc');
+insert into effect(name, effect_type) values ('Noxious Venom Spike', 'weapon_proc');
+insert into effect(name, effect_type) values ('Thunderstruck', 'weapon_proc');
+insert into effect(name, effect_type) values ('The Golden Curse', 'weapon_proc');
+--insert into effect(name, effect_type) values ('', 'weapon_proc');
 --insert into effect(name, effect_type) values ('', 'weapon_proc');
 
 -- Keeper

@@ -19,7 +19,9 @@ insert into effect(name, effect_type) values ('Concentration', 'skill');
 insert into effect(name, effect_type) values ('Diplomacy', 'skill');
 insert into effect(name, effect_type) values ('Disable Device', 'skill');
 insert into effect(name, effect_type) values ('Haggle', 'skill');
+insert into effect(name, effect_type) values ('Heal', 'skill');
 insert into effect(name, effect_type) values ('Hide', 'skill');
+insert into effect(name, effect_type) values ('Intimidate', 'skill');
 insert into effect(name, effect_type) values ('Jump', 'skill');
 insert into effect(name, effect_type) values ('Listen', 'skill');
 insert into effect(name, effect_type) values ('Move Silently', 'skill');
@@ -29,6 +31,8 @@ insert into effect(name, effect_type) values ('Repair', 'skill');
 insert into effect(name, effect_type) values ('Search', 'skill');
 insert into effect(name, effect_type) values ('Spellcraft', 'skill');
 insert into effect(name, effect_type) values ('Spot', 'skill');
+insert into effect(name, effect_type) values ('Swim', 'skill');
+insert into effect(name, effect_type) values ('Tumble', 'skill');
 insert into effect(name, effect_type) values ('Use Magic Device', 'skill');
 
 --insert into effect(name, effect_type) values ('', '');
