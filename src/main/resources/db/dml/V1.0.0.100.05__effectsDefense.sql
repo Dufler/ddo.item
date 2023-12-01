@@ -56,14 +56,26 @@ insert into effect(name, effect_type) values ('Legendary Ice Shards Guard', 'gua
 insert into effect(name, effect_type) values ('Trap the Soul Guard', 'guard');
 insert into effect(name, effect_type) values ('Legendary Brilliance Guard', 'guard');
 insert into effect(name, effect_type) values ('Legendary Cacophonic Guard', 'guard');
---insert into effect(name, effect_type) values ('', 'guard');
---insert into effect(name, effect_type) values ('', 'guard');
+insert into effect(name, effect_type) values ('Roar', 'guard');
+insert into effect(name, effect_type, description) values ('Vengeful Fury', 'guard', 'On Taking Damage: Gain a 12% Enhancement Bonus to Doublestrike and a +4 Rage Bonus to your Attack Bonus.');
+insert into effect(name, effect_type, description) values ('Spike Guard', 'guard', 'On Being Hit in Melee: 5% chance to do 510 to 700 Piercing Damage to the Attacker.');
+insert into effect(name, effect_type) values ('Utter Disintegration Guard', 'guard');
+insert into effect(name, effect_type) values ('Lightning Storm Guard', 'guard');
+insert into effect(name, effect_type) values ('Legendary Stone Guard', 'guard');
+insert into effect(name, effect_type) values ('Light of Dawn', 'guard');
+insert into effect(name, effect_type) values ('Legendary Disease Guard', 'guard');
+insert into effect(name, effect_type) values ('Incineration Guard', 'guard');
+insert into effect(name, effect_type) values ('Superior Undead Guard', 'guard');
+insert into effect(name, effect_type) values ('Legendary Air Guard', 'guard');
+insert into effect(name, effect_type) values ('Telekinesis Guard', 'guard');
+insert into effect(name, effect_type) values ('Legendary Earthgrab Guard', 'guard');
 --insert into effect(name, effect_type) values ('', 'guard');
 
 -- Plain Damage guards
 insert into effect(name, effect_type) values ('Acid Guard', 'guard');
 insert into effect(name, effect_type) values ('Lightning Guard', 'guard');
 insert into effect(name, effect_type) values ('Fire Guard', 'guard');
+insert into effect(name, effect_type) values ('Ice Guard', 'guard');
 insert into effect(name, effect_type) values ('Sonic Guard', 'guard');
 insert into effect(name, effect_type) values ('Light Guard', 'guard');
 insert into effect(name, effect_type) values ('Evil Guard', 'guard');
@@ -83,5 +95,7 @@ insert into effect(name, effect_type, description) values ('Improved Demonic Shi
 insert into effect(name, effect_type, description) values ('Legendary Demonic Shield', 'guard', 'Each time you are hit in melee combat there is a chance that a shield of demonic energy will grant you a +30 Profane bonus to temporary hit points.');
 insert into effect(name, effect_type, description) values ('Earthen Guard', 'guard', 'When you are successfully attacked, there is a chance that a Stone Skin will be cast on you.');
 insert into effect(name, effect_type, description) values ('Improved Earthen Guard', 'guard', 'When you are successfully attacked, there is a chance that a Stone Skin will be cast on you.');
+insert into effect(name, effect_type, description) values ('Vengeful', 'guard', 'When its wielder is hit in battle, this weapon has a 10% chance to cause him or her to become full of anger and go into a Rage.');
+insert into effect(name, effect_type, description) values ('Life Shield', 'guard', 'Every time you are hit while wearing a Life Shield item there is a 10% chance you gain 15 temporary hitpoints that last for up to 1 minute.');
 
 --insert into effect(name, effect_type) values ('', '');

@@ -9,11 +9,10 @@ insert into effect(name, effect_type) values ('Sonic Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Lightning Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Kinetic Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Radiance Lore', 'spellcasting');
-insert into effect(name, effect_type) values ('Force Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Healing Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Repair Lore', 'spellcasting');
 -- Spell Power
-insert into effect(name, effect_type) values ('Spell Power', 'spellcasting');
+insert into effect(name, effect_type) values ('Potency', 'spellcasting');
 insert into effect(name, effect_type) values ('Impulse', 'spellcasting');
 insert into effect(name, effect_type) values ('Nullification', 'spellcasting');
 insert into effect(name, effect_type) values ('Devotion', 'spellcasting');
@@ -81,10 +80,14 @@ insert into effect(name, effect_type) values ('Sounding', 'spellcasting');
 -- Spell proc debuffs
 insert into effect(name, effect_type, description) values ('Bane of the Depths', 'special', 'Your Negative, Poison and Cold spells automatically apply the effects of Bane to enemies struck.');
 insert into effect(name, effect_type) values ('Cerulean Wave', 'special');
+insert into effect(name, effect_type) values ('Legendary Cerulean Wave', 'special');
 insert into effect(name, effect_type) values ('Paragon Cerulean Wave', 'special');
 insert into effect(name, effect_type) values ('Nightsinger', 'special');
+insert into effect(name, effect_type, description) values ('Quenched', 'special', 'Your Cold and Lightning spells apply the debuff portion of Quench with no save.');
 insert into effect(name, effect_type, description) values ('Faeryfire Curse', 'special', 'Empowered by the Fearylights, your Illusion spells have a chance to curse your enemies with Purple Faery Fire, dispelling stealth, invisibilty, blur, and displacement for 30 seconds, and giving a -40 penalty to hide. Sightless enemies are immune to the dazzle effect.');
 insert into effect(name, effect_type, description) values ('Overwhelming Despair', 'special', 'The moon empowers your Necromancy spells - causing them to bring Terror to your enemies. Your offensive Necromancy spells automatically apply Crushing Despair with no save.');
 
+-- Spell proc self buffs
+insert into effect(name, effect_type, description) values ('Spell Resonance', 'special', 'This item hums ominously with suppressed energy. When casting Force spells, there is a chance that you will gain a +20 alchemical bonus to Force Spell Power for 30 seconds. When casting Sonic spells, there is a chance that you will gain a +20 alchemical bonus to Sonic Spell Power 30 seconds.');
 
 --insert into effect(name, effect_type) values ('', 'spellcasting');

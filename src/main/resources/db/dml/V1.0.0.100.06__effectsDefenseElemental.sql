@@ -26,5 +26,8 @@ insert into effect(name, effect_type) values ('Absorb Beholder Spells', 'element
 insert into effect(name, effect_type) values ('Spell Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Absorbs Magic Missiles', 'elemental_defense');
 insert into effect(name, effect_type) values ('Whirlwind Absorption', 'elemental_defense');
+insert into effect(name, effect_type) values ('Whirlwind Ward', 'elemental_defense');
+insert into effect(name, effect_type) values ('Lightning Bolt Ward', 'elemental_defense');
+insert into effect(name, effect_type) values ('Lightning Bolt Ward', 'elemental_defense');
 
 --insert into effect(name, effect_type) values ('', '');

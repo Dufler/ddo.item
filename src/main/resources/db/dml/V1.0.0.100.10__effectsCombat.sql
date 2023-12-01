@@ -17,13 +17,14 @@ insert into effect(name, effect_type) values ('Byeshk', 'dr_bypass');
 insert into effect(name, effect_type) values ('Cold Iron', 'dr_bypass');
 insert into effect(name, effect_type) values ('Crystal', 'dr_bypass');
 insert into effect(name, effect_type) values ('Flametouched Iron', 'dr_bypass');
+insert into effect(name, effect_type) values ('Silver', 'dr_bypass');
 insert into effect(name, effect_type) values ('Aligned', 'dr_bypass');
---insert into effect(name, effect_type) values ('', 'dr_bypass');
+insert into effect(name, effect_type) values ('Metalline', 'dr_bypass');
+insert into effect(name, effect_type, description) values ('Righteous', 'dr_bypass', 'This weapon is imbued with holy power, giving it an additional +2 to attack bonus and damage against any evil creature. This power makes the weapon good-aligned.');
 
 -- Tactical
 insert into effect(name, effect_type) values ('Assassinate', 'tactical');
 insert into effect(name, effect_type) values ('Breath Weapon Focus', 'tactical');
-insert into effect(name, effect_type) values ('Rune Arm Focus', 'tactical');
 insert into effect(name, effect_type) values ('Dazing', 'tactical');
 insert into effect(name, effect_type) values ('Stunning', 'tactical');
 insert into effect(name, effect_type) values ('Vertigo', 'tactical');
@@ -46,7 +47,11 @@ insert into effect(name, effect_type, description) values ('Doubleshot', 'ranged
 insert into effect(name, effect_type, description) values ('Venomed Ammunition', 'ranged_combat', 'Adds venom damage to ranged attacks');
 insert into effect(name, effect_type, description) values ('Burning Ammunition', 'ranged_combat', 'Adds fire damage to ranged attacks');
 insert into effect(name, effect_type, description) values ('Blunted Ammunition', 'ranged_combat', 'Adds blunt to damage types to ranged attacks');
+
+-- Threat range
 insert into effect(name, effect_type) values ('Elasticity', 'ranged_combat');
+insert into effect(name, effect_type) values ('Impact', 'general_combat');
+insert into effect(name, effect_type) values ('Keen', 'general_combat');
 
 -- Special Weapon Procs that buffs
 insert into effect(name, effect_type) values ('Cannith Combat Infusion', 'weapon_proc');
@@ -124,7 +129,32 @@ insert into effect(name, effect_type) values ('Shadow Spike', 'weapon_proc');
 insert into effect(name, effect_type) values ('Noxious Venom Spike', 'weapon_proc');
 insert into effect(name, effect_type) values ('Thunderstruck', 'weapon_proc');
 insert into effect(name, effect_type) values ('The Golden Curse', 'weapon_proc');
---insert into effect(name, effect_type) values ('', 'weapon_proc');
+insert into effect(name, effect_type) values ('Spiked', 'weapon_proc');
+insert into effect(name, effect_type) values ('Minor Freezing Ice', 'weapon_proc');
+insert into effect(name, effect_type) values ('Staggering Blow', 'weapon_proc');
+insert into effect(name, effect_type) values ('Unstoppable Staggering Blow', 'weapon_proc');
+insert into effect(name, effect_type) values ('Maiming', 'weapon_proc');
+insert into effect(name, effect_type) values ('Vampirism', 'weapon_proc');
+insert into effect(name, effect_type) values ('Hardened Spikes', 'weapon_proc');
+insert into effect(name, effect_type, description) values ('Vile Grip of the Hidden Hand', 'weapon_proc', 'Attacks and offensive spells have a small chance to deal massive evil damage.');
+insert into effect(name, effect_type, description) values ('Legendary Vile Grip of the Hidden Hand', 'weapon_proc', 'Attacks and offensive spells have a small chance to deal massive evil damage.');
+insert into effect(name, effect_type) values ('Tidal', 'weapon_proc');
+insert into effect(name, effect_type) values ('Mortal Strike', 'weapon_proc');
+insert into effect(name, effect_type) values ('Mother Night''s Embrace', 'weapon_proc');
+insert into effect(name, effect_type) values ('Stone Prison', 'weapon_proc');
+insert into effect(name, effect_type, description) values ('Telekinetic', 'weapon_proc', 'Targets that suffer a critical hit from a Telekinetic weapon must make a DC 17 Balance check or be knocked down.');
+insert into effect(name, effect_type, description) values ('Slicing Winds', 'weapon_proc', 'This weapon stores the cyclonic might of a windstorm within. When this weapon is used, this power can come to the surface as a series of rushing, cutting winds that deal slashing damage to the target over several seconds.');
+insert into effect(name, effect_type, description) values ('Shockwave', 'weapon_proc', 'On Vorpal, this weapon triggers a Shockwave, striking its target with bludgeoning damage and dealing damage to surrounding enemies.');
+insert into effect(name, effect_type) values ('Incineration', 'weapon_proc');
+insert into effect(name, effect_type, description) values ('Rockslide', 'weapon_proc', 'This weapon stores the power of a volatile rockslide deep within. On hit, there is a chance to do massive bludgeoning damage to your enemy.');
+insert into effect(name, effect_type) values ('Transmuted Platinum (Epic)', 'weapon_proc');
+insert into effect(name, effect_type) values ('Lightning Strike', 'weapon_proc');
+insert into effect(name, effect_type) values ('Improved Banishing', 'weapon_proc');
+insert into effect(name, effect_type, description) values ('Spear of the Hunter', 'weapon_proc', 'On hit, this weapon has a chance to put down a falling star upon your foes, dealing 90d6 Fire Damage and 30d6 Bludgeoning Damage to enemies caught within the blast. This blast is so powerful it has a chance to knock nearby enemies down upon impact.');
+insert into effect(name, effect_type, description) values ('Thrill of the Hunt', 'weapon_proc', 'On Hit: You have a small chance to attempt to hold a monster in place. Even if the Hold is unsuccessful, their will saves will be reduced by 5.');
+insert into effect(name, effect_type) values ('Sovereign Vorpal', 'weapon_proc');
+insert into effect(name, effect_type) values ('Touch of the Mournlands', 'weapon_proc');
+insert into effect(name, effect_type) values ('Inflict Blight', 'weapon_proc');
 --insert into effect(name, effect_type) values ('', 'weapon_proc');
 
 -- Keeper

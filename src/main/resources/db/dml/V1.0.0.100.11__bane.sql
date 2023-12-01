@@ -20,7 +20,7 @@ insert into effect(name, effect_type) values ('Giant Bane', 'bane');
 insert into effect(name, effect_type) values ('Giant Slayer', 'bane');
 insert into effect(name, effect_type) values ('Plant Bane', 'bane');
 insert into effect(name, effect_type) values ('Undead Bane', 'bane');
---insert into effect(name, effect_type) values ('', 'bane');
+insert into effect(name, effect_type) values ('Unnatural Bane', 'bane');
 -- Lesser bane
 insert into effect(name, effect_type) values ('Lesser Aberration Bane', 'bane');
 insert into effect(name, effect_type) values ('Lesser Animal Bane', 'bane');

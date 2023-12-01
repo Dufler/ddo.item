@@ -10,6 +10,6 @@ insert into effect(name, effect_type) values ('Domination Immunity', 'immunity')
 insert into effect(name, effect_type) values ('Web Immunity', 'immunity');
 insert into effect(name, effect_type) values ('Proof Against Disease', 'immunity');
 insert into effect(name, effect_type) values ('Proof Against Poison', 'immunity');
-insert into effect(name, effect_type) values ('Soundproof', 'immunity');
+insert into effect(name, effect_type, description) values ('Soundproof', 'immunity', ' Protects against stunning, dazing and disorientation from sound-based spells such as Soundburst and Greater Shout.');
 
 --insert into effect(name, effect_type) values ('', 'immunity');
