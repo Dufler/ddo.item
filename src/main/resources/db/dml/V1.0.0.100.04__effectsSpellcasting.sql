@@ -11,6 +11,10 @@ insert into effect(name, effect_type) values ('Kinetic Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Radiance Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Healing Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Repair Lore', 'spellcasting');
+-- Spell critical multiplier
+insert into effect(name, effect_type, description) values ('Summer''s Impertenence', 'spellcasting', 'The heat of Summer surrounds you. +20% Enhancement bonus to critical damage with fire and light spells.');
+insert into effect(name, effect_type, description) values ('Winter''s Impertenence', 'spellcasting', 'The chill of Winter surrounds you. +20% Enhancement bonus to critical damage with force and negative spells.');
+insert into effect(name, effect_type) values ('Sonic Spell Crit Damage', 'spellcasting');
 -- Spell Power
 insert into effect(name, effect_type) values ('Potency', 'spellcasting');
 insert into effect(name, effect_type) values ('Impulse', 'spellcasting');
@@ -86,8 +90,12 @@ insert into effect(name, effect_type) values ('Nightsinger', 'special');
 insert into effect(name, effect_type, description) values ('Quenched', 'special', 'Your Cold and Lightning spells apply the debuff portion of Quench with no save.');
 insert into effect(name, effect_type, description) values ('Faeryfire Curse', 'special', 'Empowered by the Fearylights, your Illusion spells have a chance to curse your enemies with Purple Faery Fire, dispelling stealth, invisibilty, blur, and displacement for 30 seconds, and giving a -40 penalty to hide. Sightless enemies are immune to the dazzle effect.');
 insert into effect(name, effect_type, description) values ('Overwhelming Despair', 'special', 'The moon empowers your Necromancy spells - causing them to bring Terror to your enemies. Your offensive Necromancy spells automatically apply Crushing Despair with no save.');
+insert into effect(name, effect_type, description) values ('Royalty''s Frigid Response', 'special', 'The Prince of Frost sends his regards... Your attacks and offensive spells have a chance to freeze an enemy in a block of ice.');
 
 -- Spell proc self buffs
 insert into effect(name, effect_type, description) values ('Spell Resonance', 'special', 'This item hums ominously with suppressed energy. When casting Force spells, there is a chance that you will gain a +20 alchemical bonus to Force Spell Power for 30 seconds. When casting Sonic spells, there is a chance that you will gain a +20 alchemical bonus to Sonic Spell Power 30 seconds.');
+insert into effect(name, effect_type, description) values ('Shielded by Moonlight', 'special', 'Being struck in melee has a small chance to return some lost Hitpoints and Spellpoints to you. Offensive spells have a chance to grant 100 temporary spellpoints. This has a one minute cooldown.');
+
+insert into effect(name, effect_type, description) values ('Static Attraction', 'special', 'This weapon attracts the static electricity in the air, and over time will charge with magic while held in your main hand. Every five seconds, this weapon gains a charge of Static Electricity, up to a maxiumum of 3, providing a +10 Exceptional bonus to Electric Spell Power and a +5% Exceptional bonus to Electric Spell Lore. When you cast an Electric spell, all stacks are consumed.');
 
 --insert into effect(name, effect_type) values ('', 'spellcasting');

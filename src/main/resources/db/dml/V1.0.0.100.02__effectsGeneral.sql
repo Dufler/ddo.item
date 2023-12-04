@@ -59,12 +59,16 @@ insert into effect(name, effect_type) values ('Reinforced Fists', 'general');
 insert into effect(name, effect_type) values ('Greater Reinforced Fists', 'general');
 insert into effect(name, effect_type) values ('Superior Reinforced Fists', 'general');
 insert into effect(name, effect_type) values ('Soul of the Elements', 'general');
+insert into effect(name, effect_type) values ('Path of the Fire Dragon', 'general');
+insert into effect(name, effect_type) values ('Path of the Guarding Stone', 'general');
+insert into effect(name, effect_type) values ('The Moral Compass', 'general');
 
 -- bard
 insert into effect(name, effect_type) values ('Anthem Melody: La Victoria!', 'general');
 insert into effect(name, effect_type) values ('Songblade', 'general');
 insert into effect(name, effect_type) values ('Melody: Bulwark', 'general');
 insert into effect(name, effect_type, description) values ('Melody: Imperial Resonance', 'general', 'This powerful item is attuned to your ability to perform musical magic. If you have 15 or more bonus effective Bard levels from Feats, additional Bard songs, or enhancements, it provides 30 Exceptional Sonic Spell Power and 15% Exceptional Sonic Spell Lore.');
+insert into effect(name, effect_type, description) values ('Inspiring Echoes', 'general', 'When a bard wields this item, Anthem abilities that restore Bard songs over time restore them 40% faster (for example, an ability that restores a Song every 5 minutes would restore one song per 3 minutes instead).');
 
 -- Barbarian
 insert into effect(name, effect_type) values ('Raging Strength', 'ability');

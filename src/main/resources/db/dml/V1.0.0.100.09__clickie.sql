@@ -91,6 +91,7 @@ insert into effect(name, effect_type) values ('Order''s Wrath', 'clickie');
 insert into effect(name, effect_type) values ('Otto''s Irresistible Dance', 'clickie');
 insert into effect(name, effect_type) values ('Otto''s Resistible Dance', 'clickie');
 insert into effect(name, effect_type) values ('Panacea', 'clickie');
+insert into effect(name, effect_type) values ('Phantasmal Killer', 'clickie');
 insert into effect(name, effect_type) values ('Power Drain', 'clickie');
 insert into effect(name, effect_type) values ('Polar Ray', 'clickie');
 insert into effect(name, effect_type) values ('Prismatic Spray', 'clickie');

@@ -12,7 +12,7 @@ insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) val
 
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Melee Power', 'Profane', 15);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Ranged Power', 'Profane', 15);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Spell Power', 'Profane', 25);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Potency', 'Profane', 25);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Physical Sheltering', 'Profane', 30);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Spell Focus Mastery', 'Profane', 2);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Strength', 'Profane', 2);
@@ -33,7 +33,7 @@ insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) val
 
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Forbidden Knowledge', 'Melee Power', 'Profane', 15);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Forbidden Knowledge', 'Ranged Power', 'Profane', 15);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Forbidden Knowledge', 'Spell Power', 'Profane', 25);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Forbidden Knowledge', 'Potency', 'Profane', 25);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Forbidden Knowledge', 'Physical Sheltering', 'Profane', 30);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Forbidden Knowledge', 'Spell Focus Mastery', 'Profane', 3);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Forbidden Knowledge', 'Strength', 'Profane', 3);

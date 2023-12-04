@@ -6,6 +6,7 @@ insert into effect(name, effect_type) values ('Acid Resistance', 'elemental_defe
 insert into effect(name, effect_type) values ('Sonic Resistance', 'elemental_defense');
 insert into effect(name, effect_type) values ('Light Resistance', 'elemental_defense');
 insert into effect(name, effect_type) values ('Poison Resistance', 'elemental_defense');
+insert into effect(name, effect_type) values ('Negative Resistance', 'elemental_defense');
 -- Elemental Absorption
 insert into effect(name, effect_type) values ('Fire Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Acid Absorption', 'elemental_defense');
@@ -27,7 +28,6 @@ insert into effect(name, effect_type) values ('Spell Absorption', 'elemental_def
 insert into effect(name, effect_type) values ('Absorbs Magic Missiles', 'elemental_defense');
 insert into effect(name, effect_type) values ('Whirlwind Absorption', 'elemental_defense');
 insert into effect(name, effect_type) values ('Whirlwind Ward', 'elemental_defense');
-insert into effect(name, effect_type) values ('Lightning Bolt Ward', 'elemental_defense');
 insert into effect(name, effect_type) values ('Lightning Bolt Ward', 'elemental_defense');
 
 --insert into effect(name, effect_type) values ('', '');

@@ -3,6 +3,7 @@ insert into effect(name, effect_type) values ('Everbright', 'special');
 insert into effect(name, effect_type) values ('Finesse', 'special');
 insert into effect(name, effect_type) values ('Flameblade', 'special');
 insert into effect(name, effect_type) values ('Frostblade', 'special');
+insert into effect(name, effect_type) values ('Shadowblade', 'special');
 insert into effect(name, effect_type) values ('Frozen Aether', 'special');
 insert into effect(name, effect_type) values ('Anchoring', 'special');
 insert into effect(name, effect_type) values ('Acidic Reaping', 'special');
@@ -58,6 +59,7 @@ insert into effect(name, effect_type) values ('Transform Kinetic Energy', 'speci
 insert into effect(name, effect_type) values ('The Mummy''s Gift', 'special');
 insert into effect(name, effect_type) values ('Starter', 'special');
 insert into effect(name, effect_type) values ('Scarab of Protection Ward', 'special');
+insert into effect(name, effect_type) values ('Medusa Fury', 'special');
 
 insert into effect(name, effect_type) values ('Madstone Reaction', 'special');
 insert into effect(name, effect_type) values ('Suppress Madness', 'special');
@@ -67,6 +69,10 @@ insert into effect(name, effect_type, description) values ('Unnatural', 'special
 insert into effect(name, effect_type, description) values ('Spell Turmoil', 'special', 'When casting any damaging Fire, Cold, Acid or Electric spells, there is a chance that you will gain a +20 Alchemical bonus to Spell Power to one of those energy types for 30 seconds.');
 insert into effect(name, effect_type, description) values ('Irian''s Fury', 'special', 'This holy weapon is attuned to protective, radiant light. If Quarterstaves are your favored weapon, while you are projecting an Aura of Menace, you can absorb 10 spells per rest.');
 insert into effect(name, effect_type, description) values ('Irian''s Might', 'special', 'This holy weapon can unleash incredible power. If Quarterstaves are your favored weapon, whenever you Turn Undead, you become Favored by Irian, increasing your Fire and Light Spell Critical Damage by 5% (Quality Bonus) for 20 seconds.');
+insert into effect(name, effect_type, description) values ('Guardbreaking', 'special');
+insert into effect(name, effect_type, description) values ('Legendary Chimera''s Ferocity', 'special');
+insert into effect(name, effect_type, description) values ('Inevitable Balance', 'special', 'Your represent balance beneath the depths... +5 Melee Power, 5% Doublestrike, Your Sneak Attacks do additional Bane damage');
+insert into effect(name, effect_type, description) values ('Legendary Inevitable Balance', 'special', 'Your represent balance beneath the depths... +5 Melee Power, 5% Doublestrike, Your Sneak Attacks do additional Bane damage');
 
 -- debuffs for character
 insert into effect(name, effect_type, description) values ('Taint of Chaos', 'special', 'Lawful aligned characters equipping this item suffer a temporary negative level until the item is removed.');
@@ -77,7 +83,8 @@ insert into effect(name, effect_type) values ('Embrace of the Spider Queen', 'sp
 insert into effect(name, effect_type, description) values ('Magical Null', 'special', 'The nullcloth that this robe is made from absorbs spell energies making it difficult for all spell casters, even Divine casters, to complete their spells. +15% Spell Failure chance.');
 insert into effect(name, effect_type, description) values ('Symbiotic Backlash', 'special', 'This item is symbiotic and grants you benefits, but it also deals 2 to 12 extra damage to you when enemies roll a 20 on an attack against you.');
 insert into effect(name, effect_type) values ('Metal Fatigue', 'special');
-insert into effect(name, effect_type) values ('', 'special');
+insert into effect(name, effect_type, description) values ('Wild Frenzy', 'special', 'This weapon has a tendency to drive those it strikes insane. On an attack roll of 20 which is confirmed as a critical hit the target will go wild and attack its own allies for 15 seconds if it fails a DC 25 Will save. Enemies driven wild in this way, however, have a chance of coming to their senses if damaged.');
+
 
 -- ranged stuff
 insert into effect(name, effect_type) values ('Arrow Spitting', 'special');
