@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 import com.dufler.swt.utils.elements.table.filter.CriteriFiltraggioSoloTesto;
 
 import ddo.item.logic.EquippedItems;
+import ddo.item.model.BaseEffect;
 
 @Component
 public class ChooseEffectsDialog {
@@ -110,10 +111,12 @@ public class ChooseEffectsDialog {
 			public void widgetSelected(SelectionEvent e) {
 				for (String effect : tabella.getRigheSelezionate()) {
 					if (!effectsManager.getSelectedEffects().containsKey(effect)) {
+						BaseEffect be = effectsManager.getEffect(effect);
 						SelectedEffect se = new SelectedEffect();
 						se.setName(effect);
 						se.setUserSelected(true);
 						se.setPriority(10);
+						se.setShow(be.getType().getShow());
 						effectsManager.getSelectedEffects().put(effect, se);
 					}
 				}

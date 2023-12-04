@@ -69,8 +69,8 @@ insert into effect(name, effect_type, description) values ('Unnatural', 'special
 insert into effect(name, effect_type, description) values ('Spell Turmoil', 'special', 'When casting any damaging Fire, Cold, Acid or Electric spells, there is a chance that you will gain a +20 Alchemical bonus to Spell Power to one of those energy types for 30 seconds.');
 insert into effect(name, effect_type, description) values ('Irian''s Fury', 'special', 'This holy weapon is attuned to protective, radiant light. If Quarterstaves are your favored weapon, while you are projecting an Aura of Menace, you can absorb 10 spells per rest.');
 insert into effect(name, effect_type, description) values ('Irian''s Might', 'special', 'This holy weapon can unleash incredible power. If Quarterstaves are your favored weapon, whenever you Turn Undead, you become Favored by Irian, increasing your Fire and Light Spell Critical Damage by 5% (Quality Bonus) for 20 seconds.');
-insert into effect(name, effect_type, description) values ('Guardbreaking', 'special');
-insert into effect(name, effect_type, description) values ('Legendary Chimera''s Ferocity', 'special');
+insert into effect(name, effect_type) values ('Guardbreaking', 'special');
+insert into effect(name, effect_type) values ('Legendary Chimera''s Ferocity', 'special');
 insert into effect(name, effect_type, description) values ('Inevitable Balance', 'special', 'Your represent balance beneath the depths... +5 Melee Power, 5% Doublestrike, Your Sneak Attacks do additional Bane damage');
 insert into effect(name, effect_type, description) values ('Legendary Inevitable Balance', 'special', 'Your represent balance beneath the depths... +5 Melee Power, 5% Doublestrike, Your Sneak Attacks do additional Bane damage');
 

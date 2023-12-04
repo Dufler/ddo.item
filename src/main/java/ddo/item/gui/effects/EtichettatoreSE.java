@@ -6,10 +6,22 @@ import org.eclipse.swt.graphics.Image;
 
 import com.dufler.swt.utils.elements.Etichettatore;
 
+import ddo.item.model.EffectShowType;
+
 public class EtichettatoreSE extends Etichettatore<SelectedEffect> {
 
 	@Override
 	public String getTesto(SelectedEffect oggetto, int colonna) {
+		String testo = null;
+		switch (oggetto.getShow()) {
+			case numeric : testo = getNumericDescription(oggetto, colonna); break;
+			case none : case not_numeric : testo = getNonNumericDescription(oggetto, colonna); break;
+			default : testo = "NA";
+		}
+		return testo;
+	}
+	
+	private String getNumericDescription(SelectedEffect oggetto, int colonna) {
 		String testo = null;
 		switch (colonna) {
 			case 0 : testo = oggetto.getName(); break;
@@ -21,6 +33,18 @@ public class EtichettatoreSE extends Etichettatore<SelectedEffect> {
 			case 6 : testo = Integer.toString(oggetto.getBonusByType("Quality")); break;
 			case 7 : testo = Integer.toString(oggetto.getOtherBonus()); break;
 			default : testo = "NA";
+		}
+		return testo;
+	}
+	
+	private String getNonNumericDescription(SelectedEffect oggetto, int colonna) {
+		String testo = null;
+		switch (colonna) {
+			case 0 : testo = oggetto.getName(); break;
+			case 1 : testo = oggetto.isUserSelected() ? "Yes" : "No"; break;
+			case 2 : testo = oggetto.getPriority() != null ? Integer.toString(oggetto.getPriority()) : ""; break;
+			case 3 : testo = "X"; break;
+			default : testo = "";
 		}
 		return testo;
 	}
@@ -40,14 +64,16 @@ public class EtichettatoreSE extends Etichettatore<SelectedEffect> {
 	
 	private String getDescrizione(SelectedEffect oggetto) {
 		StringBuilder sb = new StringBuilder();
-		for (Entry<String, Integer> e : oggetto.getBonuses().entrySet()) {
-			sb.append(e.getKey() != null ? e.getKey() : "<missing>");
-			if (e.getValue() != null) {
-				sb.append(": ");
-				sb.append(e.getValue());
-			}				
-			sb.append("\r\n");
-		}
+		if (oggetto.getShow() == EffectShowType.numeric) {
+			for (Entry<String, Integer> e : oggetto.getBonuses().entrySet()) {
+				sb.append(e.getKey() != null ? e.getKey() : "<missing>");
+				if (e.getValue() != null) {
+					sb.append(": ");
+					sb.append(e.getValue());
+				}				
+				sb.append("\r\n");
+			}
+		}	
 		return sb.toString();
 	}
 

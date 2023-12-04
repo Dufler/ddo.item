@@ -17,6 +17,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import ddo.item.entity.EEffect;
 import ddo.item.entity.EGearSetup;
 import ddo.item.entity.EGearSetupAugment;
 import ddo.item.entity.EGearSetupItem;
@@ -29,10 +30,13 @@ import ddo.item.gui.set.SelectedSet;
 import ddo.item.gui.set.TabellaSelectedSets;
 import ddo.item.model.Augment;
 import ddo.item.model.AugmentSlot;
+import ddo.item.model.BaseEffect;
 import ddo.item.model.BodySlot;
 import ddo.item.model.Effect;
+import ddo.item.model.EffectType;
 import ddo.item.model.GearSetup;
 import ddo.item.model.Item;
+import ddo.item.repository.EEffectRepository;
 import ddo.item.repository.EGearSetupAugmentRepository;
 import ddo.item.repository.EGearSetupItemRepository;
 import ddo.item.repository.EGearSetupRepository;
@@ -45,13 +49,15 @@ public class EquippedItems {
 	private static EquippedItems singleton;
 	
 	@Autowired private EItemRepository repositoryItems;
-	@Autowired private EItemEffectsRepository repositoryEffects;
+	@Autowired private EItemEffectsRepository repositoryItemEffects;
 	
 	@Autowired private EGearSetupRepository repositorySetup;
 	@Autowired private EGearSetupItemRepository repositorySetupItem;
 	@Autowired private EGearSetupAugmentRepository repositorySetupAugment;
 	
-	private final Set<String> effects;
+	@Autowired private EEffectRepository repositoryEffects;
+	
+	private final Map<String, BaseEffect> effects;
 	private final Map<String, SelectedEffect> selectedEffects;
 	private final Map<String, Item> items;
 	private final Set<AugmentSlot> augments;
@@ -72,7 +78,7 @@ public class EquippedItems {
 		for (BodySlot slot : BodySlot.values()) {
 			equippedItems.put(slot, null);
 		}
-		effects = new HashSet<>();
+		effects = new HashMap<>();
 		selectedEffects = new HashMap<>();
 		items = new HashMap<>();
 		augments = new HashSet<>();
@@ -92,20 +98,34 @@ public class EquippedItems {
 		effects.clear();
 		items.clear();
 		augments.clear();
-		loadItems();
+		loadData();
 	}
 	
 	@PostConstruct
-	private void loadItems() {
+	private void loadData() {
+		// load the effects
+		List<EEffect> effectList = repositoryEffects.findAll();
+		for (EEffect e : effectList) {
+			BaseEffect be = new BaseEffect();
+			be.setEffect(e.getEffect());
+			be.setDescription(e.getDescription());
+			be.setType(e.getType());
+			effects.put(e.getEffect(), be);
+		}
+		// load the items
 		List<EItem> itemList = repositoryItems.findAll();
 		for (EItem e : itemList) {
 			Item i = trasforma(e);
 			items.put(i.getName(), i);
 		}
-		List<EItemEffects> effectList = repositoryEffects.findAll();
-		for (EItemEffects e : effectList) {
+		List<EItemEffects> itemEffectList = repositoryItemEffects.findAll();
+		for (EItemEffects e : itemEffectList) {
+			// Controllo se l'effetto non è "gradito"
+			BaseEffect be = effects.get(e.getEffect());
+			if (be.getType() == EffectType.uncategorized || 
+				be.getType() == EffectType.upgrade)
+				continue;
 			Item i = items.get(e.getItemName());
-			effects.add(e.getEffect());
 			Effect f = trasforma(e);
 			i.addEffect(f);
 		}
@@ -216,9 +236,11 @@ public class EquippedItems {
 			// TODO - Aggiungi il clikie alla lista
 		} else {
 			if (!selectedEffects.containsKey(e.getName())) {
+				BaseEffect be = effects.get(e.getName());
 				SelectedEffect se = new SelectedEffect();
 				se.setName(e.getName());
 				se.setUserSelected(false);
+				se.setShow(be.getType().getShow());
 				selectedEffects.put(e.getName(), se);
 			}
 			SelectedEffect se = selectedEffects.get(e.getName());
@@ -239,7 +261,11 @@ public class EquippedItems {
 	}
 	
 	public Set<String> getEffects() {
-		return Collections.unmodifiableSet(effects);
+		return Collections.unmodifiableSet(effects.keySet());
+	}
+	
+	public BaseEffect getEffect(String effect) {
+		return effects.get(effect);
 	}
 	
 	public Map<String, SelectedEffect> getSelectedEffects() {

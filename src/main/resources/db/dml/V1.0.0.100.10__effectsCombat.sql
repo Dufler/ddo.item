@@ -26,10 +26,11 @@ insert into effect(name, effect_type, description) values ('Righteous', 'dr_bypa
 insert into effect(name, effect_type) values ('Assassinate', 'tactical');
 insert into effect(name, effect_type) values ('Breath Weapon Focus', 'tactical');
 insert into effect(name, effect_type) values ('Dazing', 'tactical');
-insert into effect(name, effect_type) values ('Sundering', 'tactical', 'On Hit: Your target suffers a -1 Penalty to Fortitude Saving Throws for 6 seconds. This effect stacks up to 5 times. This effect may only occur on-hit once every three seconds.');
+insert into effect(name, effect_type, description) values ('Sundering', 'tactical', 'On Hit: Your target suffers a -1 Penalty to Fortitude Saving Throws for 6 seconds. This effect stacks up to 5 times. This effect may only occur on-hit once every three seconds.');
 insert into effect(name, effect_type) values ('Stunning', 'tactical');
 insert into effect(name, effect_type) values ('Vertigo', 'tactical');
 insert into effect(name, effect_type) values ('Shatter', 'tactical');
+insert into effect(name, effect_type) values ('Sunder', 'tactical');
 insert into effect(name, effect_type) values ('Combat Mastery', 'tactical');
 
 -- Melee
@@ -183,7 +184,7 @@ insert into effect(name, effect_type) values ('Sovereign Nightmares', 'weapon_pr
 insert into effect(name, effect_type) values ('Smiting', 'weapon_proc');
 insert into effect(name, effect_type) values ('Sovereign Smiting', 'weapon_proc');
 insert into effect(name, effect_type) values ('Overwhelming Shockwave', 'weapon_proc');
-insert into effect(name, effect_type) values ('Thorny Crown of Madness', 'weapon_proc', 'This legendary weapon resonates with cruel and delightful madness. Strikes with this weapon have a chance to confuse your target, allowing them to harm and be harmed by friend and foe alike. Furthermore, hits with this weapon against Confused targets deal an additional Xd6 Chaos damage.');
+insert into effect(name, effect_type, description) values ('Thorny Crown of Madness', 'weapon_proc', 'This legendary weapon resonates with cruel and delightful madness. Strikes with this weapon have a chance to confuse your target, allowing them to harm and be harmed by friend and foe alike. Furthermore, hits with this weapon against Confused targets deal an additional Xd6 Chaos damage.');
 insert into effect(name, effect_type) values ('Legendary Slicing Winds', 'weapon_proc');
 insert into effect(name, effect_type) values ('Legendary Telekinetic', 'weapon_proc');
 insert into effect(name, effect_type) values ('Legendary Sirocco', 'weapon_proc');
@@ -210,8 +211,8 @@ insert into effect(name, effect_type) values ('Lesser Boneshatter', 'weapon_proc
 insert into effect(name, effect_type) values ('Improved Smiting', 'weapon_proc');
 insert into effect(name, effect_type) values ('Rock Shattering', 'weapon_proc');
 insert into effect(name, effect_type) values ('Thunderclap', 'weapon_proc');
-insert into effect(name, effect_type) values ('Life-Devouring', 'weapon_proc', 'This weapon deprives an enemy of its energy and passes it on to you. When you roll a 20 on an attack, the enemy must make a DC 28 Fortitude save or be subjected to a -6 penalty to all stats. At the same time you will feel your power return, as though Greater Restoration were cast on you. (Greater Restoration cures all temporary ability damage, restores all negative levels suffered from energy drain, and eliminates fatigue, exhaustion, confusion, and insanity suffered by you.)');
-insert into effect(name, effect_type) values ('Axe of Famine', 'weapon_proc', 'Every time this weapon deals damage, the target must succeed on a Fortitude save (DC 15) or become exhausted.');
+insert into effect(name, effect_type, description) values ('Life-Devouring', 'weapon_proc', 'This weapon deprives an enemy of its energy and passes it on to you. When you roll a 20 on an attack, the enemy must make a DC 28 Fortitude save or be subjected to a -6 penalty to all stats. At the same time you will feel your power return, as though Greater Restoration were cast on you. (Greater Restoration cures all temporary ability damage, restores all negative levels suffered from energy drain, and eliminates fatigue, exhaustion, confusion, and insanity suffered by you.)');
+insert into effect(name, effect_type, description) values ('Axe of Famine', 'weapon_proc', 'Every time this weapon deals damage, the target must succeed on a Fortitude save (DC 15) or become exhausted.');
 insert into effect(name, effect_type) values ('Thaarak Corrosion', 'weapon_proc');
 insert into effect(name, effect_type) values ('Lifedrinker', 'weapon_proc');
 insert into effect(name, effect_type) values ('Soul Eating', 'weapon_proc');

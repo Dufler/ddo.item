@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import ddo.item.entity.EGearSetupAugment;
 import ddo.item.entity.EGearSetupItem;
 import ddo.item.gui.effects.CompareSelectedEffect;
-import ddo.item.gui.effects.SelectedEffect;
 import ddo.item.gui.effects.TabellaCompareEffects;
 import ddo.item.gui.set.SelectedSet;
 import ddo.item.model.Augment;
