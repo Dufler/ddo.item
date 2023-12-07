@@ -1112,11 +1112,20 @@ insert into effect_alias_list (id, effect_name, effect, effect_type, effect_valu
 insert into effect_alias (name, description) values ('Shrieking VI', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Shrieking VI', 'Shrieking', NULL, 6);
 insert into effect_alias (name, description) values ('Shrieking VII', '');
-insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Shrieking VII', 'Shrieking', NULL, 6);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Shrieking VII', 'Shrieking', NULL, 7);
+insert into effect_alias (name, description) values ('Shrieking VIII', '');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Shrieking VIII', 'Shrieking', NULL, 8);
 
 
 insert into effect_alias (name, description) values ('Silver Threaded', '');
 insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Silver Threaded', 'Silver', NULL, NULL);
+
+insert into effect_alias (name, description) values ('Summer''s Impertenence', 'The heat of Summer surrounds you. +20% Enhancement bonus to critical damage with fire and light spells.');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Summer''s Impertenence', 'Fire Spell Crit Damage', 'Enhancement', 20);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Summer''s Impertenence', 'Light Spell Crit Damage', 'Enhancement', 20);
+insert into effect_alias (name, description) values ('Winter''s Impertenence', 'The chill of Winter surrounds you. +20% Enhancement bonus to critical damage with force and negative spells.');
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Winter''s Impertenence', 'Force Spell Crit Damage', 'Enhancement', 20);
+insert into effect_alias_list (id, effect_name, effect, effect_type, effect_value) values (effect_alias_list_sequence.nextval, 'Winter''s Impertenence', 'Negative Spell Crit Damage', 'Enhancement', 20);
 
 
 

@@ -19,6 +19,7 @@ insert into effect(name, effect_type) values ('Slippery Surfaces Immunity', 'gen
 insert into effect(name, effect_type) values ('Heroic Inspiration', 'general');
 insert into effect(name, effect_type) values ('Relentless Fury', 'general');
 insert into effect(name, effect_type) values ('Underwater Action', 'general');
+insert into effect(name, effect_type) values ('Enhancement Bonus', 'general');
 
 -- charges
 insert into effect(name, effect_type) values ('Action Boost', 'charges');

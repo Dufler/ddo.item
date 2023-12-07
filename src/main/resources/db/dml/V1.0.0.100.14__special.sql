@@ -85,6 +85,11 @@ insert into effect(name, effect_type, description) values ('Symbiotic Backlash',
 insert into effect(name, effect_type) values ('Metal Fatigue', 'special');
 insert into effect(name, effect_type, description) values ('Wild Frenzy', 'special', 'This weapon has a tendency to drive those it strikes insane. On an attack roll of 20 which is confirmed as a critical hit the target will go wild and attack its own allies for 15 seconds if it fails a DC 25 Will save. Enemies driven wild in this way, however, have a chance of coming to their senses if damaged.');
 
+insert into effect(name, effect_type) values ('Required Trait: Lawful', 'special');
+insert into effect(name, effect_type) values ('Required Trait: Chaotic', 'special');
+insert into effect(name, effect_type) values ('Required Trait: Good', 'special');
+insert into effect(name, effect_type) values ('Required Class: Paladin', 'special');
+insert into effect(name, effect_type) values ('Class Required: Wizard, Sorcerer, Bard', 'special');
 
 -- ranged stuff
 insert into effect(name, effect_type) values ('Arrow Spitting', 'special');

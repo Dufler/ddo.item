@@ -12,9 +12,16 @@ insert into effect(name, effect_type) values ('Radiance Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Healing Lore', 'spellcasting');
 insert into effect(name, effect_type) values ('Repair Lore', 'spellcasting');
 -- Spell critical multiplier
-insert into effect(name, effect_type, description) values ('Summer''s Impertenence', 'spellcasting', 'The heat of Summer surrounds you. +20% Enhancement bonus to critical damage with fire and light spells.');
-insert into effect(name, effect_type, description) values ('Winter''s Impertenence', 'spellcasting', 'The chill of Winter surrounds you. +20% Enhancement bonus to critical damage with force and negative spells.');
 insert into effect(name, effect_type) values ('Sonic Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Acid Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Fire Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Cold Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Electric Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Force Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Light Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Negative Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Positive Spell Crit Damage', 'spellcasting');
+insert into effect(name, effect_type) values ('Repair Spell Crit Damage', 'spellcasting');
 -- Spell Power
 insert into effect(name, effect_type) values ('Potency', 'spellcasting');
 insert into effect(name, effect_type) values ('Impulse', 'spellcasting');

@@ -289,6 +289,6 @@ insert into item_skippable (name) values ('Brigand''s Cutlass (level 16)(pre-U39
 insert into item_skippable (name) values ('Epic Brigand''s Cutlass (level 20)(pre-U39)');
 insert into item_skippable (name) values ('Epic Brigand''s Cutlass (level 24)(pre-U39)');
 insert into item_skippable (name) values ('Sunsword');
-insert into item_skippable (name) values ('');
---insert into item_skippable (name) values ('');
+insert into item_skippable (name) values ('Belt of the Seven Ideals (historic)');
+insert into item_skippable (name) values ('Allegiance (historic)');
 --insert into item_skippable (name) values ('');

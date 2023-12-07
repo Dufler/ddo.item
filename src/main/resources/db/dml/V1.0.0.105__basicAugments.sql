@@ -88,7 +88,7 @@ insert into augment_effect(id, augment_name, effect, effect_type, effect_value) 
 insert into augment(name, augment_type, ml) values('Sapphire of Sunder +16', 'Blue', 32);
 insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Sapphire of Sunder +16', 'Sunder', 'Enhancement', 16);
 insert into augment(name, augment_type, ml) values('Sapphire of Trip +16', 'Blue', 32);
-insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Sapphire of Trip +16', 'Trip', 'Enhancement', 16);
+insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Sapphire of Trip +16', 'Vertigo', 'Enhancement', 16);
 insert into augment(name, augment_type, ml) values('Sapphire of Accuracy +22', 'Blue', 32);
 insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Sapphire of Accuracy +22', 'Accuracy', 'Competence', 22);
 insert into augment(name, augment_type, ml) values('Sapphire of Healing Amplification +57', 'Blue', 32);

@@ -237,7 +237,7 @@ insert into named_set (name, pieces) values ('Legendary Menechtarun Scavenger', 
 insert into named_set (name, pieces) values ('Legendary The Desert''s Writhing Storm', 2);
 insert into named_set (name, pieces) values ('Legendary The Desert''s Burning Sun', 2);
 insert into named_set (name, pieces) values ('Legendary The Desert''s Starless Nights', 2);
-insert into named_set (name, pieces) values ('Legendary The Oasis of Morality', 2);
+insert into named_set (name, pieces) values ('Legendary Oasis of Morality', 2);
 insert into named_set (name, pieces) values ('Legendary Vulkoor''s Chosen', 2);
 -- Vault of Night
 insert into named_set (name, pieces) values ('Kundarak Delving Equipment', 3);

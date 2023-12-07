@@ -55,5 +55,8 @@ insert into effect(name, effect_type) values ('Nightshade Venom', 'debuff');
 insert into effect(name, effect_type) values ('Twining Hemlock', 'debuff');
 insert into effect(name, effect_type) values ('Shattermantle', 'debuff');
 insert into effect(name, effect_type) values ('Improved Shattermantle', 'debuff');
-
-
+insert into effect(name, effect_type) values ('Legendary Ash', 'debuff');
+insert into effect(name, effect_type) values ('Legendary Ice', 'debuff');
+insert into effect(name, effect_type) values ('Legendary Vacuum', 'debuff');
+insert into effect(name, effect_type) values ('Legendary Dust', 'debuff');
+insert into effect(name, effect_type) values ('Legendary Salt', 'debuff');

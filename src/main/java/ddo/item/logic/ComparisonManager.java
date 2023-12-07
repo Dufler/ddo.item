@@ -17,6 +17,7 @@ import ddo.item.gui.effects.TabellaCompareEffects;
 import ddo.item.gui.set.SelectedSet;
 import ddo.item.model.Augment;
 import ddo.item.model.AugmentSlot;
+import ddo.item.model.BaseEffect;
 import ddo.item.model.BodySlot;
 import ddo.item.model.Effect;
 import ddo.item.model.GearSetup;
@@ -24,9 +25,11 @@ import ddo.item.model.Item;
 import ddo.item.model.NamedSet;
 import ddo.item.repository.EGearSetupAugmentRepository;
 import ddo.item.repository.EGearSetupItemRepository;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Scope("prototype")
+@Slf4j
 public class ComparisonManager {
 	
 	@Autowired private EGearSetupItemRepository repositorySetupItem;
@@ -193,12 +196,18 @@ public class ComparisonManager {
 			// TODO - Aggiungi il clikie alla lista
 		} else {
 			if (!selectedEffects.containsKey(e.getName())) {
+				BaseEffect be = EquippedItems.getInstance().getEffect(e.getName());
+				if (be == null) {
+					log.debug(e.getName());
+				}
 				CompareSelectedEffect se = new CompareSelectedEffect();
 				se.setName(e.getName());
 				se.setUserSelected(false);
+				se.setShow(be.getType().getShow());
 				selectedEffects.put(e.getName(), se);
 			}
 			CompareSelectedEffect se = selectedEffects.get(e.getName());
+			se.setFirstPresent(true);;
 			Map<String, Integer> mappaBonus = se.getBonusesFirst();
 			Integer actualValue = mappaBonus.get(e.getType());
 			if (actualValue == null || actualValue < e.getValue()) {
@@ -212,12 +221,18 @@ public class ComparisonManager {
 			// TODO - Aggiungi il clikie alla lista
 		} else {
 			if (!selectedEffects.containsKey(e.getName())) {
+				BaseEffect be = EquippedItems.getInstance().getEffect(e.getName());
+				if (be == null) {
+					log.debug(e.getName());
+				}
 				CompareSelectedEffect se = new CompareSelectedEffect();
 				se.setName(e.getName());
 				se.setUserSelected(false);
+				se.setShow(be.getType().getShow());
 				selectedEffects.put(e.getName(), se);
 			}
 			CompareSelectedEffect se = selectedEffects.get(e.getName());
+			se.setSecondPresent(true);
 			Map<String, Integer> mappaBonus = se.getBonusesSecond();
 			Integer actualValue = mappaBonus.get(e.getType());
 			if (actualValue == null || actualValue < e.getValue()) {

@@ -20,12 +20,6 @@ insert into effect(name, effect_type) values ('Acid Burst', 'weapon_proc');
 insert into effect(name, effect_type) values ('Acid Touch', 'weapon_proc');
 insert into effect(name, effect_type) values ('Acid Vulnerability', 'weapon_proc');
 
-insert into effect(name, effect_type) values ('Cold Touch', 'weapon_proc');
-insert into effect(name, effect_type) values ('Cold Vulnerability', 'weapon_proc');
-
-insert into effect(name, effect_type) values ('Electric Vulnerability', 'weapon_proc');
-insert into effect(name, effect_type) values ('Jolting', 'weapon_proc');
-
 insert into effect(name, effect_type) values ('Evil Blast', 'weapon_proc');
 
 insert into effect(name, effect_type) values ('Fire Touch', 'weapon_proc');
@@ -47,11 +41,15 @@ insert into effect(name, effect_type) values ('Impellent', 'weapon_proc');
 insert into effect(name, effect_type) values ('Frost', 'weapon_proc');
 insert into effect(name, effect_type) values ('Icy Blast', 'weapon_proc');
 insert into effect(name, effect_type) values ('Icy Burst', 'weapon_proc');
+insert into effect(name, effect_type) values ('Cold Touch', 'weapon_proc');
+insert into effect(name, effect_type) values ('Cold Vulnerability', 'weapon_proc');
 
 insert into effect(name, effect_type) values ('Shock', 'weapon_proc');
 insert into effect(name, effect_type) values ('Shocking Blast', 'weapon_proc');
 insert into effect(name, effect_type) values ('Shocking Burst', 'weapon_proc');
 insert into effect(name, effect_type) values ('Shocking Touch', 'weapon_proc');
+insert into effect(name, effect_type) values ('Electric Vulnerability', 'weapon_proc');
+insert into effect(name, effect_type) values ('Jolting', 'weapon_proc');
 
 insert into effect(name, effect_type) values ('Screaming', 'weapon_proc');
 insert into effect(name, effect_type) values ('Roaring', 'weapon_proc');
@@ -105,3 +103,8 @@ insert into effect(name, effect_type, description) values ('Ribcracker', 'weapon
 insert into effect(name, effect_type, description) values ('Piercing', 'weapon_proc', 'The edges of this weapon have serrated edges, dealing an additional Xd6 piercing damage on each hit.');
 insert into effect(name, effect_type, description) values ('Slashing', 'weapon_proc', 'The edges of this weapon are sharpened, dealing an additional Xd6 slashing damage on each hit.');
 insert into effect(name, effect_type, description) values ('Stabbing', 'weapon_proc', 'The edges of this weapon are serrated, dealing an additional Xd6 piercing damage on each critical hit.');
+
+-- effetti speciali dino weapons, vanno rivisti
+insert into effect(name, effect_type, description) values ('Untyped Blast', 'weapon_proc', 'dino');
+insert into effect(name, effect_type, description) values ('Curse Untyped DOT', 'weapon_proc', 'dino');
+insert into effect(name, effect_type, description) values ('Tar Ooze', 'weapon_proc', 'dino');

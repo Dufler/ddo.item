@@ -12,6 +12,7 @@ insert into effect(name, effect_type) values ('Speed', 'general_combat');
 --insert into effect(name, effect_type) values ('', 'general_combat');
 
 -- DR Bypass
+insert into effect(name, effect_type) values ('DR Bypass', 'dr_bypass');
 insert into effect(name, effect_type) values ('Adamantine', 'dr_bypass');
 insert into effect(name, effect_type) values ('Byeshk', 'dr_bypass');
 insert into effect(name, effect_type) values ('Cold Iron', 'dr_bypass');
@@ -212,7 +213,7 @@ insert into effect(name, effect_type) values ('Improved Smiting', 'weapon_proc')
 insert into effect(name, effect_type) values ('Rock Shattering', 'weapon_proc');
 insert into effect(name, effect_type) values ('Thunderclap', 'weapon_proc');
 insert into effect(name, effect_type, description) values ('Life-Devouring', 'weapon_proc', 'This weapon deprives an enemy of its energy and passes it on to you. When you roll a 20 on an attack, the enemy must make a DC 28 Fortitude save or be subjected to a -6 penalty to all stats. At the same time you will feel your power return, as though Greater Restoration were cast on you. (Greater Restoration cures all temporary ability damage, restores all negative levels suffered from energy drain, and eliminates fatigue, exhaustion, confusion, and insanity suffered by you.)');
-insert into effect(name, effect_type, description) values ('Axe of Famine', 'weapon_proc', 'Every time this weapon deals damage, the target must succeed on a Fortitude save (DC 15) or become exhausted.');
+insert into effect(name, effect_type, description) values ('Strength Sapping', 'weapon_proc', 'Every time this weapon deals damage, the target must succeed on a Fortitude save (DC 15) or become exhausted.');
 insert into effect(name, effect_type) values ('Thaarak Corrosion', 'weapon_proc');
 insert into effect(name, effect_type) values ('Lifedrinker', 'weapon_proc');
 insert into effect(name, effect_type) values ('Soul Eating', 'weapon_proc');
