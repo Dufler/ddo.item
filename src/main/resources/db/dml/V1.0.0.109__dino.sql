@@ -258,3 +258,18 @@ insert into augment_effect(id, augment_name, effect, effect_type, effect_value) 
 insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Silverfang', 'Assassinate', 'Profane', 2);
 insert into augment(name, augment_type, ml) values('Voidfang', 'Fang Armor Slot', 31);
 insert into augment_effect(id, augment_name, effect, effect_type, effect_value) values(augment_effect_sequence.nextval, 'Voidfang', 'Potency', 'Exceptional', 15);
+
+insert into augment_type(name) values('Isle of Dread Set');
+insert into augment_type_alias(alias, augment_type) values('Isle of Dread: Set Bonus Slot: Empty','Isle of Dread Set');
+insert into augment(name, augment_type, ml) values('The Legendary Dread Isle''s Curse', 'Isle of Dread Set', 31);
+insert into named_set_augment(set_name, augment_name) values('The Legendary Dread Isle''s Curse', 'The Legendary Dread Isle''s Curse');
+insert into augment(name, augment_type, ml) values('Dread Stalker', 'Isle of Dread Set', 31);
+insert into named_set_augment(set_name, augment_name) values('Dread Stalker', 'Dread Stalker');
+insert into augment(name, augment_type, ml) values('Devotion of the Firemouth', 'Isle of Dread Set', 31);
+insert into named_set_augment(set_name, augment_name) values('Devotion of the Firemouth', 'Devotion of the Firemouth');
+insert into augment(name, augment_type, ml) values('Defender of Tanaroa', 'Isle of Dread Set', 31);
+insert into named_set_augment(set_name, augment_name) values('Defender of Tanaroa', 'Defender of Tanaroa');
+insert into augment(name, augment_type, ml) values('Deacon of the Auricular Sacrarium', 'Isle of Dread Set', 31);
+insert into named_set_augment(set_name, augment_name) values('Deacon of the Auricular Sacrarium', 'Deacon of the Auricular Sacrarium');
+insert into augment(name, augment_type, ml) values('Echoes of the Walking Ancestors', 'Isle of Dread Set', 31);
+insert into named_set_augment(set_name, augment_name) values('Echoes of the Walking Ancestors', 'Echoes of the Walking Ancestors');

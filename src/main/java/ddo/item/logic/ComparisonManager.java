@@ -203,7 +203,7 @@ public class ComparisonManager {
 				CompareSelectedEffect se = new CompareSelectedEffect();
 				se.setName(e.getName());
 				se.setUserSelected(false);
-				se.setShow(be.getType().getShow());
+				se.setType(be.getType());
 				selectedEffects.put(e.getName(), se);
 			}
 			CompareSelectedEffect se = selectedEffects.get(e.getName());
@@ -228,7 +228,7 @@ public class ComparisonManager {
 				CompareSelectedEffect se = new CompareSelectedEffect();
 				se.setName(e.getName());
 				se.setUserSelected(false);
-				se.setShow(be.getType().getShow());
+				se.setType(be.getType());
 				selectedEffects.put(e.getName(), se);
 			}
 			CompareSelectedEffect se = selectedEffects.get(e.getName());
@@ -244,19 +244,38 @@ public class ComparisonManager {
 	public void updateFirstSelectedSet() {
 		Map<String, Integer> conteggioPezziSet = new HashMap<>();
 		for (Item i : firstEquippedItems.values()) {
-			if (i != null) for (NamedSet ns : i.getSets()) {
-				if (!firstSelectedSets.containsKey(ns.getName())) {
-					SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
-					ss.setActualNumberOfPieces(0);
-					ss.setUserSelected(false);
-					ss.getEffects().addAll(ns.getEffects());
-					firstSelectedSets.put(ns.getName(), ss);
+			if (i != null) {
+				for (NamedSet ns : i.getSets()) {
+					if (!firstSelectedSets.containsKey(ns.getName())) {
+						SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
+						ss.setActualNumberOfPieces(0);
+						ss.setUserSelected(false);
+						ss.getEffects().addAll(ns.getEffects());
+						firstSelectedSets.put(ns.getName(), ss);
+					}
+					if (!conteggioPezziSet.containsKey(ns.getName())) {
+						conteggioPezziSet.put(ns.getName(), 0);
+					}
+					Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
+					conteggioPezziSet.put(ns.getName(), actual);
 				}
-				if (!conteggioPezziSet.containsKey(ns.getName())) {
-					conteggioPezziSet.put(ns.getName(), 0);
+				for (AugmentSlot as : i.getAugments()) {
+					Augment a = as.getAugment();
+					if (a != null) for (NamedSet ns : a.getSets()) {
+						if (!firstSelectedSets.containsKey(ns.getName())) {
+							SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
+							ss.setActualNumberOfPieces(0);
+							ss.setUserSelected(false);
+							ss.getEffects().addAll(ns.getEffects());
+							firstSelectedSets.put(ns.getName(), ss);
+						}
+						if (!conteggioPezziSet.containsKey(ns.getName())) {
+							conteggioPezziSet.put(ns.getName(), 0);
+						}
+						Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
+						conteggioPezziSet.put(ns.getName(), actual);
+					}
 				}
-				Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
-				conteggioPezziSet.put(ns.getName(), actual);
 			}
 		}
 		// Elimino i set che non sono stati selezionati dall'utente e che hanno 0 pezzi
@@ -274,19 +293,38 @@ public class ComparisonManager {
 	public void updateSecondSelectedSet() {
 		Map<String, Integer> conteggioPezziSet = new HashMap<>();
 		for (Item i : secondEquippedItems.values()) {
-			if (i != null) for (NamedSet ns : i.getSets()) {
-				if (!secondSelectedSets.containsKey(ns.getName())) {
-					SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
-					ss.setActualNumberOfPieces(0);
-					ss.setUserSelected(false);
-					ss.getEffects().addAll(ns.getEffects());
-					secondSelectedSets.put(ns.getName(), ss);
+			if (i != null) {
+				for (NamedSet ns : i.getSets()) {
+					if (!secondSelectedSets.containsKey(ns.getName())) {
+						SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
+						ss.setActualNumberOfPieces(0);
+						ss.setUserSelected(false);
+						ss.getEffects().addAll(ns.getEffects());
+						secondSelectedSets.put(ns.getName(), ss);
+					}
+					if (!conteggioPezziSet.containsKey(ns.getName())) {
+						conteggioPezziSet.put(ns.getName(), 0);
+					}
+					Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
+					conteggioPezziSet.put(ns.getName(), actual);
 				}
-				if (!conteggioPezziSet.containsKey(ns.getName())) {
-					conteggioPezziSet.put(ns.getName(), 0);
+				for (AugmentSlot as : i.getAugments()) {
+					Augment a = as.getAugment();
+					if (a != null) for (NamedSet ns : a.getSets()) {
+						if (!secondSelectedSets.containsKey(ns.getName())) {
+							SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
+							ss.setActualNumberOfPieces(0);
+							ss.setUserSelected(false);
+							ss.getEffects().addAll(ns.getEffects());
+							secondSelectedSets.put(ns.getName(), ss);
+						}
+						if (!conteggioPezziSet.containsKey(ns.getName())) {
+							conteggioPezziSet.put(ns.getName(), 0);
+						}
+						Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
+						conteggioPezziSet.put(ns.getName(), actual);
+					}
 				}
-				Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
-				conteggioPezziSet.put(ns.getName(), actual);
 			}
 		}
 		// Elimino i set che non sono stati selezionati dall'utente e che hanno 0 pezzi

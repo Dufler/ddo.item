@@ -12,7 +12,7 @@ public class EtichettatoreCE extends Etichettatore<CompareSelectedEffect> {
 	@Override
 	public String getTesto(CompareSelectedEffect oggetto, int colonna) {
 		String testo = null;
-		switch (oggetto.getShow()) {
+		switch (oggetto.getType().getShow()) {
 			case numeric : testo = getNumericDescription(oggetto, colonna); break;
 			case none : case not_numeric : testo = getNonNumericDescription(oggetto, colonna); break;
 			default : testo = "NA";
@@ -24,8 +24,9 @@ public class EtichettatoreCE extends Etichettatore<CompareSelectedEffect> {
 		String testo = null;
 		switch (colonna) {
 			case 0 : testo = oggetto.getName(); break;
-			case 1 : testo = oggetto.isFirstPresent() ? "X" : ""; break;
-			case 2 : testo = oggetto.isSecondPresent() ? "X" : ""; break;
+			case 1 : testo = oggetto.getType().name(); break;
+			case 2 : testo = oggetto.isFirstPresent() ? "X" : ""; break;
+			case 3 : testo = oggetto.isSecondPresent() ? "X" : ""; break;
 			default : testo = "NA";
 		}
 		return testo;
@@ -35,8 +36,9 @@ public class EtichettatoreCE extends Etichettatore<CompareSelectedEffect> {
 		String testo = null;
 		switch (colonna) {
 			case 0 : testo = oggetto.getName(); break;
-			case 1 : testo = Integer.toString(oggetto.getTotalBonusFirst()); break;
-			case 2 : testo = Integer.toString(oggetto.getTotalBonusSecond()); break;
+			case 1 : testo = oggetto.getType().name(); break;
+			case 2 : testo = Integer.toString(oggetto.getTotalBonusFirst()); break;
+			case 3 : testo = Integer.toString(oggetto.getTotalBonusSecond()); break;
 			default : testo = "NA";
 		}
 		return testo;
@@ -47,8 +49,9 @@ public class EtichettatoreCE extends Etichettatore<CompareSelectedEffect> {
 		String testo = null;
 		switch (colonna) {
 			case 0 : testo = oggetto.getName(); break;
-			case 1 : testo = getDescrizione(oggetto.getBonusesFirst()); break;
-			case 2 : testo = getDescrizione(oggetto.getBonusesSecond()); break;
+			case 1 : testo = oggetto.getType().name(); break;
+			case 2 : testo = getDescrizione(oggetto.getBonusesFirst()); break;
+			case 3 : testo = getDescrizione(oggetto.getBonusesSecond()); break;
 			default : testo = "NA";
 		}
 		return testo;

@@ -17,11 +17,14 @@ import org.springframework.stereotype.Component;
 import ddo.item.entity.EAugment;
 import ddo.item.entity.EAugmentEffect;
 import ddo.item.entity.EAugmentTypeEquivalent;
+import ddo.item.entity.ESetAugment;
 import ddo.item.model.Augment;
 import ddo.item.model.Effect;
+import ddo.item.model.NamedSet;
 import ddo.item.repository.EAugmentEffectRepository;
 import ddo.item.repository.EAugmentRepository;
 import ddo.item.repository.EAugmentTypeEquivalentRepository;
+import ddo.item.repository.ESetAugmentRepository;
 
 @Component
 public class AugmentManager {
@@ -29,8 +32,11 @@ public class AugmentManager {
 	private static AugmentManager instance;
 	
 	@Autowired private EAugmentRepository augmentRepository;
+	@Autowired private ESetAugmentRepository setRepository;
 	@Autowired private EAugmentEffectRepository effectRepository;
 	@Autowired private EAugmentTypeEquivalentRepository equivalentRepository;
+	
+	@Autowired private SetManager setManager;
 	
 	private final Map<String, List<Augment>> mapForType;	
 	private final Map<String, Augment> augments;
@@ -70,6 +76,12 @@ public class AugmentManager {
 			e.setValue(ae.getValue());
 			Augment a = augments.get(ae.getAugment());
 			a.getEffects().add(e);
+		}
+		List<ESetAugment> setList = setRepository.findAll();
+		for (ESetAugment as : setList) {
+			NamedSet ns = setManager.getNamedSet(as.getSet());
+			Augment a = augments.get(as.getAugment());
+			a.getSets().add(ns);
 		}
 		List<EAugmentTypeEquivalent> equivalentList = equivalentRepository.findAll();
 		for (EAugmentTypeEquivalent e : equivalentList) {

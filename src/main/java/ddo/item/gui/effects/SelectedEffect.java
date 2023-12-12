@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-import ddo.item.model.EffectShowType;
+import ddo.item.model.EffectType;
 import lombok.Data;
 
 @Data
@@ -18,7 +18,7 @@ public class SelectedEffect {
 	private static final Set<String> allTypes = new HashSet<>(Arrays.asList("Enhancement", "Insightful", "Quality", "Sacred", "Profane", "Exceptional"));
 	
 	private String name;
-	private EffectShowType show;
+	private EffectType type;
 	private final Map<String, Integer> bonuses = new HashMap<>();
 	
 	private boolean userSelected;
@@ -33,7 +33,8 @@ public class SelectedEffect {
 	}
 	
 	public int getBonusByType(String type) {
-		return bonuses.containsKey(type) ? bonuses.get(type) : 0;
+		Integer i = bonuses.get(type);
+		return i != null ? i : 0;
 	}
 	
 	public int getOtherBonus() {

@@ -9,6 +9,7 @@ insert into effect(name, effect_type) values ('Bonus to damage vs. helpless', 'g
 insert into effect(name, effect_type) values ('Sneak Attack Dice', 'general_combat');
 insert into effect(name, effect_type) values ('Fortification Bypass', 'general_combat');
 insert into effect(name, effect_type) values ('Speed', 'general_combat');
+insert into effect(name, effect_type) values ('Imbue Dice', 'general_combat');
 --insert into effect(name, effect_type) values ('', 'general_combat');
 
 -- DR Bypass

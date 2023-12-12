@@ -2,6 +2,7 @@ package ddo.item.logic;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Component;
 import ddo.item.entity.ENamedSetBonus;
 import ddo.item.entity.ESet;
 import ddo.item.gui.set.SelectedSet;
+import ddo.item.model.Augment;
+import ddo.item.model.AugmentSlot;
 import ddo.item.model.Effect;
 import ddo.item.model.Item;
 import ddo.item.model.NamedSet;
@@ -82,27 +85,50 @@ public class SetManager {
 	public void updateSelectedSet() {
 		Map<String, Integer> conteggioPezziSet = new HashMap<>();
 		for (Item i : EquippedItems.getInstance().getEquippedItems().values()) {
-			if (i != null) for (NamedSet ns : i.getSets()) {
-				if (!selectedSets.containsKey(ns.getName())) {
-					SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
-					ss.setActualNumberOfPieces(0);
-					ss.setUserSelected(false);
-					ss.getEffects().addAll(ns.getEffects());
-					selectedSets.put(ns.getName(), ss);
+			if (i != null) { 
+				// Controllo tutti i set di cui l'oggetto fa parte
+				for (NamedSet ns : i.getSets()) {
+					if (!selectedSets.containsKey(ns.getName())) {
+						SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
+						ss.setActualNumberOfPieces(0);
+						ss.setUserSelected(false);
+						ss.getEffects().addAll(ns.getEffects());
+						selectedSets.put(ns.getName(), ss);
+					}
+					if (!conteggioPezziSet.containsKey(ns.getName())) {
+						conteggioPezziSet.put(ns.getName(), 0);
+					}
+					Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
+					conteggioPezziSet.put(ns.getName(), actual);
 				}
-				if (!conteggioPezziSet.containsKey(ns.getName())) {
-					conteggioPezziSet.put(ns.getName(), 0);
+				// Controllo se l'oggetto ha augment con set
+				for (AugmentSlot as : i.getAugments()) {
+					Augment a = as.getAugment();
+					if (a != null) for (NamedSet ns : a.getSets()) {
+						if (!selectedSets.containsKey(ns.getName())) {
+							SelectedSet ss = new SelectedSet(ns.getName(), ns.getPieces());
+							ss.setActualNumberOfPieces(0);
+							ss.setUserSelected(false);
+							ss.getEffects().addAll(ns.getEffects());
+							selectedSets.put(ns.getName(), ss);
+						}
+						if (!conteggioPezziSet.containsKey(ns.getName())) {
+							conteggioPezziSet.put(ns.getName(), 0);
+						}
+						Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
+						conteggioPezziSet.put(ns.getName(), actual);
+					}
 				}
-				Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
-				conteggioPezziSet.put(ns.getName(), actual);
 			}
 		}
 		// Elimino i set che non sono stati selezionati dall'utente e che hanno 0 pezzi
-		for (String set : selectedSets.keySet()) {
+		Iterator<String> i = selectedSets.keySet().iterator();
+		while (i.hasNext()) {
+			String set = i.next();
 			Integer actual = conteggioPezziSet.get(set);
 			SelectedSet ss = selectedSets.get(set);
 			if (actual == null && !ss.isUserSelected()) {
-				selectedSets.remove(set);
+				i.remove();
 			} else {
 				ss.setActualNumberOfPieces(actual != null ? actual : 0);
 			}

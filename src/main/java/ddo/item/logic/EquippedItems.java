@@ -240,7 +240,7 @@ public class EquippedItems {
 				SelectedEffect se = new SelectedEffect();
 				se.setName(e.getName());
 				se.setUserSelected(false);
-				se.setShow(be.getType().getShow());
+				se.setType(be.getType());
 				selectedEffects.put(e.getName(), se);
 			}
 			SelectedEffect se = selectedEffects.get(e.getName());

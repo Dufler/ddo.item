@@ -13,7 +13,7 @@ public class EtichettatoreSE extends Etichettatore<SelectedEffect> {
 	@Override
 	public String getTesto(SelectedEffect oggetto, int colonna) {
 		String testo = null;
-		switch (oggetto.getShow()) {
+		switch (oggetto.getType().getShow()) {
 			case numeric : testo = getNumericDescription(oggetto, colonna); break;
 			case none : case not_numeric : testo = getNonNumericDescription(oggetto, colonna); break;
 			default : testo = "NA";
@@ -64,7 +64,7 @@ public class EtichettatoreSE extends Etichettatore<SelectedEffect> {
 	
 	private String getDescrizione(SelectedEffect oggetto) {
 		StringBuilder sb = new StringBuilder();
-		if (oggetto.getShow() == EffectShowType.numeric) {
+		if (oggetto.getType().getShow() == EffectShowType.numeric) {
 			for (Entry<String, Integer> e : oggetto.getBonuses().entrySet()) {
 				sb.append(e.getKey() != null ? e.getKey() : "<missing>");
 				if (e.getValue() != null) {

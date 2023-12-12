@@ -19,8 +19,9 @@ public class TabellaCompareEffects extends Tabella<CompareSelectedEffect, Criter
 	@Override
 	protected void aggiungiColonne() {
 		aggiungiColonna("Effect", 200, 0);
-		aggiungiColonna("Total Bonus 1st", 300, 1);
-		aggiungiColonna("Total Bonus 2nd", 300, 2);
+		aggiungiColonna("type", 100, 1);
+		aggiungiColonna("Total Bonus 1st", 300, 2);
+		aggiungiColonna("Total Bonus 2nd", 300, 3);
 	}
 	
 	@Override

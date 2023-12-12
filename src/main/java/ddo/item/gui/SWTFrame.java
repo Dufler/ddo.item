@@ -135,6 +135,7 @@ public class SWTFrame {
 				GearSetup setup = dialog.open();
 				if (setup != null) {
 					lblstSetup.setText(String.format("1st setup: %s", setup.getName()));
+					compositeCompareControls.layout();
 					comparisonManager.loadFirstGearSetup(setup);
 				} else {
 					lblstSetup.setText("1st setup");
@@ -151,6 +152,7 @@ public class SWTFrame {
 				GearSetup setup = dialog.open();
 				if (setup != null) {
 					lbl2ndSetup.setText(String.format("2nd setup: %s", setup.getName()));
+					compositeCompareControls.layout();
 					comparisonManager.loadSecondGearSetup(setup);
 				} else {
 					lbl2ndSetup.setText("2nd setup");

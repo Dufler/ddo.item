@@ -12,9 +12,11 @@ public class Augment {
 	private String type;
 	private Integer minimumLevel;
 	private final Set<Effect> effects;
+	private final Set<NamedSet> sets;
 	
 	public Augment() {
 		effects = new HashSet<>();
+		sets = new HashSet<>();
 	}
 	
 	@Override

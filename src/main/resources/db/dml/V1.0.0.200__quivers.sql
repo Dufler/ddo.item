@@ -14,8 +14,9 @@ INSERT INTO ITEM (NAME,SLOT,ML) VALUES ('Epic Purifying Quiver','QUIVER',29);
 
 INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Quiver of Alacrity','Ranged Alacrity','Enhancement',10);
 INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Quiver of Alacrity','Striding','Enhancement',30);
-INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Quiver of Alacrity','Concentration','Penality',-50);
 INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Quiver of Alacrity','Striding','Enhancement',30);
+INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Quiver of Alacrity','Concentration','Penality',-50);
+INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Quiver of Alacrity','Striding','Enhancement',30);
 INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Quiver of Alacrity','Ranged Alacrity','Enhancement',15);
 INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Quiver of Alacrity','Distant Diversion','Insightful',15);
 INSERT INTO ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Quiver of Alacrity','Deception','Insightful',4);

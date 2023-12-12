@@ -10,19 +10,19 @@ insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) val
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Mind and Matter', 'Magical Sheltering', 'Artifact', 30);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Mind and Matter', 'Magical Sheltering Cap', 'Artifact', 30);
 
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Melee Power', 'Profane', 15);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Ranged Power', 'Profane', 15);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Potency', 'Profane', 25);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Physical Sheltering', 'Profane', 30);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Spell Focus Mastery', 'Profane', 2);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Strength', 'Profane', 2);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Dexterity', 'Profane', 2);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Constitution', 'Profane', 2);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Intelligence', 'Profane', 2);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Wisdom', 'Profane', 2);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Charisma', 'Profane', 2);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Accuracy', 'Profane', 4);
-insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Dread Isle''s Curse', 'Deadly', 'Profane', 4);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Melee Power', 'Profane', 15);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Ranged Power', 'Profane', 15);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Potency', 'Profane', 25);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Physical Sheltering', 'Profane', 30);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Spell Focus Mastery', 'Profane', 2);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Strength', 'Profane', 2);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Dexterity', 'Profane', 2);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Constitution', 'Profane', 2);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Intelligence', 'Profane', 2);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Wisdom', 'Profane', 2);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Charisma', 'Profane', 2);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Accuracy', 'Profane', 4);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'The Legendary Dread Isle''s Curse', 'Deadly', 'Profane', 4);
 
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Dread Stalker', 'Melee Power', 'Artifact', 15);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Dread Stalker', 'Ranged Power', 'Artifact', 15);
@@ -56,6 +56,32 @@ insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) val
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Devils'' Infernal Dance', 'Intelligence', 'Artifact', 3);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Devils'' Infernal Dance', 'Wisdom', 'Artifact', 3);
 insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Devils'' Infernal Dance', 'Charisma', 'Artifact', 3);
+
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Wrath of Sora Kell', 'Potency', 'Artifact', 20);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Wrath of Sora Kell', 'Physical Sheltering', 'Artifact', 5);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Wrath of Sora Kell', 'Accuracy', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Wrath of Sora Kell', 'Deadly', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Wrath of Sora Kell', 'Imbue Dice', 'Artifact', 1);
+
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Wrath of Sora Kell', 'Potency', 'Artifact', 25);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Wrath of Sora Kell', 'Physical Sheltering', 'Artifact', 30);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Wrath of Sora Kell', 'Accuracy', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Wrath of Sora Kell', 'Deadly', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Wrath of Sora Kell', 'Imbue Dice', 'Artifact', 3);
+
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Perfected Wrath', 'Strength', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Perfected Wrath', 'Dexterity', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Perfected Wrath', 'Constitution', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Perfected Wrath', 'Intelligence', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Perfected Wrath', 'Wisdom', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Perfected Wrath', 'Charisma', 'Artifact', 3);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Perfected Wrath', 'Bonus to damage vs. helpless', 'Artifact', 15);
+
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Windlasher''s Ferocity', 'Melee Power', 'Artifact', 15);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Windlasher''s Ferocity', 'Ranged Power', 'Artifact', 15);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Windlasher''s Ferocity', 'Doublestrike', 'Artifact', 15);
+insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'Legendary Windlasher''s Ferocity', 'Doubleshot', 'Artifact', 15);
+
 
 --insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'set', '', 'Artifact', );
 --insert into named_set_bonus(id, set_name, effect, effect_type, effect_value) values(named_set_bonus_sequence.nextval, 'set', '', 'Profane', );

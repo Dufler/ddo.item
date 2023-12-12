@@ -9,8 +9,9 @@ public class OrdinatoreCE extends Ordinatore<CompareSelectedEffect> {
 		int compare;
 		switch (property) {
 			case 0 : compare = t1.getName().compareTo(t2.getName()); break;
-			case 1 : compare = Integer.compare(t1.getTotalBonusFirst(), t2.getTotalBonusFirst()); break;
-			case 2 : compare = Integer.compare(t1.getTotalBonusSecond(), t2.getTotalBonusSecond()); break;
+			case 1 : compare = t1.getType().compareTo(t2.getType()); break;
+			case 2 : compare = Integer.compare(t1.getTotalBonusFirst(), t2.getTotalBonusFirst()); break;
+			case 3 : compare = Integer.compare(t1.getTotalBonusSecond(), t2.getTotalBonusSecond()); break;
 			default : compare = t1.getName().compareTo(t2.getName()); break;
 		}
 		return compare;

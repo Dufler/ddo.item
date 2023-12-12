@@ -116,7 +116,7 @@ public class ChooseEffectsDialog {
 						se.setName(effect);
 						se.setUserSelected(true);
 						se.setPriority(10);
-						se.setShow(be.getType().getShow());
+						se.setType(be.getType());
 						effectsManager.getSelectedEffects().put(effect, se);
 					}
 				}

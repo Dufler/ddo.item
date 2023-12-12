@@ -3,14 +3,14 @@ package ddo.item.gui.effects;
 import java.util.HashMap;
 import java.util.Map;
 
-import ddo.item.model.EffectShowType;
+import ddo.item.model.EffectType;
 import lombok.Data;
 
 @Data
 public class CompareSelectedEffect {
 	
 	private String name;
-	private EffectShowType show;
+	private EffectType type;
 	private boolean userSelected;
 	private boolean firstPresent;
 	private boolean secondPresent;
