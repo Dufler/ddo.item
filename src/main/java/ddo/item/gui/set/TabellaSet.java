@@ -48,13 +48,11 @@ public class TabellaSet extends Tabella<NamedSet, CriteriFiltraggioSoloTesto> {
 	@Override
 	protected void aggiungiListener() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	protected void aggiungiMenu(Menu menu) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	@Override
@@ -64,7 +62,7 @@ public class TabellaSet extends Tabella<NamedSet, CriteriFiltraggioSoloTesto> {
 
 	@Override
 	protected FiltroTabella<NamedSet, CriteriFiltraggioSoloTesto> creaFiltro() {
-		return new FiltroNamedSet();
+		return new FiltroSet();
 	}
 	
 	private class OrdinatoreNamedSet extends Ordinatore<NamedSet> {
@@ -109,15 +107,6 @@ public class TabellaSet extends Tabella<NamedSet, CriteriFiltraggioSoloTesto> {
 				sb.delete(sb.length() - 2, sb.length());
 			}
 			return sb.toString();
-		}
-		
-	}
-	
-	private class FiltroNamedSet extends FiltroTabella<NamedSet, CriteriFiltraggioSoloTesto> {
-
-		@Override
-		protected boolean checkElemento(NamedSet item) {
-			return item.getName().contains(criteri.getTesto());
 		}
 		
 	}

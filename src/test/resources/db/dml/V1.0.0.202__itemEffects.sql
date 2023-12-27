@@ -646,7 +646,7 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Kundarak Delving Boots','Freedom of Movement',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Kundarak Delving Boots','Speed','Enhancement',30);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Kundarak Delving Boots','Dexterity','Enhancement',9);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Kundarak Delving Boots','Dexterity Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Kundarak Delving Boots','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Firestorm Greaves','Fire Absorption','Enhancement',27);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Firestorm Greaves','Fire Resistance','Enhancement',36);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Firestorm Greaves','Magical Sheltering','Enhancement',24);
@@ -1099,7 +1099,7 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Kundarak Delving Boots','Freedom of Movement',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Kundarak Delving Boots','Speed','Enhancement',30);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Kundarak Delving Boots','Dexterity','Enhancement',14);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Kundarak Delving Boots','Dexterity Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Kundarak Delving Boots','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Dustless Boots','Assassinate','Enhancement',16);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Dustless Boots','Deception','Insightful',5);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Dustless Boots','Speed','Enhancement',30);
@@ -2604,7 +2604,7 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Sailcloth Cloak','Deadly','Enhancement',8);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Marshreed Cloak','Camouflage','Clickie',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Marshreed Cloak','Intelligence','Insightful',4);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Marshreed Cloak','Dexterity Skills','Exceptional',6);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Marshreed Cloak','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Marshreed Cloak','Hide','Enhancement',17);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Marshreed Cloak','Assassinate','Enhancement',11);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Marshreed Cloak','Camouflage','Clickie',NULL);
@@ -2620,7 +2620,7 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Envenomed Cloak','Proof Against Poison','Enhancement',11);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Marshreed Cloak','Camouflage','Clickie',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Marshreed Cloak','Intelligence','Insightful',6);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Marshreed Cloak','Dexterity Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Marshreed Cloak','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Marshreed Cloak','Hide','Enhancement',20);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Marshreed Cloak','Assassinate','Enhancement',15);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Phiarlan Mirror Cloak','Hide','Insightful',10);
@@ -3907,8 +3907,8 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ir''Kesslan''s Most Prescient Lens','Resistance','Insightful',6);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ir''Kesslan''s Most Prescient Lens','Armor Bonus','Insightful',6);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ir''Kesslan''s Most Prescient Lens','Negative Energy Absorption','Enhancement',37);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ethereal Gaze','Dexterity Skills','Exceptional',10);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ethereal Gaze','Dexterity Skills','Insightful',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ethereal Gaze','Dexterity Skills','Exceptional',NULL);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ethereal Gaze','Dexterity Skills','Insightful',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ethereal Gaze','Concealment','Enhancement',25);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Ethereal Gaze','Ethereal',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Attunement''s Gaze','Spell Focus Mastery','Enhancement',5);
@@ -5807,8 +5807,8 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Golden Guile','Ethereal',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Golden Guile','Dexterity','Enhancement',14);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Golden Guile','Improved Deception','Enhancement',21);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Golden Guile','Dexterity Skills','Exceptional',10);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Golden Guile','Charisma Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Golden Guile','Dexterity Skills','Exceptional',NULL);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Golden Guile','Charisma Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Golden Guile','Domination Immunity',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Twisted Talisman','Blood Sacrifice','Clickie',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Perfected Twisted Talisman','Constitution','Enhancement',14);
@@ -6856,7 +6856,7 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Ring of Thelis','Efficient Metamagic - Empower II',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Ring of Thelis','Magical Efficiency','Enhancement',10);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Tumbleweed','Dexterity','Insightful',6);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Tumbleweed','Dexterity Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Tumbleweed','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Tumbleweed','Accuracy','Enhancement',21);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Tumbleweed','Deadly','Enhancement',11);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Scoundrel''s Bangle','Constitution','Enhancement',6);
@@ -8098,11 +8098,11 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Night Hag''s Heartstone','Efficient Metamagic - Embolden II',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Anti-Beholder Crystal','Absorb Beholder Spells',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Morgrave Skeleton Key','Open Lock','Enhancement',17);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Morgrave Skeleton Key','Dexterity Skills','Exceptional',8);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Morgrave Skeleton Key','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Morgrave Skeleton Key','Resistance','Luck',2);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Morgrave Skeleton Key','Move Silently','Enhancement',17);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Morgrave Skeleton Key','Open Lock','Enhancement',21);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Morgrave Skeleton Key','Dexterity Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Morgrave Skeleton Key','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Morgrave Skeleton Key','Resistance','Luck',5);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Morgrave Skeleton Key','Move Silently','Enhancement',21);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Library Card','Linguistics',NULL,NULL);
@@ -9259,7 +9259,7 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Vulkoorim Fighting Leathers','Fire Resistance','Enhancement',36);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Vulkoorim Fighting Leathers','Accuracy','Enhancement',15);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Vulkoorim Fighting Leathers','Deception','Insightful',3);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Vulkoorim Fighting Leathers','Dexterity Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Epic Vulkoorim Fighting Leathers','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Etched Leather Armor','Enhancement Bonus','Enhancement',3);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Etched Leather Armor','Acid Absorption','Enhancement',10);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Etched Leather Armor','Resistance','Enhancement',2);
@@ -9496,7 +9496,7 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Silken Mail','Enhancement Bonus','Enhancement',15);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Silken Mail','Physical Sheltering','Enhancement',34);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Silken Mail','Dexterity','Enhancement',13);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Silken Mail','Dexterity Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Silken Mail','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Silken Mail','DR','Slashing',10);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Silken Mail','Mithral',NULL,NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Smuggler''s Gear','Displacement','Clickie',NULL);
@@ -9546,7 +9546,7 @@ INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) V
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Vulkoorim Fighting Leathers','Fire Resistance','Enhancement',51);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Vulkoorim Fighting Leathers','Accuracy','Enhancement',21);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Vulkoorim Fighting Leathers','Deception','Insightful',5);
-INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Vulkoorim Fighting Leathers','Dexterity Skills','Exceptional',10);
+INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Vulkoorim Fighting Leathers','Dexterity Skills','Exceptional',NULL);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Wildcard','Enhancement Bonus','Enhancement',15);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Wildcard','Fortification','Enhancement',142);
 INSERT INTO PUBLIC.ITEM_EFFECTS (ID,ITEM_NAME,EFFECT,EFFECT_TYPE,EFFECT_VALUE) VALUES (item_effects_sequence.nextval,'Legendary Wildcard','Physical Sheltering','Enhancement',33);

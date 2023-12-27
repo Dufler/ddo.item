@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Scope("prototype")
+@Profile("!test")
 @Slf4j
 public class ComparisonManager {
 	
@@ -70,15 +72,25 @@ public class ComparisonManager {
 		tabella.setElementi(selectedEffects.values());
 	}
 	
+	public Map<String, CompareSelectedEffect> getSelectedEffects() {
+		return selectedEffects;
+	}
+	
 	public void loadFirstGearSetup(GearSetup gs) {
 		firstSetup = gs;
+		// Inizializzo mettendo tutti gli slot vuoti
 		firstEquippedItems = firstSetup.getItems();
 		for (BodySlot slot : BodySlot.values()) {
 			firstEquippedItems.put(slot, null);
 		}
+		firstSelectedSets.clear();
+		// Carico gli oggetti
 		List<EGearSetupItem> itemList = repositorySetupItem.findByIdSetup(firstSetup.getId());
-		firstEquippedItems = firstSetup.getItems();
 		for (EGearSetupItem item : itemList) {
+			// Se non ho l'oggetto lo salto
+			if (item.getItem() == null)
+				continue;
+			// Per ogni oggetto carico gli augment
 			List<EGearSetupAugment> augmentList = repositorySetupAugment.findByIdSetupAndItem(firstSetup.getId(), item.getItem());
 			Item i = EquippedItems.getInstance().getItem(item.getItem());
 			if (i != null) for (AugmentSlot as : i.getAugments()) {
@@ -197,9 +209,6 @@ public class ComparisonManager {
 		} else {
 			if (!selectedEffects.containsKey(e.getName())) {
 				BaseEffect be = EquippedItems.getInstance().getEffect(e.getName());
-				if (be == null) {
-					log.debug(e.getName());
-				}
 				CompareSelectedEffect se = new CompareSelectedEffect();
 				se.setName(e.getName());
 				se.setUserSelected(false);
@@ -222,9 +231,6 @@ public class ComparisonManager {
 		} else {
 			if (!selectedEffects.containsKey(e.getName())) {
 				BaseEffect be = EquippedItems.getInstance().getEffect(e.getName());
-				if (be == null) {
-					log.debug(e.getName());
-				}
 				CompareSelectedEffect se = new CompareSelectedEffect();
 				se.setName(e.getName());
 				se.setUserSelected(false);
@@ -242,7 +248,7 @@ public class ComparisonManager {
 	}
 	
 	public void updateFirstSelectedSet() {
-		Map<String, Integer> conteggioPezziSet = new HashMap<>();
+		firstSelectedSets.clear();
 		for (Item i : firstEquippedItems.values()) {
 			if (i != null) {
 				for (NamedSet ns : i.getSets()) {
@@ -253,11 +259,8 @@ public class ComparisonManager {
 						ss.getEffects().addAll(ns.getEffects());
 						firstSelectedSets.put(ns.getName(), ss);
 					}
-					if (!conteggioPezziSet.containsKey(ns.getName())) {
-						conteggioPezziSet.put(ns.getName(), 0);
-					}
-					Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
-					conteggioPezziSet.put(ns.getName(), actual);
+					SelectedSet ss = firstSelectedSets.get(ns.getName());
+					ss.setActualNumberOfPieces(ss.getActualNumberOfPieces() + 1);
 				}
 				for (AugmentSlot as : i.getAugments()) {
 					Augment a = as.getAugment();
@@ -269,29 +272,25 @@ public class ComparisonManager {
 							ss.getEffects().addAll(ns.getEffects());
 							firstSelectedSets.put(ns.getName(), ss);
 						}
-						if (!conteggioPezziSet.containsKey(ns.getName())) {
-							conteggioPezziSet.put(ns.getName(), 0);
-						}
-						Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
-						conteggioPezziSet.put(ns.getName(), actual);
+						SelectedSet ss = firstSelectedSets.get(ns.getName());
+						ss.setActualNumberOfPieces(ss.getActualNumberOfPieces() + 1);
 					}
 				}
 			}
 		}
 		// Elimino i set che non sono stati selezionati dall'utente e che hanno 0 pezzi
-		for (String set : firstSelectedSets.keySet()) {
-			Integer actual = conteggioPezziSet.get(set);
+		Iterator<String> i = firstSelectedSets.keySet().iterator();
+		while (i.hasNext()) {
+			String set = i.next();
 			SelectedSet ss = firstSelectedSets.get(set);
-			if (actual == null && !ss.isUserSelected()) {
-				firstSelectedSets.remove(set);
-			} else {
-				ss.setActualNumberOfPieces(actual != null ? actual : 0);
+			if (ss.getActualNumberOfPieces() < 1) {
+				i.remove();
 			}
 		}
 	}
 	
 	public void updateSecondSelectedSet() {
-		Map<String, Integer> conteggioPezziSet = new HashMap<>();
+		secondSelectedSets.clear();
 		for (Item i : secondEquippedItems.values()) {
 			if (i != null) {
 				for (NamedSet ns : i.getSets()) {
@@ -302,11 +301,8 @@ public class ComparisonManager {
 						ss.getEffects().addAll(ns.getEffects());
 						secondSelectedSets.put(ns.getName(), ss);
 					}
-					if (!conteggioPezziSet.containsKey(ns.getName())) {
-						conteggioPezziSet.put(ns.getName(), 0);
-					}
-					Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
-					conteggioPezziSet.put(ns.getName(), actual);
+					SelectedSet ss = secondSelectedSets.get(ns.getName());
+					ss.setActualNumberOfPieces(ss.getActualNumberOfPieces() + 1);
 				}
 				for (AugmentSlot as : i.getAugments()) {
 					Augment a = as.getAugment();
@@ -318,23 +314,19 @@ public class ComparisonManager {
 							ss.getEffects().addAll(ns.getEffects());
 							secondSelectedSets.put(ns.getName(), ss);
 						}
-						if (!conteggioPezziSet.containsKey(ns.getName())) {
-							conteggioPezziSet.put(ns.getName(), 0);
-						}
-						Integer actual = conteggioPezziSet.get(ns.getName()) + 1;
-						conteggioPezziSet.put(ns.getName(), actual);
+						SelectedSet ss = secondSelectedSets.get(ns.getName());
+						ss.setActualNumberOfPieces(ss.getActualNumberOfPieces() + 1);
 					}
 				}
 			}
 		}
 		// Elimino i set che non sono stati selezionati dall'utente e che hanno 0 pezzi
-		for (String set : secondSelectedSets.keySet()) {
-			Integer actual = conteggioPezziSet.get(set);
+		Iterator<String> i = secondSelectedSets.keySet().iterator();
+		while (i.hasNext()) {
+			String set = i.next();
 			SelectedSet ss = secondSelectedSets.get(set);
-			if (actual == null && !ss.isUserSelected()) {
-				secondSelectedSets.remove(set);
-			} else {
-				ss.setActualNumberOfPieces(actual != null ? actual : 0);
+			if (ss.getActualNumberOfPieces() < 1) {
+				i.remove();
 			}
 		}
 	}

@@ -78,7 +78,7 @@ public class ChooseSetDialog {
 		filterText.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				CriteriFiltraggioSoloTesto c = new CriteriFiltraggioSoloTesto(filterText.getText());
+				CriteriFiltraggioSoloTesto c = new CriteriFiltraggioSoloTesto(filterText.getText().toLowerCase());
 				tabella.filtra(c);
 			}
 		});

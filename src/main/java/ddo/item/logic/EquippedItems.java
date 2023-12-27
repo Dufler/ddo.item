@@ -15,6 +15,7 @@ import java.util.Set;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import ddo.item.entity.EEffect;
@@ -36,6 +37,7 @@ import ddo.item.model.Effect;
 import ddo.item.model.EffectType;
 import ddo.item.model.GearSetup;
 import ddo.item.model.Item;
+import ddo.item.model.NamedSet;
 import ddo.item.repository.EEffectRepository;
 import ddo.item.repository.EGearSetupAugmentRepository;
 import ddo.item.repository.EGearSetupItemRepository;
@@ -44,6 +46,7 @@ import ddo.item.repository.EItemEffectsRepository;
 import ddo.item.repository.EItemRepository;
 
 @Component
+@Profile("!test")
 public class EquippedItems {
 	
 	private static EquippedItems singleton;
@@ -198,6 +201,7 @@ public class EquippedItems {
 			}
 		}
 		// per ogni set completo inserisco gli effetti
+		SetManager.getInstance().updateSelectedSet();
 		Map<String, SelectedSet> setMap = SetManager.getInstance().getSelectedSet();
 		for (SelectedSet ss : setMap.values()) {
 			// se ho abbastanza pezzi aggiungo gli effetti del set
@@ -211,7 +215,7 @@ public class EquippedItems {
 		refreshTables();
 	}
 	
-	private void refreshTables() {
+	protected void refreshTables() {
 		tableEffects.aggiornaContenuto();
 		tableItems.aggiornaContenuto();
 		tableSets.aggiornaContenuto();
@@ -273,7 +277,7 @@ public class EquippedItems {
 	}
 
 	public Item getItem(String name) {
-		return items.get(name);
+		return items.get(name).copy();
 	}
 	
 	public void saveGearSetup() {
@@ -307,6 +311,31 @@ public class EquippedItems {
 		}
 	}
 	
+	public GearSetup getGearSetup(Integer id) {
+		EGearSetup eSetup = repositorySetup.findById(id).get();
+		GearSetup setup = new GearSetup();
+		setup.setId(eSetup.getId());
+		setup.setName(eSetup.getName());
+		setup.setDescription(eSetup.getDescription());
+		setup.setLastSaved(eSetup.getLastSaved());
+		List<EGearSetupItem> itemList = repositorySetupItem.findByIdSetup(id);
+		equippedItems = setup.getItems();
+		for (EGearSetupItem item : itemList) {
+			List<EGearSetupAugment> augmentList = repositorySetupAugment.findByIdSetupAndItem(id, item.getItem());
+			Item i = items.get(item.getItem()).copy();
+			if (i != null) for (AugmentSlot as : i.getAugments()) {
+				for (EGearSetupAugment a : augmentList) {
+					if (as.getType().equals(a.getAugmentType()) && a.getAugment() != null) {
+						Augment augment = AugmentManager.getInstance().getByName(a.getAugment());
+						as.setAugment(augment);
+					}
+				}
+			}
+			equippedItems.put(item.getSlot(), i);
+		}
+		return setup;
+	}
+	
 	public void loadGearSetup(Integer id) {
 		EGearSetup eSetup = repositorySetup.findById(id).get();
 		setup = new GearSetup();
@@ -317,8 +346,13 @@ public class EquippedItems {
 		List<EGearSetupItem> itemList = repositorySetupItem.findByIdSetup(id);
 		equippedItems = setup.getItems();
 		for (EGearSetupItem item : itemList) {
+			// Se l'oggetto non è stato impostato passo al prossimo
+			if (item.getItem() == null) {
+				equippedItems.put(item.getSlot(), null);
+				continue;
+			}
 			List<EGearSetupAugment> augmentList = repositorySetupAugment.findByIdSetupAndItem(id, item.getItem());
-			Item i = items.get(item.getItem());
+			Item i = items.get(item.getItem()).copy();
 			if (i != null) for (AugmentSlot as : i.getAugments()) {
 				for (EGearSetupAugment a : augmentList) {
 					if (as.getType().equals(a.getAugmentType()) && a.getAugment() != null) {
@@ -348,6 +382,12 @@ public class EquippedItems {
 
 	public void deleteGearSetup(Integer id) {
 		repositorySetup.deleteById(id);
+	}
+
+	public void addSetToItem(NamedSet ns, String itemName) {
+		Item item = items.get(itemName);
+		ns.getItems().add(item);
+		item.addSet(ns);		
 	}
 
 }

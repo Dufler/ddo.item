@@ -26,6 +26,17 @@ public class Item {
 		this.augments = new HashSet<>();
 	}
 	
+	public Item copy() {
+		Item i = new Item(type, name);
+		for (Effect e : effects)
+			i.addEffect(e);
+		for (NamedSet ns : sets) 
+			i.addSet(ns);
+		for (AugmentSlot as : augments)
+			i.addAugment(as.copy());
+		return i;
+	}
+	
 	public void addEffect(Effect effect) {
 		effects.add(effect);
 	}

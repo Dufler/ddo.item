@@ -16,7 +16,7 @@ create table item_effects (
 );
 alter table item_effects add constraint pk_item_effects primary key (id);
 alter table item_effects add constraint fk_item_effects_item foreign key (item_name) references item(name) on delete cascade;
---alter table item_effects add constraint fk_item_effects_name foreign key (effect) references effect(name) on delete cascade;
+alter table item_effects add constraint fk_item_effects_name foreign key (effect) references effect(name) on delete cascade;
 
 create table item_augment (
 	item_name varchar(200) not null,
@@ -25,3 +25,8 @@ create table item_augment (
 alter table item_augment add constraint pk_item_augment primary key (item_name,augment_type);
 alter table item_augment add constraint fk_item_augment_item foreign key (item_name) references item(name) on delete cascade;
 alter table item_augment add constraint fk_item_augment_augment foreign key (augment_type) references augment_type(name) on delete cascade;
+
+create table item_skippable (
+	name varchar(200) not null
+);
+alter table item_skippable add constraint pk_item_skippable primary key (name);

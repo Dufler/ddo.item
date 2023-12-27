@@ -33,4 +33,5 @@ create table augment_effect (
 	effect_value numeric(4,0)
 );
 alter table augment_effect add constraint pk_augment_effect primary key(id);
-alter table augment_effect add constraint fk_augment_effect foreign key(augment_name) references augment(name);
+alter table augment_effect add constraint fk_augment_effect_name foreign key(augment_name) references augment(name);
+alter table augment_effect add constraint fk_augment_effect_effect foreign key(effect) references effect(name);

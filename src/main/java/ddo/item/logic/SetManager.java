@@ -53,9 +53,7 @@ public class SetManager {
 			ns.setPieces(s.getPieces());
 			// Recupero gli oggetti che fanno parte del set e li lego a doppio filo
 			for (String i : s.getItems()) {
-				Item item = itemManager.getItem(i);
-				ns.getItems().add(item);
-				item.addSet(ns);
+				itemManager.addSetToItem(ns, i);				
 			}
 			// Recupero gli effetti del set
 			List<ENamedSetBonus> listSetBonus = setBonusRepository.findBySet(s.getName());

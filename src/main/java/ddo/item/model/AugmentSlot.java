@@ -7,13 +7,16 @@ public class AugmentSlot {
 	
 	private final String item;
 	private final String type;
-//	private final Set<Effect> effects;
 	private Augment augment;
 	
 	public AugmentSlot(String item, String type) {
 		this.item = item;
 		this.type = type;
-//		this.effects = new HashSet<>();
+	}
+	
+	public AugmentSlot copy() {
+		AugmentSlot as = new AugmentSlot(item, type);
+		return as;
 	}
 	
 	@Override
